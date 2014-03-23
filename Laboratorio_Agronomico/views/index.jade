@@ -1,5 +1,15 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+	img(id="imgMain")
+
+	nav(id="navNavigate")
+		button(class="navOption") Inicio
+		button(class="navOption") Análisis
+		button(class="navOption") Responsables
+		button(class="navOption") Contacto
+		section(id="secLogin")
+			input(id="txtUser" class="txtLogin" type="text" placeholder="Correo:")
+			input(id="txtPassword" class="txtLogin" type="text" placeholder="Clave:")
+			button iniciar
+	block contentBody
