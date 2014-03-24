@@ -1,9 +1,10 @@
+var instanceAPP = require('../app');
+
+var app = instanceAPP.app;
 
 
+/////////////////////// codigo de pruebas
 
-exports.upload = function(req, res){
-	
-		alert("hola pavo");
-  	
-  //res.render('news', { title: 'Express' });
-};
+function prueba() {
+	alert("hola pavo");
+}

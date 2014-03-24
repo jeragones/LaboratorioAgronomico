@@ -4,9 +4,9 @@
  */
 
 exports.index = function(req, res){
-  res.render('news', { title: 'Express' });
-};
+  res.render('userAnalysis'/*, { title: 'Express' }*/);
 
-/*function($yo) {
-	$yo.prueba = 89;
-}*/
+  function prueba() {
+	alert("hola pavo");
+}
+};

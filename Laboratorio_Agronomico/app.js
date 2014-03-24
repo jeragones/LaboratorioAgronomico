@@ -6,7 +6,6 @@
 var express = require('express');
 var routes = require('./routes');
 var user = require('./routes/user');
-var file = require('./routes/file');
 var http = require('http');
 var path = require('path');
 //var dropzone = require('dropzone');
@@ -32,12 +31,10 @@ if ('development' == app.get('env')) {
 
 app.get('/', routes.index);
 app.get('/users', user.list);
-app.get('/file', file.upload);
-
-app.get('/news', function(req, res){
-	res.render('news', { title: 'Ingreso' });
-});
+//app.get('/file');
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
+
+exports.app = app;
