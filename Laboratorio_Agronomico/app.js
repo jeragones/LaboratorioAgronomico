@@ -9,7 +9,7 @@ var user = require('./routes/user');
 var file = require('./routes/file');
 var http = require('http');
 var path = require('path');
-var dropzone = require('dropzone');
+//var dropzone = require('dropzone');
 
 var app = express();
 
