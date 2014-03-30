@@ -6,8 +6,12 @@ var app = instanceAPP.app;
 	
 });*/
 
-function prueba() {
-	alert("hola pavo");
+$("#btnLogin").click(function(){
+	alert("tuca");
+});
+
+function patito() {
+	alert("tuca patito");
 }
 
 

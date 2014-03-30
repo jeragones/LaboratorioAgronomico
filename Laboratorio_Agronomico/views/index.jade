@@ -1,18 +1,28 @@
 extends layout
 	
 block content
+	script(src="/javascripts/dataControll.js")
+	script(src="/javascripts/file.js")
+	script(src="/javascripts/news.js")
+
 	img(id="imgMain")
 
 	nav(id="navNavigate")
-		button(class="navOption") Inicio
-		button(class="navOption") Análisis
-		button(class="navOption") Responsables
-		button(class="navOption") Contacto
+		ul(class="menu")
+			li(class="active") 
+				a(id="navHome") Inicio
+			li
+				a(id="navAnalysis") Análisis
+			li
+				a(id="navResponsables") Responsables
+			li
+				a(id="navContact") Contacto
 		section(id="secLogin")
 			input(id="txtUser" class="txtLogin" type="text" placeholder="Correo:")
 			input(id="txtPassword" class="txtLogin" type="text" placeholder="Clave:")
-			button iniciar
+			button(id="btnLogin", class="btnLogin", onclick="mimo()") iniciar
+section(id="mainSection")
 	block contentBody
 
-	script(src="/javascripts/dataControll.js")
-	script(src="/javascripts/file.js")
+	
+
