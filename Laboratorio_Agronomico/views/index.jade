@@ -2,27 +2,22 @@ extends layout
 	
 block content
 	script(src="/javascripts/dataControll.js")
-	script(src="/javascripts/file.js")
-	script(src="/javascripts/news.js")
+	script(src="/javascripts/navigation.js")
 
 	img(id="imgMain")
-
 	nav(id="navNavigate")
 		ul(class="menu")
 			li(class="active") 
-				a(id="navHome") Inicio
+				a(id="navHome", class="navMenu", href="/news") Inicio
 			li
-				a(id="navAnalysis") Análisis
+				a(id="navAnalysis", class="navMenu", href="/publicAnalysis", value="1") Análisis
 			li
-				a(id="navResponsables") Responsables
+				a(id="navResponsables", class="navMenu", href="/responsible") Responsables
 			li
-				a(id="navContact") Contacto
+				a(id="navContact", class="navMenu", href="/contact") Contacto
 		section(id="secLogin")
 			input(id="txtUser" class="txtLogin" type="text" placeholder="Correo:")
 			input(id="txtPassword" class="txtLogin" type="text" placeholder="Clave:")
-			button(id="btnLogin", class="btnLogin", onclick="mimo()") iniciar
-section(id="mainSection")
+			button(id="btnLogin", value="1", class="btnLogin", onclick="ajax('contact')") iniciar
 	block contentBody
-
-	
-
+		

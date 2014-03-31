@@ -30,7 +30,32 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/', routes.index);
+
 app.get('/users', user.list);
+
+app.get('/news', function(req, res){
+	res.render('news');
+});
+
+app.get('/contact', function(req, res){
+	res.render('contact');
+});
+
+app.get('/clientAnalysis', function(req, res){
+	res.render('clientAnalysis');
+});
+
+app.get('/publicAnalysis', function(req, res){
+	res.render('publicAnalysis');
+});
+
+app.get('/responsible', function(req, res){
+	res.render('responsible');
+});
+
+app.get('/userAnalysis', function(req, res){
+	res.render('userAnalysis');
+});
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

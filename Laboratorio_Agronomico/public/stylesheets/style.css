@@ -46,17 +46,23 @@ nav ul li {
 }
  
 nav ul li a {
-    text-align: center;
-	border-left: 1px solid rgba(0,0,0,0.1);
-	border-right: 1px solid rgba(255,255,255,0.1);
-	background: -webkit-linear-gradient(#33814D, #5C9A71); /* For Safari 5.1 to 6.0 */
-	background: -o-linear-gradient(#33814D, #5C9A71); /* For Opera 11.1 to 12.0 */
-	background: -moz-linear-gradient(#33814D, #5C9A71); /* For Firefox 3.6 to 15 */
-	background: linear-gradient(#33814D, #5C9A71); /* Standard syntax */
     padding: 10px;
+    text-align: center;
     display: block;
     text-decoration: none;
     color: #E8E8E8;
+    border-left: 1px solid rgba(0,0,0,0.1);
+    border-right: 1px solid rgba(255,255,255,0.1);
+    background: -webkit-linear-gradient(#33814D, #5C9A71); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#33814D, #5C9A71); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#33814D, #5C9A71); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#33814D, #5C9A71); /* Standard syntax */
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 nav ul li a:hover {
@@ -69,6 +75,7 @@ nav ul li a:hover {
 	transition: all 1s linear;
     -webkit-transition-duration: 700ms;
     -moz-transition-duration: 700ms;
+    cursor: pointer;
 }
 
 

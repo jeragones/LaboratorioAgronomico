@@ -33,4 +33,5 @@ nav section {
 
 .btnLogin:hover {
 	background: #E4E4DE;
+	cursor: pointer;
 }
