@@ -4,6 +4,5 @@
  */
 
 exports.index = function(req, res){
-	//var dynamicContent = dynamicRender();
-	res.render('index'/*, { title: 'Express'/*, dynamic : dynamicContent }*/);
+	res.render('news'/*, { title: 'Express'/*, dynamic : dynamicContent }*/);
 };

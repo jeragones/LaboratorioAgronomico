@@ -4,12 +4,7 @@ var jade = require('jade'),
 var instanceAPP = require('../app');
 var app = instanceAPP.app;
 
-
-/*$('.navMenu.hijax').click(function (e) {
-    e.preventDefault(); // Stop browser from loading the URL.
-    $.ajax({
-        url: $(this).attr('href'),
-    }).done(function (markup) {
-        $('#container').html(markup);
-    });
-});*/
+$(".navMenu").click(function(){
+	//$(".navMenu").css("background", "linear-gradient(#33814D, #5C9A71)");
+	$(".navMenu").css("background", "background: #EBF291");
+});
