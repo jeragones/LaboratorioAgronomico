@@ -1,4 +1,38 @@
 extends index
 
 block contentBody
-	h1 INFORMACION DE LOS ANALISIS QUE SE REALIZAN EN EL LABORATORIO
+	script(src="/javascripts/publicAnalysis.js")
+
+	article(id="pubAnArticle")
+		block contentAnalysis
+	div(id='cssmenu')
+		ul
+			li
+				a(href='/publicAnalysis')
+					span Análisis
+			li(class='has-sub')
+				a(href='#')
+					span Suelos
+				ul
+					li
+						a(href='#')
+							span Widgets
+					li
+						a(href='#')
+							span Menus
+					li(class='last')
+						a(href='#')
+							span Products
+			li(class='has-sub')
+				a(href='#')
+					span Foliar
+				ul
+					li
+						a(href='#')
+							span About
+					li(class='last')
+						a(href='#')
+							span Location
+			li(class='last')
+				a(href='#')
+					span Otros

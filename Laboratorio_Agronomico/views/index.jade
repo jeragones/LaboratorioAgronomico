@@ -1,15 +1,22 @@
 extends layout
-
+	
 block content
-	img(id="imgMain")
+	script(src="/javascripts/navigation.js")
 
+	img(id="imgMain")
 	nav(id="navNavigate")
-		button(class="navOption") Inicio
-		button(class="navOption") Análisis
-		button(class="navOption") Responsables
-		button(class="navOption") Contacto
+		ul(class="menu")
+			li(class="active") 
+				a(class="navMenu", href="/news") Inicio
+			li
+				a(class="navMenu", href="/publicAnalysis", value="1") Análisis
+			li
+				a(class="navMenu", href="/responsible") Responsables
+			li
+				a(class="navMenu", href="/contact") Contacto
 		section(id="secLogin")
 			input(id="txtUser" class="txtLogin" type="text" placeholder="Correo:")
 			input(id="txtPassword" class="txtLogin" type="text" placeholder="Clave:")
-			button iniciar
+			button(id="btnLogin", value="1", class="btnLogin", onclick="ajax('contact')") iniciar
 	block contentBody
+		
