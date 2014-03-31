@@ -15,6 +15,6 @@ $( document ).ready(function() {
             return true;
         } else {
             return false;   
-        }     
+        }
     });
 });
