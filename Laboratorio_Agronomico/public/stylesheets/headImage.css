@@ -37,53 +37,53 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f5f6', end
 }
 @keyframes animaImgCirc{
 	0%{opacity:   0; left: 40%; top:10px; }
-	10%{opacity:  0; left: 40%; top:10px; }
+	10%{opacity:  1; left: 40%; top:10px; }
 	20%{opacity:  1; left: 40%; top:10px; }
 	30%{opacity:  1; left: 40%; top:10px; }
 	40%{opacity:  0; left: 40%; top:10px; } 
-	50%{opacity:  0; left: 40%; top:10px; } 
-	60%{opacity:  0; left: 72%; top:35px; } 
-	70%{opacity:  0; left: 72%; top:35px; transform:scale(1.1);} 
+	50%{opacity:  0; left: 72%; top:35px; transform:scale(1.1);} 
+	60%{opacity:  1; left: 72%; top:35px; } 
+	70%{opacity:  1; left: 72%; top:35px; } 
 	80%{opacity:  1; left: 72%; top:35px; } 
 	90%{opacity:  1; left: 72%; top:35px; } 
-	100%{opacity: 0; left: 72%; top:35px; }
+	100%{opacity: 0; left: 72%; top:35px; }  
 	
 }
 @-moz-keyframes animaImgCirc{
 	0%{opacity:   0; left: 40%; top:10px; }
-	10%{opacity:  0; left: 40%; top:10px; }
+	10%{opacity:  1; left: 40%; top:10px; }
 	20%{opacity:  1; left: 40%; top:10px; }
 	30%{opacity:  1; left: 40%; top:10px; }
 	40%{opacity:  0; left: 40%; top:10px; } 
-	50%{opacity:  0; left: 40%; top:10px; } 
-	60%{opacity:  0; left: 72%; top:35px; } 
-	70%{opacity:  0; left: 72%; top:35px; -moz-transform:scale(1.1);} 
+	50%{opacity:  0; left: 72%; top:35px; -moz-transform:scale(1.1);} 
+	60%{opacity:  1; left: 72%; top:35px; } 
+	70%{opacity:  1; left: 72%; top:35px; } 
 	80%{opacity:  1; left: 72%; top:35px; } 
 	90%{opacity:  1; left: 72%; top:35px; } 
-	100%{opacity: 0; left: 72%; top:35px; }
+	100%{opacity: 0; left: 72%; top:35px; }  
 }	
 @-o-keyframes animaImgCirc{
 	0%{opacity:   0; left: 40%; top:10px; }
-	10%{opacity:  0; left: 40%; top:10px; }
+	10%{opacity:  1; left: 40%; top:10px; }
 	20%{opacity:  1; left: 40%; top:10px; }
 	30%{opacity:  1; left: 40%; top:10px; }
 	40%{opacity:  0; left: 40%; top:10px; } 
-	50%{opacity:  0; left: 40%; top:10px; } 
-	60%{opacity:  0; left: 72%; top:35px; } 
-	70%{opacity:  0; left: 72%; top:35px; -o-transform:scale(1.1);} 
+	50%{opacity:  0; left: 72%; top:35px; -0-transform:scale(1.1);} 
+	60%{opacity:  1; left: 72%; top:35px; } 
+	70%{opacity:  1; left: 72%; top:35px; } 
 	80%{opacity:  1; left: 72%; top:35px; } 
 	90%{opacity:  1; left: 72%; top:35px; } 
-	100%{opacity: 0; left: 72%; top:35px; }
+	100%{opacity: 0; left: 72%; top:35px; }  
 }
 @-webkit-keyframes animaImgCirc{
 	0%{opacity:   0; left: 40%; top:10px; }
-	10%{opacity:  0; left: 40%; top:10px; }
+	10%{opacity:  1; left: 40%; top:10px; }
 	20%{opacity:  1; left: 40%; top:10px; }
 	30%{opacity:  1; left: 40%; top:10px; }
 	40%{opacity:  0; left: 40%; top:10px; } 
-	50%{opacity:  0; left: 40%; top:10px; } 
-	60%{opacity:  0; left: 72%; top:35px; } 
-	70%{opacity:  0; left: 72%; top:35px; -webkit-transform:scale(1.1);} 
+	50%{opacity:  0; left: 72%; top:35px; -webkit-transform:scale(1.1);} 
+	60%{opacity:  1; left: 72%; top:35px; } 
+	70%{opacity:  1; left: 72%; top:35px; } 
 	80%{opacity:  1; left: 72%; top:35px; } 
 	90%{opacity:  1; left: 72%; top:35px; } 
 	100%{opacity: 0; left: 72%; top:35px; }   
@@ -107,54 +107,56 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f5f6', end
 }
 
 
+ 
+
 @keyframes animaImgCirc1{
 	0%{opacity:   0; left: 70%; top:15px; }
-	10%{opacity:  0; left: 70%; top:15px; }
+	10%{opacity:  1; left: 70%; top:15px; }
 	20%{opacity:  1; left: 70%; top:15px; }
-	30%{opacity:  1; left: 70%; top:15px; }
+	30%{opacity:  0; left: 70%; top:15px; }
 	40%{opacity:  0; left: 70%; top:15px; } 
-	50%{opacity:  0; left: 70%; top:15px; } 
-	60%{opacity:  0; left: 40%; top:30px; } 
-	70%{opacity:  0; left: 40%; top:30px; transform:scale(1.1);} 
+	50%{opacity:  0; left: 40%; top:30px; transform:scale(1.1);} 
+	60%{opacity:  1; left: 40%; top:30px; } 
+	70%{opacity:  1; left: 40%; top:30px; } 
 	80%{opacity:  1; left: 40%; top:30px; } 
 	90%{opacity:  1; left: 40%; top:30px; } 
 	100%{opacity: 0; left: 40%; top:30px; } 
 }
 @-moz-keyframes animaImgCirc1{
 	0%{opacity:   0; left: 70%; top:15px; }
-	10%{opacity:  0; left: 70%; top:15px; }
+	10%{opacity:  1; left: 70%; top:15px; }
 	20%{opacity:  1; left: 70%; top:15px; }
-	30%{opacity:  1; left: 70%; top:15px; }
+	30%{opacity:  0; left: 70%; top:15px; }
 	40%{opacity:  0; left: 70%; top:15px; } 
-	50%{opacity:  0; left: 70%; top:15px; } 
-	60%{opacity:  0; left: 40%; top:30px; } 
-	70%{opacity:  0; left: 40%; top:30px; -moz-transform:scale(1.1);} 
+	50%{opacity:  0; left: 40%; top:30px; -moz-transform:scale(1.1);} 
+	60%{opacity:  1; left: 40%; top:30px; } 
+	70%{opacity:  1; left: 40%; top:30px; } 
 	80%{opacity:  1; left: 40%; top:30px; } 
 	90%{opacity:  1; left: 40%; top:30px; } 
-	100%{opacity: 0; left: 40%; top:30px; } 
+	100%{opacity: 0; left: 40%; top:30px; }  
 }
 @-o-keyframes animaImgCirc1{
 	0%{opacity:   0; left: 70%; top:15px; }
-	10%{opacity:  0; left: 70%; top:15px; }
+	10%{opacity:  1; left: 70%; top:15px; }
 	20%{opacity:  1; left: 70%; top:15px; }
-	30%{opacity:  1; left: 70%; top:15px; }
+	30%{opacity:  0; left: 70%; top:15px; }
 	40%{opacity:  0; left: 70%; top:15px; } 
-	50%{opacity:  0; left: 70%; top:15px; } 
-	60%{opacity:  0; left: 40%; top:30px; } 
-	70%{opacity:  0; left: 40%; top:30px; -o-transform:scale(1.1);} 
+	50%{opacity:  0; left: 40%; top:30px; -o-transform:scale(1.1);} 
+	60%{opacity:  1; left: 40%; top:30px; } 
+	70%{opacity:  1; left: 40%; top:30px; } 
 	80%{opacity:  1; left: 40%; top:30px; } 
 	90%{opacity:  1; left: 40%; top:30px; } 
 	100%{opacity: 0; left: 40%; top:30px; } 
 }
 @-webkit-keyframes animaImgCirc1{
 	0%{opacity:   0; left: 70%; top:15px; }
-	10%{opacity:  0; left: 70%; top:15px; }
+	10%{opacity:  1; left: 70%; top:15px; }
 	20%{opacity:  1; left: 70%; top:15px; }
-	30%{opacity:  1; left: 70%; top:15px; }
+	30%{opacity:  0; left: 70%; top:15px; }
 	40%{opacity:  0; left: 70%; top:15px; } 
-	50%{opacity:  0; left: 70%; top:15px; } 
-	60%{opacity:  0; left: 40%; top:30px; } 
-	70%{opacity:  0; left: 40%; top:30px; -webkit-transform:scale(1.1);} 
+	50%{opacity:  0; left: 40%; top:30px; -webkit-transform:scale(1.1);} 
+	60%{opacity:  1; left: 40%; top:30px; } 
+	70%{opacity:  1; left: 40%; top:30px; } 
 	80%{opacity:  1; left: 40%; top:30px; } 
 	90%{opacity:  1; left: 40%; top:30px; } 
 	100%{opacity: 0; left: 40%; top:30px; } 
@@ -304,17 +306,14 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f5f6', end
 	100%{opacity: 0; left: 60%; top:20px; }
 }
 
-/*
-#logo{
-	background-image:url('imagenes/Captura.png');
-	background-size:100% 100%;
-	background-repeat:no-repeat;
-	width: 150px;
-	height: 150px;
-    padding:30px;
-    position: absolute;
-    left: 1%; 
-    top:20px;
-}*/
+#contenedor h1{
+	position: relative;
+  	color: #418870;
+  	text-decoration:none;
+}
+
+ 
+
+
 
 
