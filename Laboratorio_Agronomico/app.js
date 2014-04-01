@@ -8,7 +8,6 @@ var routes = require('./routes');
 var user = require('./routes/user');
 var http = require('http');
 var path = require('path');
-//var dropzone = require('dropzone');
 
 var app = express();
 
@@ -28,6 +27,21 @@ app.use(express.static(path.join(__dirname, 'public')));
 if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
+
+
+
+
+
+app.post('/index', function( req, res ){
+	res.redirect('/userAnalysis');
+	//$("contentBody").html( publicAnalysis.jade );
+});
+
+
+
+
+
+
 
 app.get('/', routes.index);
 

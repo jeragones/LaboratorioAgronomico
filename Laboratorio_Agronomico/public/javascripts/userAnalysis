@@ -1,0 +1,7 @@
+$('#dropFile').click(function(e) {
+    alert("subir archivo");
+});
+
+$('#dropFile input').click(function(e) {
+    e.stopPropagation();
+});​
