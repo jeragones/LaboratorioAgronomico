@@ -32,10 +32,10 @@ if ('development' == app.get('env')) {
 
 
 
-app.post('/index', function( req, res ){
-	res.redirect('/userAnalysis');
+/*app.post('/index', function( req, res ){
+	//res.redirect('/userAnalysis');
 	//$("contentBody").html( publicAnalysis.jade );
-});
+});*/
 
 
 
