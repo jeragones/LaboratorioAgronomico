@@ -4,6 +4,33 @@ var jade = require('jade'),
 var instanceAPP = require('../app');
 var app = instanceAPP.app;
 
+
+
+/* 
+app.get('/ajax', function(req, res) { 
+	alert("canica!!!");
+	fs.readFile(req.query.file, 'utf8', function (err, data) { 
+		if (err) throw err; var fn = jade.compile(data); 
+		var html = fn({}); 
+		res.send(html); 
+	}); 
+});                                       onclick="/ajax?file=contact.jade"
+
+
+
+
+$('#btnLogin').click(function (e) {
+    e.preventDefault(); // Stop browser from loading the URL.
+    $.ajax({
+        url: $(this).attr('href'),
+    }).done(function (markup) {
+        $('#bodyContent').html(markup);
+    });
+});
+
+
+
+
 /*$(".navMenu").click(function(){
 	//$(".navMenu").css("background", "linear-gradient(#33814D, #5C9A71)");
 	$(".navMenu").css("background", "background: #EBF291");

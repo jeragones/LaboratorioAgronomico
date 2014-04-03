@@ -18,3 +18,7 @@ $( document ).ready(function() {
         }
     });
 });
+
+$('#btnLogin').click(function() {
+    alert("mija tu abuela");
+});

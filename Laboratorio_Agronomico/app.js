@@ -8,6 +8,9 @@ var routes = require('./routes');
 var user = require('./routes/user');
 var http = require('http');
 var path = require('path');
+var jade = require('jade');
+var fs = require('fs');
+
 
 var app = express();
 
@@ -40,8 +43,17 @@ if ('development' == app.get('env')) {
 
 
 
+app.get('/ajax', function(req, res) { 
+	alert("canica!!!");
+	fs.readFile(req.query.file, 'utf8', function (err, data) { 
+		if (err) throw err; var fn = jade.compile(data); 
+		var html = fn({}); 
+		res.send(html); 
+	}); 
+});
 
 
+/*      jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj*/
 
 app.get('/', routes.index);
 
