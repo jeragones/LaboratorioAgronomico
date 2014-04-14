@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-03-2014 a las 04:28:25
+-- Tiempo de generación: 14-04-2014 a las 23:26:49
 -- Versión del servidor: 5.6.16
 -- Versión de PHP: 5.5.9
 
@@ -27,24 +27,16 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `analisis` (
-  `id` int(4) NOT NULL AUTO_INCREMENT,
-  `id_categoria` int(3) NOT NULL,
+  `id_analisis` int(4) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(50) NOT NULL,
+  `categoria` varchar(15) NOT NULL,
   `descripcion` varchar(1000) NOT NULL,
   `costo` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `categoria`
---
-
-CREATE TABLE IF NOT EXISTS `categoria` (
-  `id` int(3) NOT NULL AUTO_INCREMENT,
-  `nombre` int(30) NOT NULL,
-  PRIMARY KEY (`id`)
+  `fecha_creacion` date NOT NULL,
+  `usuario_creacion` varchar(30) NOT NULL,
+  `fecha_actualizacion` date DEFAULT NULL,
+  `usuario_actualizacion` varchar(30) DEFAULT NULL,
+  PRIMARY KEY (`id_analisis`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -54,25 +46,18 @@ CREATE TABLE IF NOT EXISTS `categoria` (
 --
 
 CREATE TABLE IF NOT EXISTS `cliente` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `id_persona` int(11) NOT NULL,
+  `id_cliente` int(11) NOT NULL AUTO_INCREMENT,
   `provincia` varchar(10) NOT NULL,
   `canton` varchar(20) NOT NULL,
   `distrito` varchar(30) NOT NULL,
   `direccion` varchar(100) NOT NULL,
-  PRIMARY KEY (`id`)
+  `id_persona` int(11) NOT NULL,
+  `fecha_creacion` date NOT NULL,
+  `usuario_creacion` varchar(30) NOT NULL,
+  `fecha_actualizacion` date DEFAULT NULL,
+  `usuario_actualizacion` varchar(30) DEFAULT NULL,
+  PRIMARY KEY (`id_cliente`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `elemento`
---
-
-CREATE TABLE IF NOT EXISTS `elemento` (
-  `nombre` varchar(30) NOT NULL,
-  `id_analisis` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -81,11 +66,15 @@ CREATE TABLE IF NOT EXISTS `elemento` (
 --
 
 CREATE TABLE IF NOT EXISTS `factura` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `id_cliente` int(11) NOT NULL,
+  `id_factura` int(11) NOT NULL AUTO_INCREMENT,
   `fecha` date NOT NULL,
   `costo` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
+  `id_cliente` int(11) NOT NULL,
+  `fecha_creacion` date NOT NULL,
+  `usuario_creacion` varchar(30) NOT NULL,
+  `fecha_actualizacion` date DEFAULT NULL,
+  `usuario_actualizacion` varchar(30) DEFAULT NULL,
+  PRIMARY KEY (`id_factura`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -97,8 +86,11 @@ CREATE TABLE IF NOT EXISTS `factura` (
 CREATE TABLE IF NOT EXISTS `muestra` (
   `codigo` varchar(11) NOT NULL,
   `campo` varchar(100) NOT NULL,
-  `id_factura` int(11) NOT NULL,
   `id_cliente` int(11) NOT NULL,
+  `fecha_creacion` date NOT NULL,
+  `usuario_creacion` varchar(30) NOT NULL,
+  `fecha_actualizacion` date DEFAULT NULL,
+  `usuario_actualizacion` varchar(30) DEFAULT NULL,
   PRIMARY KEY (`codigo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -109,12 +101,17 @@ CREATE TABLE IF NOT EXISTS `muestra` (
 --
 
 CREATE TABLE IF NOT EXISTS `muestra_analisis` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `codigo` varchar(11) NOT NULL,
-  `id_analisis` int(4) NOT NULL,
+  `id_muestra_analisis` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(50) NOT NULL,
   `costo` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
+  `codigo` varchar(11) NOT NULL,
+  `id_factura` int(11) NOT NULL,
+  `id_analisis` int(4) NOT NULL,
+  `fecha_creacion` date NOT NULL,
+  `usuario_creacion` varchar(30) NOT NULL,
+  `fecha_actualizacion` date DEFAULT NULL,
+  `usuario_actualizacion` varchar(30) DEFAULT NULL,
+  PRIMARY KEY (`id_muestra_analisis`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -124,11 +121,14 @@ CREATE TABLE IF NOT EXISTS `muestra_analisis` (
 --
 
 CREATE TABLE IF NOT EXISTS `noticia` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_noticia` int(11) NOT NULL AUTO_INCREMENT,
   `encabezado` varchar(30) NOT NULL,
   `descripcion` varchar(500) NOT NULL,
-  `fecha` date NOT NULL,
-  PRIMARY KEY (`id`)
+  `fecha_creacion` date NOT NULL,
+  `usuario_creacion` int(30) NOT NULL,
+  `fecha_actualizacion` date DEFAULT NULL,
+  `usuario_actualizacion` int(30) DEFAULT NULL,
+  PRIMARY KEY (`id_noticia`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -138,14 +138,25 @@ CREATE TABLE IF NOT EXISTS `noticia` (
 --
 
 CREATE TABLE IF NOT EXISTS `persona` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_persona` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(30) NOT NULL,
   `apellido1` varchar(30) NOT NULL,
   `apellido2` varchar(30) NOT NULL,
   `correo` varchar(30) NOT NULL,
-  `calve` varchar(15) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+  `clave` varchar(15) NOT NULL,
+  `fecha_creacion` date NOT NULL,
+  `usuario_creacion` varchar(30) NOT NULL,
+  `fecha_actualizacion` int(11) DEFAULT NULL,
+  `usuario_actualizacion` varchar(30) DEFAULT NULL,
+  PRIMARY KEY (`id_persona`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Volcado de datos para la tabla `persona`
+--
+
+INSERT INTO `persona` (`id_persona`, `nombre`, `apellido1`, `apellido2`, `correo`, `clave`, `fecha_creacion`, `usuario_creacion`, `fecha_actualizacion`, `usuario_actualizacion`) VALUES
+(1, 'Jorge', 'Rojas', 'Aragonés', 'jeragones@gmail.com', '123', '0000-00-00', 'anonimo', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -154,13 +165,17 @@ CREATE TABLE IF NOT EXISTS `persona` (
 --
 
 CREATE TABLE IF NOT EXISTS `reporte` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_reporte` int(11) NOT NULL AUTO_INCREMENT,
   `fecha` date NOT NULL,
   `metodologia` varchar(100) NOT NULL,
   `observaciones` varchar(300) NOT NULL,
   `id_usuario` int(11) NOT NULL,
   `id_cliente` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
+  `fecha_creacion` date NOT NULL,
+  `usuario_creacion` varchar(30) NOT NULL,
+  `fecha_actualizacion` date DEFAULT NULL,
+  `usuario_actualizacion` varchar(30) DEFAULT NULL,
+  PRIMARY KEY (`id_reporte`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -170,10 +185,14 @@ CREATE TABLE IF NOT EXISTS `reporte` (
 --
 
 CREATE TABLE IF NOT EXISTS `resultado_analisis` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_resultado_analisis` int(11) NOT NULL AUTO_INCREMENT,
   `id_muestra_analisis` int(11) NOT NULL,
   `id_reporte` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
+  `fecha_creacion` date NOT NULL,
+  `usuario_creacion` varchar(30) NOT NULL,
+  `fecha_actualizacion` date DEFAULT NULL,
+  `usuario_actualizacion` varchar(30) DEFAULT NULL,
+  PRIMARY KEY (`id_resultado_analisis`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -183,11 +202,15 @@ CREATE TABLE IF NOT EXISTS `resultado_analisis` (
 --
 
 CREATE TABLE IF NOT EXISTS `resultado_elemento` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `id_resultado_analisis` int(11) NOT NULL,
+  `id_resultado_elemento` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(30) NOT NULL,
   `resultado` varchar(20) NOT NULL,
-  PRIMARY KEY (`id`)
+  `id_resultado_analisis` int(11) NOT NULL,
+  `fecha_creacion` date NOT NULL,
+  `usuario_creacion` varchar(30) NOT NULL,
+  `fecha_actualizacion` date DEFAULT NULL,
+  `usuario_actualizacion` varchar(30) DEFAULT NULL,
+  PRIMARY KEY (`id_resultado_elemento`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -198,7 +221,11 @@ CREATE TABLE IF NOT EXISTS `resultado_elemento` (
 
 CREATE TABLE IF NOT EXISTS `telefono` (
   `id_persona` int(11) NOT NULL,
-  `numero` int(9) NOT NULL
+  `numero` int(9) NOT NULL,
+  `fecha_creacion` date NOT NULL,
+  `usuario_creacion` varchar(30) NOT NULL,
+  `fecha_actualizacion` date DEFAULT NULL,
+  `usuario_actualizacion` varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -208,10 +235,14 @@ CREATE TABLE IF NOT EXISTS `telefono` (
 --
 
 CREATE TABLE IF NOT EXISTS `usuario` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `id_persona` int(11) NOT NULL,
+  `id_usuario` int(11) NOT NULL AUTO_INCREMENT,
   `puesto` varchar(20) NOT NULL,
-  PRIMARY KEY (`id`)
+  `id_persona` int(11) NOT NULL,
+  `fecha_creacion` date NOT NULL,
+  `usuario_creacion` varchar(30) NOT NULL,
+  `fecha_actualizacion` date DEFAULT NULL,
+  `usuario_actualizacion` varchar(30) DEFAULT NULL,
+  PRIMARY KEY (`id_usuario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

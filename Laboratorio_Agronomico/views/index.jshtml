@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		
+
+		<link rel="stylesheet" href="/stylesheets/headImage.css">
+		<link rel="stylesheet" href="/stylesheets/style.css"/>
+		<link rel="stylesheet" href="/stylesheets/login.css">
+		<link rel="stylesheet" href="/stylesheets/publicAnalysis.css">
+		<link rel="stylesheet" href="/stylesheets/userAnalysis.css">
+		   
+		<script src="//code.jquery.com/jquery-1.10.2.js"></script>       
+		<script src="/javascripts/dataController.js"></script>
+		<script src="/javascripts/navigation.js"></script>
+		
+
+		
+		
+		
+		
+
+		<!--
+		<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		
+		<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+
+
+
+		<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+		-->
+		
+
+    	<title> @write(title) </title>
+  	</head>
+  	<body>
+	  	<div id="contenedor">
+			<h1 id="titulo">Laboratorio de Análisis</h1>
+			<h1 id="titulo2">Agronómicos</h1> 
+			<div id="logo"></div>
+			<div id="circular"></div>
+			<div id="circular1"></div>
+			<div id="circular2"></div>
+			<div id="circular3"></div>
+		</div>
+  		<nav id="navNavigate">
+			<ul class="menu">
+				<li class="active">
+					<a id="opHome" class="navMenu">Inicio</a>
+				</li>
+				<li>
+					<a id="opAnalysis" class="navMenu" value="1">Análisis</a>
+				</li>
+				<li>
+					<a id="opResponsible" class="navMenu">Responsables</a>
+				</li>
+				<li>
+					<a id="opContact" class="navMenu">Contacto</a>
+				</li>
+			</ul>
+			<section id="containerLogin">
+				
+			</section>
+		</nav>
+		<section id="containerBody">
+			
+		</section>
+  	</body>
+</html>
