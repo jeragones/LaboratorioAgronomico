@@ -33,7 +33,7 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
-app.get('/', login, function(req, res) {
+app.get('/', /*login,*/ function(req, res) {
     res.locals({ title : "LAG" });
     res.render('index');
 });
