@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-04-2014 a las 00:18:59
+-- Tiempo de generación: 15-04-2014 a las 00:27:08
 -- Versión del servidor: 5.6.16
 -- Versión de PHP: 5.5.9
 
@@ -133,7 +133,7 @@ CREATE TABLE IF NOT EXISTS `noticia` (
   `encabezado` varchar(30) NOT NULL,
   `descripcion` varchar(500) NOT NULL,
   `fecha_creacion` date NOT NULL,
-  `usuario_creacion` int(30) NOT NULL,
+  `usuario_creacion` varchar(30) NOT NULL,
   `fecha_actualizacion` date NOT NULL,
   `usuario_actualizacion` varchar(30) NOT NULL,
   PRIMARY KEY (`id_noticia`)
