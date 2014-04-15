@@ -1,21 +1,11 @@
 
 // CONEXION CON LA BASE DE DATOS
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-var mysql = require('mysql');
 
-function DB() {
-	var cliente = mysql.createConnection({
-		user: 'Admin',
-		password: 'hufVQcVJypRHpKhb',
-		host: 'localhost',
-		port: 3306, 
-		database: 'suelosdb'
-	});
-	return cliente;
-}
+var app = require('app');
 
 // INSTANCIA DE LA BASE DE DATOS
-var objDB = DB();
+var objDB = app.objDB;
 
 
 // CONSULTAS A LA BASE DE DATOS
@@ -25,14 +15,20 @@ var objDB = DB();
 // usuario: correo del usuario
 // clave: contraseña del usuario
 function iniciarSesion(usuario, clave) {
-	objDB.query('SELECT nombre, apellido1, apellido2 FROM persona WHERE correo LIKE "'+ usuario +'" AND clave LIKE "'+ clave +'"', 
+	console.log("error");
+	alert(usuario + " " + clave);
+	//objDB.query('SELECT nombre, apellido1, apellido2 FROM persona WHERE correo LIKE "'+ usuario +'" AND clave LIKE "'+ clave +'"',  
+	objDB.query('SELECT * FROM persona',  
 	function(err, res, row) {
 		if(err) {
+			alert("ocurrio un error");
 			console.log("error");
 		} else {
 			if(res.length > 0) {
+				alert("inicio de sesion exitosa");
 				return true;
 			} else {
+				alert("usuario invalido");
 				return false;
 			}
 		}

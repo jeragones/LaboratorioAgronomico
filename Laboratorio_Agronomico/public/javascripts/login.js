@@ -1,5 +1,17 @@
-$( document ).ready(function() {
+
+
+$( document ).ready(function(req, res) {
 	
+	if(req.session.loggedIn) {
+
+		//$("#containerLogin").load("login.html");
+		alert("alguien esta logueado");
+		// refrescar con una sesion abierta
+	} else {
+		$("#containerLogin").load("logout.html");
+		// refrescar como si ningun usuario estuviera logueado
+		alert("sin iniciar sesion");
+	}
 });
 
 $("#btnLogin").click(function(req, res) {
@@ -15,17 +27,7 @@ $("#btnLogin").click(function(req, res) {
 });
 
 // para validar si ya existe una sesion abierta
-exports.function login(req, res, next) {
-	if(req.session.user) {
-		$("#containerLogin").load("login.html");
-		alert("alguien esta logueado");
-		// refrescar con una sesion abierta
-	} else {
-		$("#containerLogin").load("logout.html");
-		// refrescar como si ningun usuario estuviera logueado
-		alert("sin iniciar sesion");
-	}
-}
+
 
 function logout(req, res) {
 	delete req.session.user;

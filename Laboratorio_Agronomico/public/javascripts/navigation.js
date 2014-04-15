@@ -1,7 +1,9 @@
 
-
 $( document ).ready(function() {
-    $("#opHome").click(function() {
+    
+    $("#opHome").click(function(req, res) {
+        req.session.loggedIn = true;
+        alert(req.session.loggedIn);
         $("#containerBody").load("news.html");
     });
 
