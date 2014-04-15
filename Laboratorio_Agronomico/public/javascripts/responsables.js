@@ -4,7 +4,7 @@ $( document ).ready(function() {
 	$("#opResponsible").click(function(){
 	
 		alert("1");
-
+		console.log("yes");
 
 
 		/*cliente.connect();
