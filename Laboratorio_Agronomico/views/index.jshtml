@@ -15,7 +15,12 @@
 		<script src="//code.jquery.com/jquery-1.10.2.js"></script>       
 		<script src="/javascripts/dataController.js"></script>
 		<script src="/javascripts/navigation.js"></script>
+<<<<<<< HEAD
 		<script src="/javascripts/login.js"></script>
+=======
+		
+		
+>>>>>>> c22adeeb4facbfc226540fc3de85df12c0aefac6
 
 		
 		

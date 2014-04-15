@@ -30,10 +30,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f5f6', end
     -webkit-border-radius:85px;
     padding:30px;
     position: absolute;
-	animation: animaImgCirc 10.6s infinite;
-	-moz-animation: animaImgCirc 10.6s infinite;
-	-o-animation: animaImgCirc 10.6s infinite;
-	-webkit-animation: animaImgCirc 10.6s infinite;
+	animation: animaImgCirc 10.2s infinite;
+	-moz-animation: animaImgCirc 10.2s infinite;
+	-o-animation: animaImgCirc 10.2s infinite;
+	-webkit-animation: animaImgCirc 10.2s infinite;
 }
 @keyframes animaImgCirc{
 	0%{opacity:   0; left: 40%; top:10px; }
@@ -100,10 +100,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f5f6', end
     -webkit-border-radius:100px;
     padding:30px;
     position: absolute;
-	animation: animaImgCirc1 10.5s infinite;
-	-moz-animation: animaImgCirc1 10.5s infinite;
-	-o-animation: animaImgCirc1 10.5s infinite;
-	-webkit-animation: animaImgCirc1 10.5s infinite;
+	animation: animaImgCirc1 10.2s infinite;
+	-moz-animation: animaImgCirc1 10.2s infinite;
+	-o-animation: animaImgCirc1 10.2s infinite;
+	-webkit-animation: animaImgCirc1 10.2s infinite;
 }
 
 
@@ -174,10 +174,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f5f6', end
     position: absolute;
     top: 15px;
     left: 300px;
-	animation: animacionImgCirc2 10.7s infinite;
-	-moz-animation: animacionImgCirc2 10.7s infinite;
-	-o-animation: animacionImgCirc2 10.7s infinite;
-	-webkit-animation: animacionImgCirc2 10.7s infinite;
+	animation: animacionImgCirc2 10.4s infinite;
+	-moz-animation: animacionImgCirc2 10.4s infinite;
+	-o-animation: animacionImgCirc2 10.4s infinite;
+	-webkit-animation: animacionImgCirc2 10.4s infinite;
 }
 
 
@@ -245,10 +245,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f5f6', end
     -webkit-border-radius:70px;
     padding:30px;
     position: absolute;
-	animation: animaImgCirc3 10.6s infinite;
-	-moz-animation: animaImgCirc3 10.6s infinite;
-	-o-animation: animaImgCirc3 10.6s infinite;
-	-webkit-animation: animaImgCirc3 10.6s infinite;
+	animation: animaImgCirc3 10.4s infinite;
+	-moz-animation: animaImgCirc3 10.4s infinite;
+	-o-animation: animaImgCirc3 10.4s infinite;
+	-webkit-animation: animaImgCirc3 10.4s infinite;
 }
 
 

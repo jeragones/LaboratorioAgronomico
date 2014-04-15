@@ -35,6 +35,24 @@ function iniciarSesion(usuario, clave) {
 	});
 }
 
+// consulta la cantidad de usuarios registrados en la base de datos
+// retorna la misma cantidad
+
+/*function cantUser(){
+	objDB.query('SELECT count(*) FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'usuario' ',
+		function(err, res, row) {
+		if(err) {
+			console.log("error");
+		}
+		else{
+			console.log("HOOOOOOLAAA");
+		}
+	}
+
+		);
+}
+*/
+
 
 // INSERCIONES EN LA BASE DE DATOS
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
