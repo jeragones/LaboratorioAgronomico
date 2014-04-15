@@ -1,12 +1,24 @@
 
+var app = require('app');
+
+// INSTANCIA DE LA BASE DE DATOS
+var objDB = app.objDB;
+
 $( document ).ready(function() {
 
 	$("#opResponsible").click(function(){
 	
-		alert("1");
-		console.log("yes");
-
-
+	alert("si");
+		objDB.query(
+		'SELECT * from usuarios',function(err,result,fields){
+			if(err){
+			 	alert(err);
+			}
+			else{
+				alert(result);
+			}
+		});
+		alert("no");
 		/*cliente.connect();
 
 		var query = cliente.query(

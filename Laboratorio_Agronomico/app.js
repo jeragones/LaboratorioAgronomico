@@ -7,7 +7,6 @@ var express = require('express');
 var jshtml = require('jshtml-express')
 var http = require('http');
 var path = require('path');
-var mysql = require('mysql');
 var routes = require('./routes');
 var user = require('./routes/user');
 
@@ -48,7 +47,7 @@ app.get('/users', user.list);
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
-
+/*
 function DB() {
 	var cliente = mysql.createConnection({
 		user: 'Admin',
@@ -58,11 +57,11 @@ function DB() {
 		database: 'suelosdb'
 	});
 	return cliente;
-}
+}*/
 
-var objDB = DB();
+//var objDB = DB();
 
-exports.objDB;
+//exports.objDB;
 
 /*
 app.configure(function() {
