@@ -1,35 +1,33 @@
 
-var app = require('app');
+var resposables = ["daniel","jorge","favian"]; 
+var n = resposables.length;
+var section = document.getElementById("responsibles");
+var h1 = document.createElement("h1");
 
-// INSTANCIA DE LA BASE DE DATOS
-var objDB = app.objDB;
 
-$( document ).ready(function() {
-
-	$("#opResponsible").click(function(){
+/*$( document ).ready(function() {
+	document.write("no");
+	alert("NO");
 	
-	alert("si");
-		objDB.query(
-		'SELECT * from usuarios',function(err,result,fields){
-			if(err){
-			 	alert(err);
-			}
-			else{
-				alert(result);
-			}
-		});
-		alert("no");
-		/*cliente.connect();
 
-		var query = cliente.query(
-			'SELECT * from usuario',function(err,result,fields){
-				if (err) trow err;
-				console.log('hola');
-		});
+});*/
 
-		cliente.end();
-		*/
+$("#resp").click(function(){
+	
+	for(var r in resposables){
+		var newarticle = document.createElement('article');
+		newarticle.innerHTML= "<article>"+resposables[r]+"</article>";
+	
+		section.appendChild(newarticle);
+		
+	}
+
+// Agrega articles al section
+	/*var newarticle = document.createElement('article');
+	newarticle.innerHTML= "<article>daniel</article>";
+	
+	section.appendChild(newarticle);
+	*/	
+	
 	});
-
-});
 
