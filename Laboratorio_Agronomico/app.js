@@ -18,13 +18,14 @@ var app = express();
 var connection = mysql.createConnection({
 	user: 'Admin',
 	password: 'hufVQcVJypRHpKhb',
-	host: 'localhost'//,
-	//port: 3306, 
-	//database: 'suelosdb'
+	host: 'localhost',
+	port: 3306, 
+	database: 'suelosdb'
 });
 
 connection.connect(function(err) {
    	if (err) console.log("error conexion con la base de datos")
+   	else console.log("conexion con la base de datos exitosa")
 });
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -78,8 +79,8 @@ var io = require('socket.io').listen(server);
 
 io.on('connection', function(socket) {
 	socket.on('databaseInput', function(data) { 
-		connection.query(data.query, function (res) {
-			socket.emit('databaseOutput', {data : res});
+		connection.query(data.query, function (err, resp, row) {
+			socket.emit('databaseOutput', {data : resp});
 		});
 	});
 });
