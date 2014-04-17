@@ -1,4 +1,6 @@
 
+
+
 $( document ).ready(function() {
     
     $("#opHome").click(function(req, res) {
@@ -15,6 +17,9 @@ $( document ).ready(function() {
 
     $("#opResponsible").click(function() {
         $("#containerBody").load("responsible.html");
+        
+        
+    
     });
 
     $("#opContact").click(function() {

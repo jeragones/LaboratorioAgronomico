@@ -16,10 +16,13 @@ $(document).ready(function() {
 	// FUNCION DE EJEMPLO
 	$('#prueba').click(function() {
 		// SI ES UNA CONSULTA SE CREA UNA VARIABLE PARA OBTENER EL RESULTADO DE LA MISMA, DE LO CONTRARIO NO ES NECESARIO CREAR LA VARIABLE
-		var mm = dataBase('CREATE DATABASE IF NOT EXISTS testeme');
-		var mm = dataBase('CREATE DATABASE IF NOT EXISTS testeme23');
-		alert(mm);
+		//var mm = dataBase('CREATE DATABASE IF NOT EXISTS testeme');
+		//var mm = dataBase('CREATE DATABASE IF NOT EXISTS testeme23');
+		//alert(mm);
+
+		
 	});
+	
 });
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
