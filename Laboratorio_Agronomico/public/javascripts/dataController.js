@@ -7,7 +7,9 @@ function dataBase(query) {
 	var socket = io.connect('http://localhost:3000');
 	socket.emit('databaseInput', { query : query });
 	var result = socket.on('databaseOutput', function(data) { 
-		return data;
+		var json = JSON.parse(data);
+		alert(String(json.nombre));
+		return json.nombre;
 	});
 	return result;
 }
@@ -16,10 +18,16 @@ $(document).ready(function() {
 	// FUNCION DE EJEMPLO
 	$('#prueba').click(function() {
 		// SI ES UNA CONSULTA SE CREA UNA VARIABLE PARA OBTENER EL RESULTADO DE LA MISMA, DE LO CONTRARIO NO ES NECESARIO CREAR LA VARIABLE
+<<<<<<< HEAD
 		//var mm = dataBase('CREATE DATABASE IF NOT EXISTS testeme');
 		//var mm = dataBase('CREATE DATABASE IF NOT EXISTS testeme23');
 		//alert(mm);
 
+=======
+		
+		//var mm = dataBase('CREATE DATABASE IF NOT EXISTS testeme');
+		var mm = dataBase("select * from persona");
+>>>>>>> 0a102c50caba0ffe8ae7bd29d47259f4af7584c8
 		
 	});
 	

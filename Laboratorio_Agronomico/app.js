@@ -24,6 +24,7 @@ var connection = mysql.createConnection({
 
 connection.connect(function(err) {
    	if (err) console.log("error conexion con la base de datos")
+   	else console.log("conexion con la base de datos exitosa")
 });
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -78,7 +79,11 @@ var io = require('socket.io').listen(server);
 io.on('connection', function(socket) {
 	socket.on('databaseInput', function(data) { 
 		connection.query(data.query, function (err, resp, row) {
+<<<<<<< HEAD
 			socket.emit('databaseOutput', {data : row});
+=======
+			socket.emit('databaseOutput', {data : resp});
+>>>>>>> 0a102c50caba0ffe8ae7bd29d47259f4af7584c8
 		});
 	});
 });
