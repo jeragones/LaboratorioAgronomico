@@ -59,7 +59,7 @@
 				
 			</section>
 		</nav>
-		<button id="prueba"></button>
+		<button id="prueba">boton prueba DB</button>
 		<section id="containerBody">
 			
 		</section>

@@ -2,6 +2,7 @@
 
 $( document ).ready(function(req, res) {
 	
+	
 	if(req.session.loggedIn) {
 
 		//$("#containerLogin").load("login.html");
