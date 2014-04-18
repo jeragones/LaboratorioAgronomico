@@ -27,11 +27,10 @@ $(document).ready(function() {
 		// SI ES UNA CONSULTA SE REALIZA LO SIGUIENTE:
 		socket.emit('databaseAction', { query : "select * from persona" });
 		socket.on('databaseAction', function(data) { 
-			//alert(JSON.stringify(data));
 			if(data.error) {
 				alert("ocurrio un error en la consulta");
 			} else {
-				var array;
+				$("#containerBody").empty();
 				var name, lastName1, lastName2, email="", user, password;
 				for (var x in data.data) {
 					name = (data.data[x].nombre).toString();

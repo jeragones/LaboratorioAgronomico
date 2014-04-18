@@ -56,7 +56,9 @@
 				</li>
 			</ul>
 			<section id="containerLogin">
-				
+				<input id="txtUser" class="txtLogin" type="text" placeholder="Usuario: / Correo:">
+				<input id="txtPassword" class="txtLogin" type="password" placeholder="Clave:">
+				<button id="btnLogin" class="btnLogin">iniciar</button>
 			</section>
 		</nav>
 		<button id="prueba">boton prueba DB</button>
