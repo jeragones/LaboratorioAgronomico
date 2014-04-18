@@ -14,13 +14,17 @@ var h1 = document.createElement("h1");
 
 $("#resp").click(function(){
 	
-	for(var r in resposables){
+	var q = dataBase('Select * from usuario');
+	alert("yes");
+	alert(q[0].puesto);
+
+	/*for(var r in q){
 		var newarticle = document.createElement('article');
-		newarticle.innerHTML= "<article>"+resposables[r]+"</article>";
+		newarticle.innerHTML= "<article>"+q[r]+"</article>";
 	
 		section.appendChild(newarticle);
 		
-	}
+	}*/
 
 // Agrega articles al section
 	/*var newarticle = document.createElement('article');
@@ -28,6 +32,9 @@ $("#resp").click(function(){
 	
 	section.appendChild(newarticle);
 	*/	
+
+	
+	
 	
 	});
 

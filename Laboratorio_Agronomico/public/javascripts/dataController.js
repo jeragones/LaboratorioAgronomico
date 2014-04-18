@@ -23,6 +23,7 @@ $(document).ready(function() {
 		
 
 
+
 		// SI ES UNA CONSULTA SE REALIZA LO SIGUIENTE:
 		socket.emit('databaseAction', { query : "select * from persona" });
 		socket.on('databaseAction', function(data) { 
@@ -48,6 +49,7 @@ $(document).ready(function() {
 			}
 		});
 	});
+	
 });
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
