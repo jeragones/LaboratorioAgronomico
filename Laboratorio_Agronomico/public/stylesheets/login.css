@@ -9,7 +9,6 @@ nav section {
 	border-style: hidden;
 	background-color: #F4F4F2;
 	padding-left: 5px;
-
 }
 
 .txtLogin:focus {
@@ -34,4 +33,50 @@ nav section {
 .btnLogin:hover {
 	background: #E4E4DE;
 	cursor: pointer;
+}
+
+.logImage {
+	position: relative;
+	top: 1px;
+	width: 25px;
+	height: 25px;
+}
+
+.logImage:hover {
+	cursor: pointer;
+}
+
+#containerLogin a {
+	color: #F1F1EF;
+}
+
+#containerLogin a:hover {
+	color: #FFF;
+	cursor: pointer;
+}
+
+#logName {
+	position: relative;
+	top: -6px;
+	margin: 0px 5px;
+}
+
+#logMenu {
+	width: 100px;
+	position: absolute;
+	display: none;
+	text-decoration: none;
+	text-align:left;
+	padding: 1px;
+}
+
+#logMenu ul {
+	list-style: none;
+	padding: 5px;
+	border-radius: 2px;
+	background: #3E3F36;
+}
+
+#logMenu ul li a {
+	font-size: 70%;
 }
