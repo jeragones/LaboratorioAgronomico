@@ -21,7 +21,7 @@ $(document).ready(function() {
 		});
 		*/
 		
-
+//
 
 
 		// SI ES UNA CONSULTA SE REALIZA LO SIGUIENTE:
