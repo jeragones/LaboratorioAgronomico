@@ -24,7 +24,7 @@ var connection = mysql.createConnection({
 
 connection.connect(function(err) {
    	if (err) console.log("error conexion con la base de datos")
-   	else console.log("conexion con la base de datos exitosa")
+   	else console.log("conexion exitosa con la base de datos")
 });
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -57,7 +57,6 @@ if ('development' == app.get('env')) {
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 app.get('/', function(req, res) {
-	//req.session.loggedIn = false;
     res.locals({ title : "LAG" });
     res.render('index');
 });
@@ -67,7 +66,7 @@ app.get('/', function(req, res) {
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 var server = http.createServer(app).listen(app.get('port'), function(){
-  console.log('Express server listening on port ' + app.get('port'));
+  console.log('Servidor Express ejecutandose en el puerto ' + app.get('port'));
 });
 
 var io = require('socket.io').listen(server);
@@ -76,12 +75,28 @@ var io = require('socket.io').listen(server);
 ////////////////////////////////////////////// EJECUCION DE QUERYS EN LA BASE DE DATOS ///////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+<<<<<<< HEAD
 io.on('connection', function(socket) {
 	socket.on('databaseInput', function(data) { 
 		connection.query(data.query, function (err, resp, row) {
 
 			socket.emit('databaseOutput', {data : resp});
 
+=======
+io.on('connection', function(socket, req) {
+	socket.on('databaseAction', function(data) { 
+		connection.query(data.query, function (err, resp) {
+			socket.emit('databaseAction', {error : err, data : resp});
+>>>>>>> 819a04d2740ea5f5cce51933a84f341d15758f0c
 		});
 	});
+
+	socket.on('loggedIn', function(user) {
+		req.session.name = user;
+		socket.emit('getUser', {user : req.session.name});
+	});
+
+	socket.on('loggedOut', function(user) {
+		delete req.session.name;
+	});	
 });

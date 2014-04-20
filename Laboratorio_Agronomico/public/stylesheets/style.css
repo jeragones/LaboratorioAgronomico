@@ -30,19 +30,26 @@ nav {
     /*box-shadow:0px 3px 15px #8A3C15;*/
     /*box-shadow: inset 0px 1px 0px rgba(255,255,255,0.4), 0px 0px 25px rgba(0,0,0,0.3);*/
     box-shadow: inset 0px 1px 0px rgba(255,255,255,0.4), 0px 0px 25px rgba(0,0,0,0.3);
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
 }
  
-nav ul {
+.menu {
     list-style-type: none;
 }
  
-nav ul li {
+.menu li {
     float: left;
     position: relative;
 	width: 120px;   
 }
  
-nav ul li a {
+.menu li a {
     margin-top: 1px;
     padding: 10px;
     text-align: center;
@@ -55,15 +62,10 @@ nav ul li a {
     background: -o-linear-gradient(#418870, #559b83); /* For Opera 11.1 to 12.0 */
     background: -moz-linear-gradient(#418870, #559b83); /* For Firefox 3.6 to 15 */
     background: linear-gradient(#418870, #559b83); /* Standard syntax */
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+
 }
 
-nav ul li a:hover {
+.menu li a:hover {
 	/*background: #164a69;*/
     /*background: linear-gradient(#66665e, #45463d);*/
     background: linear-gradient(#8a4437, #663228);
@@ -87,4 +89,3 @@ nav ul li a:hover {
 #opContact {
     border-right: none;
 }
-
