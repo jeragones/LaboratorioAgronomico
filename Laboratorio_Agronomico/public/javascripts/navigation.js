@@ -1,28 +1,40 @@
 
-
-
-$( document ).ready(function() {
-    
+$( document ).ready(function() {    
     $("#opHome").click(function(req, res) {
-        req.session.loggedIn = true;
-        alert(req.session.loggedIn);
-        $("#containerBody").load("news.html");
+        if(localStorage["sessionLAG"] === undefined || localStorage["sessionLAG"] === "undefined" || localStorage["sessionLAG"] == null) {
+            if(localStorage["sessionLAG"].split(",")[1] === "admin")
+                $("#containerBody").load("adminNews.html");
+        } else
+            $("#containerBody").load("news.html");
     });
 
     $("#opAnalysis").click(function() {
-
-        // validar si hay un usuario logueado
-        $("#containerBody").load(".html");
+        if(localStorage["sessionLAG"] === undefined || localStorage["sessionLAG"] === "undefined" || localStorage["sessionLAG"] == null)
+            $("#containerBody").load("publicAnalysis.html");
+        else {
+            switch(localStorage["sessionLAG"].split(",")[1]) {
+            case "admin":
+                $("#containerBody").load("adminAnalysis.html");
+                break;
+            case "user":
+                $("#containerBody").load("userAnalysis.html");
+                break;
+            case "client":
+                $("#containerBody").load("clientAnalysis.html");
+                break;
+            }    
+        }
     });
 
     $("#opResponsible").click(function() {
         $("#containerBody").load("responsible.html");
-        
-        
-    
     });
 
     $("#opContact").click(function() {
-        $("#containerBody").load("contact.html");
+        if(localStorage["sessionLAG"] === undefined || localStorage["sessionLAG"] === "undefined" || localStorage["sessionLAG"] == null) {
+            if(localStorage["sessionLAG"].split(",")[1] === "admin")
+                $("#containerBody").load("adminContact.html");
+        } else
+            $("#containerBody").load("contact.html");
     });
 });

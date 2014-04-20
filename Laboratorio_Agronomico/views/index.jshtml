@@ -7,7 +7,6 @@
 		<link rel="stylesheet" href="/stylesheets/headImage.css">
 		<link rel="stylesheet" href="/stylesheets/style.css"/>
 		<link rel="stylesheet" href="/stylesheets/login.css">
-		<link rel="stylesheet" href="/stylesheets/publicAnalysis.css">
 		<link rel="stylesheet" href="/stylesheets/userAnalysis.css">
 		
 		<script src="//code.jquery.com/jquery-1.10.2.js"></script>    
@@ -16,15 +15,20 @@
 		<script src="/javascripts/navigation.js"></script>
 		<script src="/javascripts/login.js"></script>
 
+		<link rel="stylesheet" href="/stylesheets/publicAnalysis.css">
+	<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
+	<script src="/javascripts/publicAnalysis.js"></script>
+
 		<!--
+		
+		
 		<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-		
-		<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
-
-
-
 		<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+
+
+		
 		-->
 		
 

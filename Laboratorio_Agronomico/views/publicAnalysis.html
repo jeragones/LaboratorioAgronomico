@@ -1,38 +1,47 @@
-extends index
+<html>
+	<link rel="stylesheet" href="/stylesheets/publicAnalysis.css">
+	<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
+	<script src="/javascripts/publicAnalysis.js"></script>
 
-block bodyContent
-	script(src="/javascripts/publicAnalysis.js")
+	<article id="pubAnArticle">
+		
+	</article>
+	<div id='cssmenu'>
+		<ul>
+			<li class='active'>
+				<a ><span>Análisis</span></a>
+			</li>
+			<li class='has-sub'>
+				<a href='#'><span>Suelos</span></a>
+				<ul>
+					<li>
+						<a ><span>Análisis 2</span></a>
+					</li>
+					<li>
+						<a ><span>Análisis 2</span></a>
+					</li>
+					<li class='last'>
+						<a ><span>Análisis 3</span></a>
+					</li>
+				</ul>
+			</li>
+			<li class='has-sub'>
+				<a href='#'><span>Foliares</span></a>
+				<ul>
+					<li>
+						<a ><span>Análisis 1</span></a>
+					</li>
+					<li class='last'>
+						<a ><span>Análisis 2</span></a>
+					</li>
+				</ul>
+			</li>
+			<li class='last'>
+				<a ><span>Otros</span></a>
+			</li>
+		</ul>
+	</div>		
+</html>
 
-	article(id="pubAnArticle")
-		block contentAnalysis
-	div(id='cssmenu')
-		ul
-			li
-				a(href='/publicAnalysis')
-					span Análisis
-			li(class='has-sub')
-				a(href='#')
-					span Suelos
-				ul
-					li
-						a(href='#')
-							span Análisis 1
-					li
-						a(href='#')
-							span Análisis 2
-					li(class='last')
-						a(href='#')
-							span Análisis 3
-			li(class='has-sub')
-				a(href='#')
-					span Foliar
-				ul
-					li
-						a(href='#')
-							span Análisis 1
-					li(class='last')
-						a(href='#')
-							span Análisis 2
-			li(class='last')
-				a(href='#')
-					span Otros
+
+	
