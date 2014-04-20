@@ -14,9 +14,10 @@ var h1 = document.createElement("h1");
 
 $("#resp").click(function(){
 	
-	var q = dataBase('Select * from usuario');
-	alert("yes");
-	alert(q[0].puesto);
+	var mm = dataBase("select nombre from persona where id_persona = 2");
+	var rr = JSON.parse(mm);
+	alert(rr.args.data.nombre);
+	
 
 	/*for(var r in q){
 		var newarticle = document.createElement('article');
