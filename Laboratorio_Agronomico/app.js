@@ -75,19 +75,12 @@ var io = require('socket.io').listen(server);
 ////////////////////////////////////////////// EJECUCION DE QUERYS EN LA BASE DE DATOS ///////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-<<<<<<< HEAD
-io.on('connection', function(socket) {
-	socket.on('databaseInput', function(data) { 
-		connection.query(data.query, function (err, resp, row) {
 
-			socket.emit('databaseOutput', {data : resp});
-
-=======
 io.on('connection', function(socket, req) {
 	socket.on('databaseAction', function(data) { 
 		connection.query(data.query, function (err, resp) {
 			socket.emit('databaseAction', {error : err, data : resp});
->>>>>>> 819a04d2740ea5f5cce51933a84f341d15758f0c
+
 		});
 	});
 
