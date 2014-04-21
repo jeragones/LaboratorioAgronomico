@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-04-2014 a las 00:27:08
+-- Tiempo de generación: 21-04-2014 a las 22:45:31
 -- Versión del servidor: 5.6.16
 -- Versión de PHP: 5.5.9
 
@@ -167,7 +167,8 @@ CREATE TABLE IF NOT EXISTS `persona` (
 INSERT INTO `persona` (`id_persona`, `nombre`, `apellido1`, `apellido2`, `correo`, `usuario`, `clave`, `fecha_creacion`, `usuario_creacion`, `fecha_actualizacion`, `usuario_actualizacion`) VALUES
 (2, 'Jorge', 'Rojas', 'Aragones', 'jeragones@gmail.com', 'jeragones', '12345', '2014-04-14', 'admin', '2014-04-14', 'admin'),
 (4, 'Daniel', 'Berrocal', 'Ramirez', NULL, 'jdbr123', '12345', '2014-04-14', 'admin', '2014-04-14', 'admin'),
-(6, 'Fabian ', 'vargas', 'Hernandez', 'fabian@itcr.ac.cr', 'fabiva', '12345', '2014-04-14', 'admin', '2014-04-14', 'admin');
+(6, 'Fabian ', 'Vargas', 'Hernandez', 'fabian@itcr.ac.cr', 'fabiva', '12345', '2014-04-14', 'admin', '2014-04-14', 'admin'),
+(7, 'Adminnistrador', 'Administrador', 'Administrador', NULL, 'Admin', 'admin123', '2014-04-21', 'Admin', '2014-04-21', 'Admin');
 
 -- --------------------------------------------------------
 
@@ -249,6 +250,7 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `id_usuario` int(11) NOT NULL AUTO_INCREMENT,
   `puesto` varchar(20) NOT NULL,
   `imagen` varchar(100) DEFAULT NULL,
+  `Descripcion` varchar(200) DEFAULT NULL,
   `id_persona` int(11) NOT NULL,
   `fecha_creacion` date NOT NULL,
   `usuario_creacion` varchar(30) NOT NULL,
@@ -261,8 +263,8 @@ CREATE TABLE IF NOT EXISTS `usuario` (
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`id_usuario`, `puesto`, `imagen`, `id_persona`, `fecha_creacion`, `usuario_creacion`, `fecha_actualizacion`, `usuario_actualizacion`) VALUES
-(1, 'Asistente', NULL, 6, '2014-04-14', 'admin', '2014-04-14', 'admin');
+INSERT INTO `usuario` (`id_usuario`, `puesto`, `imagen`, `Descripcion`, `id_persona`, `fecha_creacion`, `usuario_creacion`, `fecha_actualizacion`, `usuario_actualizacion`) VALUES
+(1, 'Asistente', NULL, NULL, 6, '2014-04-14', 'admin', '2014-04-14', 'admin');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
