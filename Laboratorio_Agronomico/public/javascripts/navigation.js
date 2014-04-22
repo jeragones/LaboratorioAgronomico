@@ -28,6 +28,7 @@ $( document ).ready(function() {
 
     $("#opResponsible").click(function() {
         $("#containerBody").load("responsible.html");
+        resp();
     });
 
     $("#opContact").click(function() {
