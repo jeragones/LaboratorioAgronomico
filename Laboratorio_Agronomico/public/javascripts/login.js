@@ -1,6 +1,8 @@
 var socket = io.connect('http://localhost:3000');
-//localStorage["sessionLAG"] = undefined;
+
 $(document).ready(function() {
+	//logout();
+	//localStorage["sessionLAG"] = undefined;
 	//alert(localStorage["sessionLAG"] + "load page"); // ******************************************************************
 	if(localStorage["sessionLAG"] === undefined || localStorage["sessionLAG"] === "undefined" || localStorage["sessionLAG"] == null)
 		logout();
@@ -68,6 +70,7 @@ function validateLogin() {
 					var name = data.data[0].nombre+" "+data.data[0].apellido1;
 					//alert(name); // *************************************************************************************
 					login(name);
+					localStorage["sessionLAG"] = data.data[0].id_persona+",admin";
 				}
 			}
 		});
