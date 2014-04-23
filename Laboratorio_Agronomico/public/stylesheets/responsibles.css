@@ -1,0 +1,23 @@
+
+.resp div{
+	float: right;
+	position: absolute;
+	left: 23%;
+}
+
+.resp img{
+	position: absolute;
+	height:100px;
+    width:100px;
+	border-radius: 10px;
+	left: 12%;
+
+}
+.resp label{
+	font-style: italic;
+}
+
+.resp a{
+	text-decoration: none;
+}
+

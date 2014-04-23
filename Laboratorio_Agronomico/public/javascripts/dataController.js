@@ -12,6 +12,14 @@ function dataBase(query) {
 $(document).ready(function() {
 	// FUNCION DE EJEMPLO
 	$('#prueba').click(function() {
+
+		// SI ES UNA CONSULTA SE CREA UNA VARIABLE PARA OBTENER EL RESULTADO DE LA MISMA, DE LO CONTRARIO NO ES NECESARIO CREAR LA VARIABLE
+
+		
+		//var mm = dataBase('CREATE DATABASE IF NOT EXISTS testeme');
+		var mm = dataBase("select * from persona");
+
+
 		// SI ES UNA INSERCION, MODIFICACION, ELIMINACION SE REALIZA DE LA SIGUIENTE MANERA:
 		/* socket.emit('databaseAction', { query : "insertar/modificar/eliminar querys" }); 
 		socket.on('databaseAction', function(data) { 
@@ -20,6 +28,7 @@ $(document).ready(function() {
 			}
 		});
 		*/
+
 		
 //
 
