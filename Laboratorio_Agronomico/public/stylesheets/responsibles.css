@@ -1,23 +1,49 @@
 
+.resp img{
+    position: absolute;
+    height:120px;
+    width:120px;
+    border-radius: 120px;
+    left: 12%;
+
+
+}
+
 .resp div{
 	float: right;
 	position: absolute;
 	left: 23%;
-}
+    }
 
-.resp img{
-	position: absolute;
-	height:100px;
-    width:100px;
-	border-radius: 10px;
-	left: 12%;
+
+.resp h2{
+    margin: 0px;
+    color: #418870;
 
 }
+
 .resp label{
-	font-style: italic;
+	
+    
+    font-style: italic;
+    margin: 4px;
+
 }
+
+.resp p{
+
+    margin: 4px;
+}
+
+
 
 .resp a{
+
+    margin: 4px;
 	text-decoration: none;
+	color: #008080;
+	cursor: pointer;
 }
+
+
 
