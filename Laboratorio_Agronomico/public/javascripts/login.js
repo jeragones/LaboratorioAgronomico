@@ -1,14 +1,19 @@
 var socket = io.connect('http://localhost:3000');
-alert
+
 $(document).ready(function() {
+	//logout();
+	//localStorage["sessionLAG"] = undefined;
+	//alert(localStorage["sessionLAG"] + "load page"); // ******************************************************************
 	if(localStorage["sessionLAG"] === undefined || localStorage["sessionLAG"] === "undefined" || localStorage["sessionLAG"] == null)
 		logout();
 	else {
 		var query = 'SELECT nombre, apellido1 FROM persona WHERE id_persona = '+localStorage["sessionLAG"].split(",")[0];
+		//alert(query); // ***********************************************************************************
 		socket.emit('databaseAction', { query : query });
 		socket.on('databaseAction', function(data) {
+			//alert(JSON.stringify(data.data +"load page")); // *************************************************
 			if(data.error)
-				alert("ocurrio un error en la consulta");
+				alert("ocurrio un error en la consulta 1");
 			else {
 				var name = data.data[0].nombre+" "+data.data[0].apellido1;
 				login(name);
@@ -29,7 +34,6 @@ function validateLogin() {
 	var cont = 0;
 	var user = $("#txtUser").val();
 	var pass = $("#txtPassword").val();
-	localStorage["sessionIntent"] = 0;
 	if(user === "") {
 		$("#txtUser").css("border-style", "solid");
 		$("#txtUser").css("border-color", "#A90E0A");
@@ -40,11 +44,13 @@ function validateLogin() {
 	} 
 	if(user !== "" && pass !== "") {
 		var query = 'SELECT id_persona, usuario, nombre, apellido1 FROM persona WHERE (usuario LIKE "'+user+'" OR correo LIKE "'+user+'") AND clave LIKE "'+pass+'"';
+		//alert(query); // ****************************************************************************
 		socket.emit('databaseAction', { query : query });
 		socket.on('databaseAction', function(data) {
+			//alert(JSON.stringify(data.data +"validate login")); // ******************************************************************
 			cont--;
 			if(data.error)
-				alert("ocurrio un error en la consulta");
+				alert("ocurrio un error en la consulta 2");
 			else {
 				if(data.data.length == 0) {
 					$("#txtPassword").val("");
@@ -60,9 +66,11 @@ function validateLogin() {
 				} else {
 					$("#txtUser").css("border-style", "hidden");
 					$("#txtPassword").css("border-style", "hidden");
-					loginSession(data.data[0].usuario, data.data[0].id_persona);
+					//loginSession(data.data[0].usuario, data.data[0].id_persona);
 					var name = data.data[0].nombre+" "+data.data[0].apellido1;
+					//alert(name); // *************************************************************************************
 					login(name);
+					localStorage["sessionLAG"] = data.data[0].id_persona+",admin";
 				}
 			}
 		});
@@ -78,28 +86,29 @@ function loginSession(user, id_persona) {
 		socket.on('databaseAction', function(data) {
 			//alert(JSON.stringify(data.data));
 			if(data.error)
-				alert("ocurrio un error en la consulta");
+				alert("ocurrio un error en la consulta 3");
 			else {
-				if(data.data.length == 0) {
-					var query = 'SELECT id_cliente FROM cliente WHERE id_persona ='+id_persona;
-					socket.emit('databaseAction', { query : query });
-					socket.on('databaseAction', function(data) {
-						if(data.error)
-							alert("ocurrio un error en la consulta");
-						else {
-							if(data.data.length == 0) { }
-							else {
-								localStorage["sessionLAG"] = id_persona+",client";
-							}
-						}
-					});
-				} else {
+				if(data.data.length == 0) { } 
+				else {
 					localStorage["sessionLAG"] = id_persona+",user";
+					//alert(localStorage["sessionLAG"]+ " usuario"); // ******************************************************************
+				}
+			}
+		});
+		var query = 'SELECT id_cliente FROM cliente WHERE id_persona ='+id_persona;
+		socket.emit('databaseAction', { query : query });
+		socket.on('databaseAction', function(data) {
+			if(data.error)
+				alert("ocurrio un error en la consulta 4");
+			else {
+				if(data.data.length == 0) { }
+				else {
+					localStorage["sessionLAG"] = id_persona+",client";
+					//alert(localStorage["sessionLAG"]+ " cliente"); // ******************************************************************
 				}
 			}
 		});
 	}
-	alert(localStorage["sessionLAG"]);
 }
 
 function login(name) {

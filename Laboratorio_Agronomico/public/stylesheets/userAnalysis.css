@@ -1,8 +1,14 @@
-#dropFile {
+#dropzone {
 	position: relative;
 	top: 30px;
 	background: #408080;
 	margin-left: 25%;
 	width: 50%;
-	height: 30%;
+	height: 100px;
+}
+
+#filelist li {
+	width: 100px;
+	height: 40px;
+	background-color: #ADD6D6;
 }

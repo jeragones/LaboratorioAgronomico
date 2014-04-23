@@ -1,17 +1,21 @@
 
 $( document ).ready(function() {    
-    $("#opHome").click(function(req, res) {
-        if(localStorage["sessionLAG"] === undefined || localStorage["sessionLAG"] === "undefined" || localStorage["sessionLAG"] == null) {
+    $("#opHome").click(function() {
+        
+        if(localStorage["sessionLAG"] === undefined || localStorage["sessionLAG"] === "undefined" || localStorage["sessionLAG"] == null)
+            $("#containerBody").load("news.html");
+        else {
             if(localStorage["sessionLAG"].split(",")[1] === "admin")
                 $("#containerBody").load("adminNews.html");
-        } else
-            $("#containerBody").load("news.html");
+        }
     });
 
     $("#opAnalysis").click(function() {
         if(localStorage["sessionLAG"] === undefined || localStorage["sessionLAG"] === "undefined" || localStorage["sessionLAG"] == null)
             $("#containerBody").load("publicAnalysis.html");
-        else {
+        else 
+            $("#containerBody").load("userAnalysis.html");
+            /*{
             switch(localStorage["sessionLAG"].split(",")[1]) {
             case "admin":
                 $("#containerBody").load("adminAnalysis.html");
@@ -23,7 +27,7 @@ $( document ).ready(function() {
                 $("#containerBody").load("clientAnalysis.html");
                 break;
             }    
-        }
+        }*/
     });
 
     $("#opResponsible").click(function() {
@@ -32,10 +36,11 @@ $( document ).ready(function() {
     });
 
     $("#opContact").click(function() {
-        if(localStorage["sessionLAG"] === undefined || localStorage["sessionLAG"] === "undefined" || localStorage["sessionLAG"] == null) {
+        if(localStorage["sessionLAG"] === undefined || localStorage["sessionLAG"] === "undefined" || localStorage["sessionLAG"] == null)
+            $("#containerBody").load("contact.html");
+        else {
             if(localStorage["sessionLAG"].split(",")[1] === "admin")
                 $("#containerBody").load("adminContact.html");
-        } else
-            $("#containerBody").load("contact.html");
+        }
     });
 });

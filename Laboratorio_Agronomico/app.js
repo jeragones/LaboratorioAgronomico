@@ -82,6 +82,7 @@ io.on('connection', function(socket, req) {
 			socket.emit('databaseAction', {error : err, data : resp});
 
 		});
+		//connection.release();
 	});
 
 	socket.on('loggedIn', function(user) {
