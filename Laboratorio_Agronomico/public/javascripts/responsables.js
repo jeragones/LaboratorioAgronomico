@@ -31,7 +31,7 @@ function resp(){
 					imagen = (data.data[x].imagen).toString();
 				}
 				else{
-					imagen = "/images/pasto3.png";
+					imagen = "/images/Administrator.png";
 				}
 				
 				if(data.data[x].descripcion != null){
