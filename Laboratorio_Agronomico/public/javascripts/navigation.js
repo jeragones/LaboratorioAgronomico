@@ -1,22 +1,23 @@
 
-$( document ).ready(function() {    
+$( document ).ready(function() {   
+    var user = localStorage["sessionLAG"];
+    
     $("#opHome").click(function() {
-        
-        if(localStorage["sessionLAG"] === undefined || localStorage["sessionLAG"] === "undefined" || localStorage["sessionLAG"] == null)
+        if(user === undefined || user === "undefined" || user == null)
             $("#containerBody").load("news.html");
         else {
-            if(localStorage["sessionLAG"].split(",")[1] === "admin")
+            if(user.split(",")[1] === "admin")
                 $("#containerBody").load("adminNews.html");
         }
     });
 
     $("#opAnalysis").click(function() {
-        if(localStorage["sessionLAG"] === undefined || localStorage["sessionLAG"] === "undefined" || localStorage["sessionLAG"] == null)
+        if(user === undefined || user === "undefined" || user == null)
             $("#containerBody").load("publicAnalysis.html");
         else 
-            $("#containerBody").load("userAnalysis.html");
-            /*{
-            switch(localStorage["sessionLAG"].split(",")[1]) {
+            //$("#containerBody").load("userAnalysis.html");
+            {
+            switch(user.split(",")[1]) {
             case "admin":
                 $("#containerBody").load("adminAnalysis.html");
                 break;
@@ -27,7 +28,7 @@ $( document ).ready(function() {
                 $("#containerBody").load("clientAnalysis.html");
                 break;
             }    
-        }*/
+        }
     });
 
     $("#opResponsible").click(function() {
@@ -36,10 +37,10 @@ $( document ).ready(function() {
     });
 
     $("#opContact").click(function() {
-        if(localStorage["sessionLAG"] === undefined || localStorage["sessionLAG"] === "undefined" || localStorage["sessionLAG"] == null)
+        if(user === undefined || user === "undefined" || user == null)
             $("#containerBody").load("contact.html");
         else {
-            if(localStorage["sessionLAG"].split(",")[1] === "admin")
+            if(user.split(",")[1] === "admin")
                 $("#containerBody").load("adminContact.html");
         }
     });

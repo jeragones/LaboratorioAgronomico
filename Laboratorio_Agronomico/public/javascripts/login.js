@@ -1,26 +1,23 @@
-var socket = io.connect('http://localhost:3000');
-
 $(document).ready(function() {
-	//logout();
-	//localStorage["sessionLAG"] = undefined;
-	//alert(localStorage["sessionLAG"] + "load page"); // ******************************************************************
 	if(localStorage["sessionLAG"] === undefined || localStorage["sessionLAG"] === "undefined" || localStorage["sessionLAG"] == null)
 		logout();
 	else {
 		var query = 'SELECT nombre, apellido1 FROM persona WHERE id_persona = '+localStorage["sessionLAG"].split(",")[0];
-		//alert(query); // ***********************************************************************************
-		socket.emit('databaseAction', { query : query });
-		socket.on('databaseAction', function(data) {
-			//alert(JSON.stringify(data.data +"load page")); // *************************************************
-			if(data.error)
-				alert("ocurrio un error en la consulta 1");
-			else {
-				var name = data.data[0].nombre+" "+data.data[0].apellido1;
+		$.ajax({
+            type: 'POST',
+            data: JSON.stringify({query : query}),
+            contentType: 'application/json',
+            url: URL
+        }).success(function(data) {
+            if(data !== "") {
+            	var name = data[0].nombre+" "+data[0].apellido1;
 				login(name);
-			}
-		});
+            }
+        }).error(function() {
+            alert("ERROR");
+        });
 	}
-
+ 
 	$("#txtUser").focus(function() {
 		$(this).css("border-style", "hidden");
 	});
@@ -30,8 +27,8 @@ $(document).ready(function() {
 	});
 });
 
+var cont = 0;
 function validateLogin() {
-	var cont = 0;
 	var user = $("#txtUser").val();
 	var pass = $("#txtPassword").val();
 	if(user === "") {
@@ -44,36 +41,33 @@ function validateLogin() {
 	} 
 	if(user !== "" && pass !== "") {
 		var query = 'SELECT id_persona, usuario, nombre, apellido1 FROM persona WHERE (usuario LIKE "'+user+'" OR correo LIKE "'+user+'") AND clave LIKE "'+pass+'"';
-		//alert(query); // ****************************************************************************
-		socket.emit('databaseAction', { query : query });
-		socket.on('databaseAction', function(data) {
-			//alert(JSON.stringify(data.data +"validate login")); // ******************************************************************
-			cont--;
-			if(data.error)
-				alert("ocurrio un error en la consulta 2");
-			else {
-				if(data.data.length == 0) {
-					$("#txtPassword").val("");
-					$("#txtPassword").css("border-style", "solid");
-					$("#txtPassword").css("border-color", "#A90E0A");
-					cont++;
-					if(cont == 5) {
-						$("#txtUser").val("");
-						$("#txtUser").css("border-style", "solid");
-						$("#txtUser").css("border-color", "#A90E0A");
-						cont = 0;
-					}
-				} else {
-					$("#txtUser").css("border-style", "hidden");
-					$("#txtPassword").css("border-style", "hidden");
-					//loginSession(data.data[0].usuario, data.data[0].id_persona);
-					var name = data.data[0].nombre+" "+data.data[0].apellido1;
-					//alert(name); // *************************************************************************************
-					login(name);
-					localStorage["sessionLAG"] = data.data[0].id_persona+",admin";
+		$.ajax({
+            type: 'POST',
+            data: JSON.stringify({query : query}),
+            contentType: 'application/json',
+            url: URL
+        }).success(function(data) {
+            if(data !== "") {
+            	$("#txtUser").css("border-style", "hidden");
+				$("#txtPassword").css("border-style", "hidden");
+				loginSession(data[0].usuario, data[0].id_persona);
+				var name = data[0].nombre+" "+data[0].apellido1;
+				login(name);
+            } else {
+            	$("#txtPassword").val("");
+				$("#txtPassword").css("border-style", "solid");
+				$("#txtPassword").css("border-color", "#A90E0A");
+				cont++;
+				if(cont == 5) {
+					$("#txtUser").val("");
+					$("#txtUser").css("border-style", "solid");
+					$("#txtUser").css("border-color", "#A90E0A");
+					cont = 0;
 				}
-			}
-		});
+            }
+        }).error(function() {
+            alert("ERROR");
+        });
 	}
 }
 
@@ -82,32 +76,31 @@ function loginSession(user, id_persona) {
 		localStorage["sessionLAG"] = id_persona+",admin";
 	else {
 		var query = 'SELECT id_usuario FROM usuario WHERE id_persona ='+id_persona;
-		socket.emit('databaseAction', { query : query });
-		socket.on('databaseAction', function(data) {
-			//alert(JSON.stringify(data.data));
-			if(data.error)
-				alert("ocurrio un error en la consulta 3");
-			else {
-				if(data.data.length == 0) { } 
-				else {
-					localStorage["sessionLAG"] = id_persona+",user";
-					//alert(localStorage["sessionLAG"]+ " usuario"); // ******************************************************************
-				}
-			}
-		});
-		var query = 'SELECT id_cliente FROM cliente WHERE id_persona ='+id_persona;
-		socket.emit('databaseAction', { query : query });
-		socket.on('databaseAction', function(data) {
-			if(data.error)
-				alert("ocurrio un error en la consulta 4");
-			else {
-				if(data.data.length == 0) { }
-				else {
-					localStorage["sessionLAG"] = id_persona+",client";
-					//alert(localStorage["sessionLAG"]+ " cliente"); // ******************************************************************
-				}
-			}
-		});
+		$.ajax({
+            type: 'POST',
+            data: JSON.stringify({query : query}),
+            contentType: 'application/json',
+            url: URL
+        }).success(function(data) {
+            if(data !== "")
+            	localStorage["sessionLAG"] = id_persona+",user";
+            else {
+            	query = 'SELECT id_cliente FROM cliente WHERE id_persona ='+id_persona;
+            	$.ajax({
+		            type: 'POST',
+		            data: JSON.stringify({query : query}),
+		            contentType: 'application/json',
+		            url: URL
+		        }).success(function(data) {
+		            if(data !== "")
+		            	localStorage["sessionLAG"] = id_persona+",client";
+		        }).error(function() {
+		            alert("ERROR");
+		        });
+            }
+        }).error(function() {
+            alert("ERROR");
+        });
 	}
 }
 
@@ -128,9 +121,11 @@ function login(name) {
 function logout() {
 	localStorage["sessionLAG"] = undefined;
 	$("#containerLogin").empty();
+	$("#containerLogin").append('<form action="/" method="post">');
 	$("#containerLogin").append('<input id="txtUser" class="txtLogin" type="text" placeholder="Usuario: / Correo:">');
 	$("#containerLogin").append('<input id="txtPassword" class="txtLogin" type="password" placeholder="Clave:">');
 	$("#containerLogin").append('<button id="btnLogin" class="btnLogin" onclick="validateLogin()">iniciar</button>');
+	$("#containerLogin").append('</form>');
 }
 
 function loginMenu() {
