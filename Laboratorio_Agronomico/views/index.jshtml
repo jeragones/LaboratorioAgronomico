@@ -58,6 +58,7 @@
 				<li>
 					<a id="opContact" class="navMenu">Contacto</a>
 				</li>
+				<li><a id="opProfile" class="navMenu">Pelfil</a></li>
 			</ul>
 			<section id="containerLogin">
 				
