@@ -2,15 +2,15 @@ $( document ).ready(function() {
     var user = localStorage["sessionLAG"];
     
     $("#opHome").click(function() {
-        if(user === undefined || user === "undefined" || user == null)
+        //if(user === undefined || user === "undefined" || user == null)
             $("#containerBody").load("news.html");
-        else {
+        /*else {
             if(user.split(",")[1] === "admin")
                 $("#containerBody").load("adminNews.html");
-        }
+        }*/
     });
 
-    $("#opAnalysis").click(function(e) {
+    $("#opAnalysis").unbind("click").click(function(e) {
         e.preventDefault();
         if(user === undefined || user === "undefined" || user == null)
             $("#containerBody").load("publicAnalysis.html");

@@ -26,7 +26,7 @@ function contacts() {
 		});*/
 
 
-	var query = "SELECT correo, numero FROM persona INNER JOIN telefono ON persona.id_persona=telefono.id_persona";
+	var query = "SELECT correo, numero FROM persona INNER JOIN telefono ON persona.id_persona=telefono.id_persona AND persona.usuario='Admin'";
 	$.ajax({
         type: 'POST',
         data: JSON.stringify({query : query}),
@@ -34,7 +34,6 @@ function contacts() {
         cache: false,
         url: URL
     }).success(function(data) {
-    	alert(JSON.stringify(data));
         if(data !== "") {
         	$("#contact_info").empty();
 			var numero, email="";
@@ -46,6 +45,7 @@ function contacts() {
 					email = (data[x].correo).toString();
 				} 
 				$("#contact_info").append( "<h1> Teléfono </h1>" );
+				//$("#contact_info").append( "<p>"+numero+"<p>" );	
 				$("#contact_info").append( "<p>"+numero+"<p>" );	
 				$("#contact_info").append( "<h1> Correo </h1>" );
 				$("#contact_info").append( "<p>"+email+"<p>" );			

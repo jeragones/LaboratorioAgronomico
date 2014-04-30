@@ -121,7 +121,7 @@ function login(name) {
 function logout() {
 	localStorage["sessionLAG"] = undefined;
 	$("#containerLogin").empty();
-	$("#containerLogin").append('<form action="/" method="post">');
+	$("#containerLogin").append('<form action="/login" method="post">');
 	$("#containerLogin").append('<input id="txtUser" class="txtLogin" type="text" placeholder="Usuario: / Correo:">');
 	$("#containerLogin").append('<input id="txtPassword" class="txtLogin" type="password" placeholder="Clave:">');
 	$("#containerLogin").append('<button id="btnLogin" class="btnLogin" onclick="validateLogin()">iniciar</button>');

@@ -5,10 +5,12 @@ function responsibles() {
         type: 'POST',
         data: JSON.stringify({query : query}),
         contentType: 'application/json',
+        jsonpCallback : "_testcb",
         cache: false,
+        timeout: 5000,
         url: URL
-    }).done(function(data) {
-    	alert(JSON.stringify(data));
+    }).success(function(data) {
+    	//alert(JSON.stringify(data));
     	if(data !== "") {
         	var nombre, apellido1,apellido2,correo="",puesto,imagen="",descripcion="";
         	for (var x in data) {
@@ -41,5 +43,7 @@ function responsibles() {
         }
     }).error(function() {
         alert("ERROR");
+    }).success(function() {
+    	
     });
 }
