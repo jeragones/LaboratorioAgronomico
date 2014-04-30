@@ -11,12 +11,11 @@ $( document ).ready(function() {
         }
     });
 
-    $("#opAnalysis").click(function() {
+    $("#opAnalysis").click(function(e) {
+        e.preventDefault();
         if(user === undefined || user === "undefined" || user == null)
             $("#containerBody").load("publicAnalysis.html");
-        else 
-            //$("#containerBody").load("userAnalysis.html");
-            {
+        else {
             switch(user.split(",")[1]) {
             case "admin":
                 $("#containerBody").load("adminAnalysis.html");
@@ -30,10 +29,12 @@ $( document ).ready(function() {
             }    
         }
     });
-
-    $("#opResponsible").click(function() {
+    $("#opResponsible").unbind("click").click(function(e) {
+        e.preventDefault();
         $("#containerBody").load("responsible.html");
-
+        $("#responsibles").empty();
+        $(document).ready(responsibles);
+        //responsibles(); 
     });
 
     $("#opContact").click(function() {

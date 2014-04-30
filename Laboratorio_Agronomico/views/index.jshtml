@@ -12,6 +12,7 @@
 		<script src="//code.jquery.com/jquery-1.10.2.js"></script>    
 		<script src="http://localhost:3000/socket.io/socket.io.js"></script>
 		<script src="/javascripts/dataController.js"></script>
+		<script src="/javascripts/responsables.js"></script>
 		<script src="/javascripts/navigation.js"></script>
 		<script src="/javascripts/login.js"></script>
 
@@ -44,6 +45,7 @@
 			<div id="circular2"></div>
 			<div id="circular3"></div>
 		</div>
+		<form action="/" method="post">
   		<nav id="navNavigate">
 			<ul class="menu">
 				<li class="active">
@@ -63,7 +65,7 @@
 				
 			</section>
 		</nav>
-		
+		</form>
 		<section id="containerBody">
 			
 		</section>
