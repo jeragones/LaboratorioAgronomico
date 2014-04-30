@@ -143,6 +143,5 @@ function loginClose() {
 
 function loginPerfil() {
 	$("#logMenu").slideUp("1500");
-	alert("abrir perfil");
-	// mostrar el perfil del usuario ************************************************************************************
+	$("#containerBody").load("profile.html");
 }

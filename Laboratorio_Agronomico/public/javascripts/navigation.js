@@ -31,21 +31,18 @@ $( document ).ready(function() {
     $("#opResponsible").unbind("click").click(function(e) {
         e.preventDefault();
         $("#containerBody").load("responsible.html");
-        $("#responsibles").empty();
-        $(document).ready(responsibles);
-        //responsibles(); 
+        //$("#responsibles").empty();
+        //$(document).ready(responsibles);
+        responsibles();
     });
 
-    $("#opContact").click(function() {
-        if(user === undefined || user === "undefined" || user == null)
-            $("#containerBody").load("contact.html");
+    $("#opContact").unbind("click").click(function(e) {
+        e.preventDefault();
+        if(!(user === undefined || user === "undefined" || user == null) && user.split(",")[1] === "admin")
+            $("#containerBody").load("adminContact.html");
         else {
-            if(user.split(",")[1] === "admin")
-                $("#containerBody").load("adminContact.html");
+            $("#containerBody").load("contact.html");
+            contacts();
         }
-    });
-    
-    $("#opProfile").click(function() {
-        $("#containerBody").load("profile.html");
     });
 });

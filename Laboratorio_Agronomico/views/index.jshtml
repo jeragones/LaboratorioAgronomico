@@ -8,6 +8,7 @@
 		<link rel="stylesheet" href="/stylesheets/style.css"/>
 		<link rel="stylesheet" href="/stylesheets/login.css">
 		<link rel="stylesheet" href="/stylesheets/userAnalysis.css">
+		<link rel="stylesheet" href="/stylesheets/profile.css">
 		
 		<script src="//code.jquery.com/jquery-1.10.2.js"></script>    
 		<script src="http://localhost:3000/socket.io/socket.io.js"></script>
@@ -17,21 +18,8 @@
 		<script src="/javascripts/login.js"></script>
 
 		<link rel="stylesheet" href="/stylesheets/publicAnalysis.css">
-	<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
-	<script src="/javascripts/publicAnalysis.js"></script>
-	
-		<!--
-		
-		
-		<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-		<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-
-
-
-		
-		-->
-		
+		<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
+		<script src="/javascripts/publicAnalysis.js"></script>
 
     	<title> @write(title) </title>
   	</head>
@@ -60,7 +48,6 @@
 				<li>
 					<a id="opContact" class="navMenu">Contacto</a>
 				</li>
-				<li><a id="opProfile" class="navMenu">Pelfil</a></li>
 			</ul>
 			<section id="containerLogin">
 				

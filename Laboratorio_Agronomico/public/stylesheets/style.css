@@ -8,7 +8,9 @@ html {
 }
 
 body {
-    width: 98vw;
+    width: 80%;
+    margin-left: 10%;
+    padding-bottom: 30px;
     border-radius: 10px;
   	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
     background-color: #FFFFFF;
@@ -93,119 +95,4 @@ nav {
 
 #opContact {
     border-right: none;
-}
-
-/*..................PROFILE...................*/
-/*..................PROFILE...................*/
-/*..................PROFILE...................*/
-/*..................PROFILE...................*/
-/*..................PROFILE...................*/
-
-.space{
-    width: 100%;
-    height: 10px;
-}
-
-
-#containerBody{ 
-    width: 100%;
-    height: 100vh;
-    margin: 0px;
-    background-color: #FFFFFF;
-}
-
-.profilebody{
-    width: 50%;
-    height: 85vh;
-    background-color: #FFFFFF;
-    margin-top: 10px;
-    float: left;
-    margin-left: 15%;
-}
-
-.profiledata{
-    width: 99%;
-    height: 25vh;
-    background-color: #E4E0E0; 
-    border-radius: 8px;
-}
-
-.profileimg {
-    width: 10vw;
-    height: 13vh;
-    margin: 10px;
-    float: left;
-    border-radius: 10px;
-    background: url("../images/imguser.png") no-repeat;
-    background-size:100% 100%;
-}
-
-.profilename{
-    font-weight:bold;
-    font-size: 1.5em;
-    float: left;
-    width: 75%;
-}
-
-.userreview{
-    font-size: 1em;
-    float: left;
-}
-
-.hystory{ 
-    width: 99%;
-    height: 70vh;
-    background-color: #E4E0E0; 
-    border-radius: 8px;
-}
-
-.hystoryTitle{
-    font-weight:bold;
-    font-size: 1.5em;
-    width: 90%;
-    color: #418870;
-    margin-left: 5%;
-}
-
-.hystoryreview{
-    width: 80%;
-    height: 65vh;
-    margin-left: 10%;
-}
-
-.hystoryitem{
-    width: 100%;
-    background-color: #FFFFFF;
-    border-radius: 8px;
-    box-shadow: 10px 10px 5px #888888;
-    height: 10vh;
-}
-
-.hystoryitemtitle{
-    width: 75%;
-    float: left;
-    font-weight:bold;
-    margin-left: 1em;
-    text-transform:uppercase;
-    text-decoration: none;
-}
-
-.historyitemdate{
-    width: 20%;
-    float: left;
-}
-
-.hystoryitemdescription{
-    width: 100%;
-    margin-left: 1em;
-    margin-top: 1em;
-}
-
-.profileside{
-    width: 20%;
-    height: 96vh;
-    background-color:  #E4E0E0;
-    float: left;
-    margin-top: 10px;
-    border-radius: 8px;
 }
