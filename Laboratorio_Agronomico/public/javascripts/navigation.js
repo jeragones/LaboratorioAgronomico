@@ -1,4 +1,3 @@
-
 $( document ).ready(function() {   
     var user = localStorage["sessionLAG"];
     
@@ -44,5 +43,9 @@ $( document ).ready(function() {
             if(user.split(",")[1] === "admin")
                 $("#containerBody").load("adminContact.html");
         }
+    });
+    
+    $("#opProfile").click(function() {
+        $("#containerBody").load("profile.html");
     });
 });
