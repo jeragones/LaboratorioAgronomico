@@ -1,19 +1,49 @@
 html {
-    background: url("../images/net.png") top left repeat;
-    width: 100vw;
+
+    /*background: url("../images/net.png") top left repeat;*/
+    /*background : -webkit-gradient(linear, left top, left bottom, from(#418870), to(#559b83));
+    background : -moz-linear-gradient(top, #418870, #559b83);*/
+    
+    /*padding-left: 10%;
+    padding-right: 10%;*/
+/*
+background: #6e876a;
+  background: -moz-linear-gradient(#6e876a 0%, #576a54 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #6e876a), color-stop(100%, #576a54));
+  background: -webkit-linear-gradient(#6e876a 0%, #576a54 100%);
+  background: linear-gradient(#6e876a 0%, #576a54 100%);*/
+
+
+
+
+
+  background: #86b08b;
+  background: -moz-linear-gradient(#86b08b 0%, #679c6d 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #86b08b), color-stop(100%, #679c6d));
+  background: -webkit-linear-gradient(#86b08b 0%, #679c6d 100%);
+  background: linear-gradient(#86b08b 0%, #679c6d 100%);
+    width: 100%;
 	/*background: -webkit-linear-gradient(#418870 0%, #559b83 100%); /* For Safari 5.1 to 6.0 */
 	/*background: -o-linear-gradient(#418870 0%, #559b83 100%); /* For Opera 11.1 to 12.0 */
 	/*background: -moz-linear-gradient(#418870 0%, #559b83 100%); /* For Firefox 3.6 to 15 */
 	/*background: linear-gradient(#418870 0%, #559b83 100%); /* Standard syntax */
 }
 
+#logo {
+    margin-left: 30px;
+    height: 200px;
+    width: 400px;
+}
+
 body {
+    position: relative;
     width: 80%;
-    margin-left: 10%;
+    left: 10%;
     padding-bottom: 30px;
     border-radius: 10px;
-  	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-    background-color: #FFFFFF;
+  	
+    /*background-color: #D6D6D6;*/
+    
     
     /*
 	background: -webkit-linear-gradient(#FFFFFF, #DDDDDD); /* For Safari 5.1 to 6.0 
@@ -23,20 +53,31 @@ body {
     */
 }
 
+#containerBody {
+    background: #f0eeed;
+  background: -moz-linear-gradient(#f0eeed 0%, #d9d4d1 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f0eeed), color-stop(100%, #d9d4d1));
+  background: -webkit-linear-gradient(#f0eeed 0%, #d9d4d1 100%);
+  background: linear-gradient(#f0eeed 0%, #d9d4d1 100%);
 
-/* codigo nuevo por jorge*/
+}
+
 nav {
     font-family: arial, sans-serif;
     width: 100%;
-    height:38px;
+    height:52px;
     font-size:15px;
     position: relative;
-    top: -15px;    
-    background : -webkit-gradient(linear, left top, left bottom, from(#418870), to(#559b83));
-    background : -moz-linear-gradient(top, #418870, #559b83);
+    float: left;
+    top: -15px;    /*
+    background: #b56f4e;
+    background: -moz-linear-gradient(#b56f4e 0%, #93593d 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #b56f4e), color-stop(100%, #93593d));
+    background: -webkit-linear-gradient(#b56f4e 0%, #93593d 100%);
+    background: linear-gradient(#b56f4e 0%, #93593d 100%);
     /*box-shadow:0px 3px 15px #8A3C15;*/
     /*box-shadow: inset 0px 1px 0px rgba(255,255,255,0.4), 0px 0px 25px rgba(0,0,0,0.3);*/
-    box-shadow: inset 0px 1px 0px rgba(255,255,255,0.4), 0px 0px 25px rgba(0,0,0,0.3);
+    /*box-shadow: inset 0px 1px 0px rgba(255,255,255,0.4), 0px 0px 25px rgba(0,0,0,0.3);*/
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
@@ -45,31 +86,33 @@ nav {
     user-select: none;
 
 }
- 
-.menu {
-    list-style-type: none;
+
+nav ul {
+    width: 20%;
 }
- 
-.menu li {
+nav ul li {
+    padding: 5px;
     float: left;
     position: relative;
-	width: 120px;   
+	width: 40px;   
 }
- 
-.menu li a {
-    margin-top: 1px;
-    padding: 10px;
-    text-align: center;
-    display: block;
-    text-decoration: none;
-    color: #E8E8E8;
-    border-left: 1px solid rgba(0,0,0,0.1);
-    border-right: 1px solid rgba(255,255,255,0.1);
-    background: -webkit-linear-gradient(#418870, #559b83); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(#418870, #559b83); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(#418870, #559b83); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(#418870, #559b83); /* Standard syntax */
 
+nav ul li a {
+   color: #86b08b;
+   font-weight: bold;
+}
+
+nav li a:hover {
+  background: #b58662;
+  background: -moz-linear-gradient(#b58662 0%, #9b6d49 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #b58662), color-stop(100%, #9b6d49));
+  background: -webkit-linear-gradient(#b58662 0%, #9b6d49 100%);
+  background: linear-gradient(#b58662 0%, #9b6d49 100%);
+  color: #fff;
+  transition: all 1s linear;
+  -webkit-transition-duration: 700ms;
+  -moz-transition-duration: 700ms;
+   cursor: pointer;
 }
 
 .menu li a:hover {
@@ -97,6 +140,41 @@ nav {
     border-right: none;
 }
 
-#containerBody {
-    background: #0A0E41;
+footer {
+    position: absolute;
+    width: 124.9%;
+    left: -12.5%;
+    padding-top: 10px;
+    padding-left: 10%;
+    padding-bottom: 10px;
+    background: #997a62;
+    background: -moz-linear-gradient(#997a62 0%, #7a614e 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #997a62), color-stop(100%, #7a614e));
+    background: -webkit-linear-gradient(#997a62 0%, #7a614e 100%);
+    background: linear-gradient(#997a62 0%, #7a614e 100%);
+
+    border-top: solid 1px;
+    border-color: #997a62;
+    box-shadow: 0px 10px 5px #997a62, 0px 0px 10px #997a62;
+}
+
+.lblContact {
+    font-family: 'Ubuntu', sans-serif;
+    text-shadow: 0 -1px 0.1px #000;
+}
+
+.lblContactInfo {
+    color: #E8E8E3;
+    font-size: 17px;
+    margin-left: 40px;
+    margin-right: 8px;
+}
+
+.contactEmail {
+    color: #82A8A6;
+}
+
+.contactEmail:hover {
+    color: #B0C8C7;
+    text-decoration: none;
 }

@@ -1,48 +1,37 @@
-$( document ).ready(function() {   
-    var user = localStorage["sessionLAG"];
-    
-    $("#opHome").click(function() {
-        //if(user === undefined || user === "undefined" || user == null)
-            $("#containerBody").load("news.html");
-        /*else {
-            if(user.split(",")[1] === "admin")
-                $("#containerBody").load("adminNews.html");
-        }*/
-    });
+
+
+$( document ).ready(function() {  
+    contact();
+
+    $("#opHome").click(function(e) {
+        e.preventDefault();
+        if(USUARIO.split(",")[1] === "1")
+            $("#containerBody").load("adminNews.html");
+        else
+            $("#containerBody").load("news.html"); 
+    }); 
 
     $("#opAnalysis").unbind("click").click(function(e) {
         e.preventDefault();
-        if(user === undefined || user === "undefined" || user == null)
+        if(USUARIO === undefined || USUARIO === "undefined" || USUARIO == null)
             $("#containerBody").load("publicAnalysis.html");
         else {
-            switch(user.split(",")[1]) {
-            case "admin":
+            switch(USUARIO.split(",")[1]) {
+            case "1":
                 $("#containerBody").load("adminAnalysis.html");
                 break;
-            case "user":
+            case "2":
                 $("#containerBody").load("userAnalysis.html");
                 break;
-            case "client":
+            case "3":
                 $("#containerBody").load("clientAnalysis.html");
                 break;
             }    
         }
     });
+
     $("#opResponsible").unbind("click").click(function(e) {
         e.preventDefault();
-        $("#containerBody").load("responsible.html");
-        //$("#responsibles").empty();
-        //$(document).ready(responsibles);
         responsibles();
-    });
-
-    $("#opContact").unbind("click").click(function(e) {
-        e.preventDefault();
-        if(!(user === undefined || user === "undefined" || user == null) && user.split(",")[1] === "admin")
-            $("#containerBody").load("adminContact.html");
-        else {
-            $("#containerBody").load("contact.html");
-            contacts();
-        }
     });
 });

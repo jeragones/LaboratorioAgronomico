@@ -81,7 +81,7 @@ var io = require('socket.io').listen(server);
 ////////////////////////////////////////////// EJECUCION DE QUERYS EN LA BASE DE DATOS ///////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-app.post('/login', function(req, res) {
+app.post('/login', function(req, res) { 
 	console.log(req.body.query);
 	connection.query(req.body.query, function (err, resp) {
 		if(err)
@@ -96,15 +96,17 @@ app.post('/login', function(req, res) {
 });
 
 app.post('/database', function(req, res) {
-	console.log(req.body.query);
 	connection.query(req.body.query, function (err, resp) {
 		if(err)
 			console.log("ERROR: CONSULTA A LA BASE DE DATOS");
 		else {
-			if(resp.length == 0)
+			if(resp.length == 0) {
+				console.log("consulta vacia");	
 				res.send(null);
-			else
+			} else {
+				console.log("consulta exitosa");
 				res.send(resp);
+			}
 		}
 	});
 });

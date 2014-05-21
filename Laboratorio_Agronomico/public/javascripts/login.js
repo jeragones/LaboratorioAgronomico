@@ -1,8 +1,9 @@
 $(document).ready(function() {
-	if(localStorage["sessionLAG"] === undefined || localStorage["sessionLAG"] === "undefined" || localStorage["sessionLAG"] == null)
+	//localStorage["sessionLAG"] = undefined;
+	if(USUARIO === undefined || USUARIO === "undefined" || USUARIO == null)
 		logout();
 	else {
-		var query = 'SELECT nombre, apellido1 FROM persona WHERE id_persona = '+localStorage["sessionLAG"].split(",")[0];
+		var query = 'SELECT nombre, apellido1 FROM persona WHERE id_persona = '+USUARIO.split(",")[0];
 		$.ajax({
             type: 'POST',
             data: JSON.stringify({query : query}),
@@ -15,20 +16,13 @@ $(document).ready(function() {
             }
         }).error(function() {
             alert("ERROR");
-        });
+        }); 
 	}
- 
-	$("#txtUser").focus(function() {
-		$(this).css("border-style", "hidden");
-	});
-
-	$("#txtPassword").focus(function() {
-		$(this).css("border-style", "hidden");
-	});
 });
 
 var cont = 0;
 function validateLogin() {
+
 	var user = $("#txtUser").val();
 	var pass = $("#txtPassword").val();
 	if(user === "") {
@@ -40,17 +34,18 @@ function validateLogin() {
 		$("#txtPassword").css("border-color", "#A90E0A");
 	} 
 	if(user !== "" && pass !== "") {
-		var query = 'SELECT id_persona, usuario, nombre, apellido1 FROM persona WHERE (usuario LIKE "'+user+'" OR correo LIKE "'+user+'") AND clave LIKE "'+pass+'"';
+		var query = 'SELECT id_persona, tipo, nombre, apellido1 FROM persona WHERE (usuario LIKE "'+user+'" OR correo LIKE "'+user+'") AND clave LIKE "'+pass+'"';
 		$.ajax({
-            type: 'POST',
-            data: JSON.stringify({query : query}),
-            contentType: 'application/json',
-            url: URL
-        }).success(function(data) {
+	        type: 'POST',
+	        data: JSON.stringify({query : query}),
+	        contentType: 'application/json',
+	        jsonpCallback : "_testcb",
+	        url: URL
+	    }).success(function(data) {
             if(data !== "") {
-            	$("#txtUser").css("border-style", "hidden");
-				$("#txtPassword").css("border-style", "hidden");
-				loginSession(data[0].usuario, data[0].id_persona);
+				//loginSession(data[0].tipo, data[0].id_persona);
+				USUARIO = data[0].id_persona+","+data[0].tipo;
+				localStorage["sessionLAG"] = USUARIO;
 				var name = data[0].nombre+" "+data[0].apellido1;
 				login(name);
             } else {
@@ -65,15 +60,15 @@ function validateLogin() {
 					cont = 0;
 				}
             }
-        }).error(function() {
-            alert("ERROR");
+        }).error(function(error) {
+            alert("ERROR: "+ JSON.stringify(error));
         });
 	}
 }
 
-function loginSession(user, id_persona) {
-	if(user === "Admin")
-		localStorage["sessionLAG"] = id_persona+",admin";
+function loginSession(type, id_persona) {
+	if(type === "Admin")
+		USUARIO = id_persona+",admin";
 	else {
 		var query = 'SELECT id_usuario FROM usuario WHERE id_persona ='+id_persona;
 		$.ajax({
@@ -83,7 +78,7 @@ function loginSession(user, id_persona) {
             url: URL
         }).success(function(data) {
             if(data !== "")
-            	localStorage["sessionLAG"] = id_persona+",user";
+            	USUARIO = id_persona+",user";
             else {
             	query = 'SELECT id_cliente FROM cliente WHERE id_persona ='+id_persona;
             	$.ajax({
@@ -93,7 +88,7 @@ function loginSession(user, id_persona) {
 		            url: URL
 		        }).success(function(data) {
 		            if(data !== "")
-		            	localStorage["sessionLAG"] = id_persona+",client";
+		            	USUARIO = id_persona+",client";
 		        }).error(function() {
 		            alert("ERROR");
 		        });
@@ -102,30 +97,34 @@ function loginSession(user, id_persona) {
             alert("ERROR");
         });
 	}
+	localStorage["sessionLAG"] = USUARIO;
 }
 
 function login(name) {
-	$("#containerLogin").empty();
-	$("#containerLogin").append('<img id="logImage" class="logImage" onclick="loginMenu()" src="/images/logimage.png">');
-	$("#containerLogin").append('<a id="logName" onclick="loginPerfil()" title="Ir a mi perfil">'+name+'</a>');
-	$("#containerLogin").append('<section id="logMenu"><ul><li><a onclick="loginPerfil()">Perfil</a></li> <li><a onclick="loginClose()">Cerrar Sesión</a></li></ul></section>');
-	var position = $("#logImage").position();
-	$("#logMenu").css({top: position.top+15, left: position.left});
-	$("#logMenu ul li").click().mouseover(function() {
-	    $(this).children().animate({paddingLeft:"8px"}, {queue:false, duration:300});
-	}).mouseout(function() {
-	    $(this).children().animate({paddingLeft:"0"}, {queue:false, duration:300});
-	});
+	$("#opLogin").empty();
+	$("#opLogin").append('<a onclick="loginMenu()" href="#" class="dropdown-toggle" data-toggle="dropdown">'+name+'<strong class="caret"></strong></a>' +
+						'<div id="logMenu" class="dropdown-menu">' +
+							'<ul>' +
+								'<li><a onclick="loginPerfil()">Abrir perfil</a></li>' +
+								'<li><a onclick="loginClose()">Cerrar Sesión</a></li>' +
+							'</ul>' +
+						'</div>'
+	);
 }
 
 function logout() {
-	localStorage["sessionLAG"] = undefined;
-	$("#containerLogin").empty();
-	$("#containerLogin").append('<form action="/login" method="post">');
-	$("#containerLogin").append('<input id="txtUser" class="txtLogin" type="text" placeholder="Usuario: / Correo:">');
-	$("#containerLogin").append('<input id="txtPassword" class="txtLogin" type="password" placeholder="Clave:">');
-	$("#containerLogin").append('<button id="btnLogin" class="btnLogin" onclick="validateLogin()">iniciar</button>');
-	$("#containerLogin").append('</form>');
+	USUARIO = undefined;
+	$("#opLogin").empty();
+	$("#opLogin").append('<a onclick="loginMenu()" href="#" class="dropdown-toggle" data-toggle="dropdown">Iniciar Sesión<strong class="caret"></strong></a>' +
+						'<div id="logMenu" class="dropdown-menu">' +
+						    '<div id="frmLogin" class="form-inline" role="form">' +
+						        '<input id="txtUser" class="form-control" placeholder="Usuario: / Correo:">' +
+						        '<input id="txtPassword" class="form-control" type="password" placeholder="Clave:">' +
+						        '<button id="btnLogin" class="btn btn-primary" onclick="validateLogin()" role="button">iniciar</button>' +
+						    '</div>' +
+						'</div>'
+	);
+	$("#containerBody").load("news.html");
 }
 
 function loginMenu() {
@@ -143,5 +142,6 @@ function loginClose() {
 
 function loginPerfil() {
 	$("#logMenu").slideUp("1500");
-	$("#containerBody").load("profile.html");
+	profileView();
+	//$("#containerBody").load("profile.html");
 }
