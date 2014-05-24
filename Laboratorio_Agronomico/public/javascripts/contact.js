@@ -1,6 +1,6 @@
 function contact() {
 	var numero, email="";
-	var query = "SELECT correo, numero FROM persona INNER JOIN telefono ON persona.id_persona=telefono.id_persona AND tipo='admin'";
+	var query = "SELECT correo, numero FROM persona INNER JOIN telefono ON persona.id_persona=telefono.id_persona AND tipo=1";
 	$.ajax({
         type: 'POST',
         data: JSON.stringify({query : query}),

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.1.6
+-- version 4.1.12
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-04-2014 a las 22:45:31
+-- Tiempo de generación: 24-05-2014 a las 23:45:24
 -- Versión del servidor: 5.6.16
--- Versión de PHP: 5.5.9
+-- Versión de PHP: 5.5.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -153,22 +153,24 @@ CREATE TABLE IF NOT EXISTS `persona` (
   `correo` varchar(30) DEFAULT NULL,
   `usuario` varchar(15) NOT NULL,
   `clave` varchar(15) NOT NULL,
+  `tipo` int(1) NOT NULL,
   `fecha_creacion` date NOT NULL,
   `usuario_creacion` varchar(30) NOT NULL,
   `fecha_actualizacion` date NOT NULL,
   `usuario_actualizacion` varchar(30) NOT NULL,
   PRIMARY KEY (`id_persona`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
 
 --
 -- Volcado de datos para la tabla `persona`
 --
 
-INSERT INTO `persona` (`id_persona`, `nombre`, `apellido1`, `apellido2`, `correo`, `usuario`, `clave`, `fecha_creacion`, `usuario_creacion`, `fecha_actualizacion`, `usuario_actualizacion`) VALUES
-(2, 'Jorge', 'Rojas', 'Aragones', 'jeragones@gmail.com', 'jeragones', '12345', '2014-04-14', 'admin', '2014-04-14', 'admin'),
-(4, 'Daniel', 'Berrocal', 'Ramirez', NULL, 'jdbr123', '12345', '2014-04-14', 'admin', '2014-04-14', 'admin'),
-(6, 'Fabian ', 'Vargas', 'Hernandez', 'fabian@itcr.ac.cr', 'fabiva', '12345', '2014-04-14', 'admin', '2014-04-14', 'admin'),
-(7, 'Adminnistrador', 'Administrador', 'Administrador', NULL, 'Admin', 'admin123', '2014-04-21', 'Admin', '2014-04-21', 'Admin');
+INSERT INTO `persona` (`id_persona`, `nombre`, `apellido1`, `apellido2`, `correo`, `usuario`, `clave`, `tipo`, `fecha_creacion`, `usuario_creacion`, `fecha_actualizacion`, `usuario_actualizacion`) VALUES
+(2, 'Jorge', 'Rojas', 'Aragones', 'jeragones@gmail.com', 'jeragones', '12345', 3, '2014-04-14', 'fabiva', '2014-04-14', 'fabiva'),
+(4, 'Daniel', 'Berrocal', 'Ramirez', NULL, 'jdbr123', '12345', 3, '2014-04-14', 'fabiva', '2014-04-14', 'fabiva'),
+(6, 'Fabian ', 'Vargas', 'Hernández', 'fabian@itcr.ac.cr', 'fabiva', '12345', 2, '2014-04-14', 'Admin', '2014-04-14', 'Admin'),
+(7, 'Admin', 'Admin', 'Admin', 'labagronomico@itcr.ac.cr', 'Admin', 'admin123', 1, '2014-04-21', 'Admin', '2014-04-21', 'Admin'),
+(8, 'Sailim', 'Rojas', 'Valerio', 'sailim@itcr.ac.cr', 'sailim', '12345', 2, '2014-05-18', 'Admin', '2014-05-18', 'Admin');
 
 -- --------------------------------------------------------
 
@@ -240,6 +242,14 @@ CREATE TABLE IF NOT EXISTS `telefono` (
   `usuario_actualizacion` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Volcado de datos para la tabla `telefono`
+--
+
+INSERT INTO `telefono` (`id_persona`, `numero`, `fecha_creacion`, `usuario_creacion`, `fecha_actualizacion`, `usuario_actualizacion`) VALUES
+(7, 24606262, '2014-05-17', 'Admin', '2014-05-17', 'Admin'),
+(2, 86758675, '2014-05-20', 'jeragones', '2014-05-20', 'jeragones');
+
 -- --------------------------------------------------------
 
 --
@@ -248,7 +258,7 @@ CREATE TABLE IF NOT EXISTS `telefono` (
 
 CREATE TABLE IF NOT EXISTS `usuario` (
   `id_usuario` int(11) NOT NULL AUTO_INCREMENT,
-  `puesto` varchar(20) NOT NULL,
+  `puesto` varchar(50) NOT NULL,
   `imagen` varchar(100) DEFAULT NULL,
   `Descripcion` varchar(200) DEFAULT NULL,
   `id_persona` int(11) NOT NULL,
@@ -257,14 +267,15 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `fecha_actualizacion` date NOT NULL,
   `usuario_actualizacion` varchar(30) NOT NULL,
   PRIMARY KEY (`id_usuario`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Volcado de datos para la tabla `usuario`
 --
 
 INSERT INTO `usuario` (`id_usuario`, `puesto`, `imagen`, `Descripcion`, `id_persona`, `fecha_creacion`, `usuario_creacion`, `fecha_actualizacion`, `usuario_actualizacion`) VALUES
-(1, 'Asistente', NULL, NULL, 6, '2014-04-14', 'admin', '2014-04-14', 'admin');
+(1, 'Asistente', NULL, NULL, 6, '2014-04-14', 'admin', '2014-04-14', 'admin'),
+(2, 'Encargada de Laboratorio', NULL, 'Administrativa', 8, '2014-05-18', 'admin', '2014-05-18', 'admin');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
