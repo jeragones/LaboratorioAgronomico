@@ -53,14 +53,6 @@ body {
     */
 }
 
-#containerBody {
-    background: #f0eeed;
-  background: -moz-linear-gradient(#f0eeed 0%, #d9d4d1 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f0eeed), color-stop(100%, #d9d4d1));
-  background: -webkit-linear-gradient(#f0eeed 0%, #d9d4d1 100%);
-  background: linear-gradient(#f0eeed 0%, #d9d4d1 100%);
-
-}
 
 nav {
     font-family: arial, sans-serif;

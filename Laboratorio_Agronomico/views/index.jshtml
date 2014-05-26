@@ -31,27 +31,35 @@
     	<title> @write(title) </title>
   	</head>
   	<body>
-	  	<div id="contenedor">
-			<img id="logo" src="../images/LOGO.png">
-			<div id="logo"></div>
-			<div id="circular"></div>
-			<div id="circular1"></div>
-			<div id="circular2"></div>
-			<div id="circular3"></div>
-		</div>
-  		<nav id="navNavigate" class="navbar navbar-default" role="navigation">
-  			<div class="container-fluid">
-  				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-					<ul class="nav nav-pills nav-justified">
-						<li><a id="opHome" class="navMenu">Inicio</a></li>
-						<li><a id="opAnalysis" class="navMenu" value="1">Análisis</a></li>
-						<li><a id="opResponsible" class="navMenu">Responsables</a></li>
-						<li id="opLogin" class="dropdown"></li>
-					</ul>
+
+		<div class="container">
+			<div class="row">
+			  	<div id="contenedor">
+					<img id="logo" src="../images/LOGO.png">
+					<div id="logo"></div>
+					<div id="circular"></div>
+					<div id="circular1"></div>
+					<div id="circular2"></div>
+					<div id="circular3"></div>
 				</div>
 			</div>
-		</nav>
-		<section id="containerBody"></section>
-  	</body>
-  	<footer id="containerFooter"></footer>
+			<div class="row">
+				<nav id="navNavigate" class=" navbar-wrapper navbar navbar-default" role="navigation">
+					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+						<ul class="nav nav-pills nav-justified">
+							<li><a id="opHome" class="navMenu">Inicio</a></li>
+							<li><a id="opnews" class="navMenu">News</a></li>
+							<li><a id="opAnalysis" class="navMenu" value="1">Análisis</a></li>
+							<li><a id="opResponsible" class="navMenu">Responsables</a></li>
+							<li id="opLogin" class="dropdown"></li>
+						</ul>
+					</div>
+				</nav>
+			</div>
+			<div class="row">
+				<section id="containerBody" ></section>
+			</div>
+	</div>
+	
+	<footer id="containerFooter" class="navbar navbar-default navbar-fixed-bottom"></footer>
 </html>
