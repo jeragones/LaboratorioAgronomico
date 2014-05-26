@@ -15,8 +15,8 @@ var app = express();
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 var connection = mysql.createConnection({
-	user: 'Admin',
-	password: 'hufVQcVJypRHpKhb',
+	user: 'root', /*Admin*/
+	password: '1234', /*hufVQcVJypRHpKhb*/
 	host: 'localhost',
 	port: 3306, 
 	database: 'suelosdb'

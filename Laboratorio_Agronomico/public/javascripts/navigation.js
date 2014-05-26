@@ -10,6 +10,16 @@ $( document ).ready(function() {
         else
             $("#containerBody").load("news.html"); 
     }); 
+    
+    $("#opnews").click(function(e) {
+        e.preventDefault();
+        if(USUARIO.split(",")[1] === "1"){
+            $("#containerBody").load("news.html");
+            loadnews()}
+        else{
+            $("#containerBody").load("news.html"); 
+            loadnews()}
+    }); 
 
     $("#opAnalysis").unbind("click").click(function(e) {
         e.preventDefault();

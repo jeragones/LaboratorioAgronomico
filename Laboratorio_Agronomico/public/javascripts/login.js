@@ -18,8 +18,6 @@ $(document).ready(function() {
             alert("ERROR");
         }); 
 	}
-
-	$( ".selectpicker" ).selectpicker();
 });
 
 var cont = 0;
@@ -145,5 +143,4 @@ function loginClose() {
 function loginPerfil() {
 	$("#logMenu").slideUp("1500");
 	profileView();
-	//$("#containerBody").load("profile.html");
 }
