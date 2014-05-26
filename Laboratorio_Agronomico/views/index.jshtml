@@ -24,6 +24,7 @@
 		<script src="/javascripts/navigation.js"></script>
 		<script src="/javascripts/profile.js"></script>
 		<script src="/javascripts/login.js"></script>
+		<script src="/javascripts/news.js"></script>
 		<script src="/javascripts/publicAnalysis.js"></script>
 		<script src="/javascripts/responsibles.js"></script>
 		<script src="/javascripts/contact.js"></script>
