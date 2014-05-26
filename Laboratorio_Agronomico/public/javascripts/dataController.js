@@ -5,6 +5,23 @@
 var URL = 'http://localhost:3000/database';
 var USUARIO = localStorage["sessionLAG"];
 
+var PROVINCIAS = '<option value="1">Alajuela</option><option value="2">Cartago</option><option value="3">Guanacaste</option>' +
+				 '<option value="4">Heredia</option><option value="5">Limón</option><option value="6">Puntarenas</option>' +
+				 '<option value="5">San José</option>';
+
+var CANTONES = '';
+var DISTRITOS = '';
+
+function ajax(query, url) {
+	return $.ajax({
+        type: 'POST',
+        data: JSON.stringify({query : query}),
+        contentType: 'application/json',
+        url: url
+    });
+}
+
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////// CONSULTAS A LA BASE DE DATOS ////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

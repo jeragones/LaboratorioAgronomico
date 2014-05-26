@@ -18,6 +18,8 @@ $(document).ready(function() {
             alert("ERROR");
         }); 
 	}
+
+	$( ".selectpicker" ).selectpicker();
 });
 
 var cont = 0;

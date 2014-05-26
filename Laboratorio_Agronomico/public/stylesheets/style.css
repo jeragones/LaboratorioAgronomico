@@ -1,32 +1,16 @@
-html {
-
     /*background: url("../images/net.png") top left repeat;*/
-    /*background : -webkit-gradient(linear, left top, left bottom, from(#418870), to(#559b83));
-    background : -moz-linear-gradient(top, #418870, #559b83);*/
-    
-    /*padding-left: 10%;
-    padding-right: 10%;*/
-/*
-background: #6e876a;
-  background: -moz-linear-gradient(#6e876a 0%, #576a54 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #6e876a), color-stop(100%, #576a54));
-  background: -webkit-linear-gradient(#6e876a 0%, #576a54 100%);
-  background: linear-gradient(#6e876a 0%, #576a54 100%);*/
 
+body {
+    height: 100vh;
+    background: url(/images/green_cup.png) top left repeat;
+}
 
-
-
-
-  background: #86b08b;
-  background: -moz-linear-gradient(#86b08b 0%, #679c6d 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #86b08b), color-stop(100%, #679c6d));
-  background: -webkit-linear-gradient(#86b08b 0%, #679c6d 100%);
-  background: linear-gradient(#86b08b 0%, #679c6d 100%);
-    width: 100%;
-	/*background: -webkit-linear-gradient(#418870 0%, #559b83 100%); /* For Safari 5.1 to 6.0 */
-	/*background: -o-linear-gradient(#418870 0%, #559b83 100%); /* For Opera 11.1 to 12.0 */
-	/*background: -moz-linear-gradient(#418870 0%, #559b83 100%); /* For Firefox 3.6 to 15 */
-	/*background: linear-gradient(#418870 0%, #559b83 100%); /* Standard syntax */
+.body {
+    position: relative;
+    width: 80%;
+    height: 150%;
+    left: 10%;
+    background: url(/images/body.png) top left repeat;
 }
 
 #logo {
@@ -35,32 +19,6 @@ background: #6e876a;
     width: 400px;
 }
 
-body {
-    position: relative;
-    width: 80%;
-    left: 10%;
-    padding-bottom: 30px;
-    border-radius: 10px;
-  	
-    /*background-color: #D6D6D6;*/
-    
-    
-    /*
-	background: -webkit-linear-gradient(#FFFFFF, #DDDDDD); /* For Safari 5.1 to 6.0 
-	background: -o-linear-gradient(#FFFFFF, #DDDDDD); /* For Opera 11.1 to 12.0 
-	background: -moz-linear-gradient(#FFFFFF, #DDDDDD); /* For Firefox 3.6 to 15 
-	background: linear-gradient(#FFFFFF, #DDDDDD); /* Standard syntax 
-    */
-}
-
-#containerBody {
-    background: #f0eeed;
-  background: -moz-linear-gradient(#f0eeed 0%, #d9d4d1 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f0eeed), color-stop(100%, #d9d4d1));
-  background: -webkit-linear-gradient(#f0eeed 0%, #d9d4d1 100%);
-  background: linear-gradient(#f0eeed 0%, #d9d4d1 100%);
-
-}
 
 nav {
     font-family: arial, sans-serif;
@@ -80,7 +38,13 @@ nav {
 
 nav div {
     border-radius: 3px;
-    background: #00773C;
+    background: #579c73;
+    background: -moz-linear-gradient(top, #67aa82 0%, #488260 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #67aa82), color-stop(100%, #488260));
+    background: -webkit-linear-gradient(top, #67aa82 0%, #488260 100%);
+    background: -o-linear-gradient(top, #67aa82 0%, #488260 100%);
+    background: -ms-linear-gradient(top, #67aa82 0%, #488260 100%);
+    background: linear-gradient(to bottom, #67aa82 0%, #488260 100%);
     box-shadow:0px 3px 15px #8A3C15;
     box-shadow: inset 0px 1px 0px rgba(255,255,255,0.4), 0px 0px 25px rgba(0,0,0,0.3);
 }
@@ -96,18 +60,11 @@ nav ul li {
 }
 
 nav ul li a {
-   color: #86b08b;
+   color: #E6EEE7;
    font-weight: bold;
 }
 
 nav li a:hover {
-    /*
-  background: #b58662;
-  background: -moz-linear-gradient(#b58662 0%, #9b6d49 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #b58662), color-stop(100%, #9b6d49));
-  background: -webkit-linear-gradient(#b58662 0%, #9b6d49 100%);
-  background: linear-gradient(#b58662 0%, #9b6d49 100%);
-  color: #fff;*/
   transition: all 1s linear;
   -webkit-transition-duration: 700ms;
   -moz-transition-duration: 700ms;
@@ -115,12 +72,13 @@ nav li a:hover {
 }
 
 nav #opLogin a {
-    background: #00773C;
+    color: #fff;
+    background-color:rgba(255,0,0,0);
 };
 
 nav #opLogin a:hover {
     color: #fff;
-    background: #00773C;
+    background-color:rgba(255,0,0,0);
 };
 
 #opHome {
@@ -131,22 +89,18 @@ nav #opLogin a:hover {
     border-right: none;
 }
 
-footer {
-    position: absolute;
-    width: 124.9%;
-    left: -12.5%;
-    padding-top: 10px;
-    padding-left: 10%;
-    padding-bottom: 10px;
-    background: #997a62;
-    background: -moz-linear-gradient(#997a62 0%, #7a614e 100%);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #997a62), color-stop(100%, #7a614e));
-    background: -webkit-linear-gradient(#997a62 0%, #7a614e 100%);
-    background: linear-gradient(#997a62 0%, #7a614e 100%);
+#containerBody {
+    padding: 20px;
+}
 
-    border-top: solid 1px;
-    border-color: #997a62;
-    box-shadow: 0px 10px 5px #997a62, 0px 0px 10px #997a62;
+footer {
+    position: relative;
+    width: 100%;
+    padding-top: 10px;
+    padding-left: 1%;
+    padding-bottom: 10px;
+    background: url(/images/footer.png) top left repeat;
+    box-shadow: 0px 0px 0px #000, 0px 0px 10px #000;
 }
 
 .lblContact {
