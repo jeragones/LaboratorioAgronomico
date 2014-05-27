@@ -6,7 +6,6 @@
     float:  left;
 }
 
-<<<<<<< HEAD
 #profInformation {
     padding: 10px;
     border-color: #34352D;
@@ -30,14 +29,18 @@
 
 }
 
+#profImage {
+    height:120px;
+    width:120px;
+}
+
 /*.space{
     width: 100%;
     height: 10px;
 }*/
 
 /*
-=======
->>>>>>> 1ab6bd2c8f237b468d221d80ad3ae93f07ae2b9e
+
 .profilebody{
     width: 50%;
     height: 85vh;

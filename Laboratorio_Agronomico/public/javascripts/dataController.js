@@ -5,12 +5,37 @@
 var URL = 'http://localhost:3000/database';
 var USUARIO = localStorage["sessionLAG"];
 
-var PROVINCIAS = '<option value="1">Alajuela</option><option value="2">Cartago</option><option value="3">Guanacaste</option>' +
-				 '<option value="4">Heredia</option><option value="5">Limón</option><option value="6">Puntarenas</option>' +
-				 '<option value="5">San José</option>';
+function loadProvince(select) {
+	var query = 'SELECT id_provincia, nombre FROM provincia ORDER BY nombre ASC';
+	$.when(ajax(query, URL)).then(function(data) {
+		if(data !== "") {
+			for (var x in data)
+				$(select).append($('<option>', { value: data[x].id_provincia, text: data[x].nombre }));
+		}
+	});
+}
 
-var CANTONES = '';
-var DISTRITOS = '';
+function loadCanton(id, select) {
+	var query = 'SELECT id_canton, nombre FROM canton WHERE id_provincia='+id+' ORDER BY nombre ASC';
+	$.when(ajax(query, URL)).then(function(data) {
+		if(data !== "") {
+			for (var x in data)
+				$(select).append($('<option>', { value: data[x].id_canton, text: data[x].nombre }));
+		}
+	});
+}
+
+function loadDistrict(id, select) {
+	var query = 'SELECT id_distrito, nombre FROM distrito WHERE id_canton='+id+' ORDER BY nombre ASC';
+	//alert(query);
+	$.when(ajax(query, URL)).then(function(data) {
+		if(data !== "") {
+			//alert(JSON.stringify(data));
+			for (var x in data)
+				$(select).append($('<option>', { value: data[x].id_distrito, text: data[x].nombre }));
+		}
+	});
+}
 
 function ajax(query, url) {
 	return $.ajax({
