@@ -8,7 +8,7 @@ function loadnews(){
             url: URL
         }).success(function(data) {
             if(data !== null) {  
-                addToSideNews(data)
+                addToSideNews(data);
             }
         });
 	}
@@ -16,26 +16,38 @@ function loadnews(){
 function addToSideNews(table) {
     $("#newSide").empty();
     if(table!== null){
-   for (var i = 0; i < table.length; i++) { 
-    var row=table[i];
-    var rowdate = new Date(table[i].fecha_creacion);
-    $("#newSide").append(
-            '<div class="row panel panel-default breadcrumb" onclick="addnewsTobody('+row.id_noticia+')"> '+
-                    '<div class="row">'+
-                            '<form class="form-inline" role="form">'+
-                                 '<div class="form-group">'+
-                                    '<h5>'+row.Title+'</h5>'+
-                                 '</div>'+
-                                 '<div class="form-group pull-right">'+
-                                  '<h5>'+rowdate.toLocaleDateString("en-US")+'</h5>'+
-                                '</div>'+
-                            '</form>'+
-                    '</div>'+
-                    '<div class="row">'+
-                        '<h5>'+row.Description+'</h5>'+
-                    '</div>'+
-            '</div>'
-    );
+    for (var i = 0; i < table.length; i++) { 
+        var row=table[i];
+        var rowdate = new Date(table[i].fecha_creacion);
+        $("#newSide").append(
+                '<div class="row panel panel-default breadcrumb newsItemReview" onclick="addnewsTobody('+row.id_noticia+')"> '+
+                        '<div class="row">'+
+                                '<form class="form-inline" role="form">'+
+                                     '<div class="form-group NewsitemTitle">'+
+                                        '<h5>'+row.Title+'</h5>'+
+                                     '</div>'+
+                                     '<div class="form-group pull-right NewsitemDate">'+
+                                      '<h5>'+rowdate.toLocaleDateString("en-US")+'</h5>'+
+                                    '</div>'+
+                                '</form>'+
+                        '</div>'+
+                        '<div class="row Newsitemdecrip">'+
+                            '<h5>'+row.Description+'</h5>'+
+                        '</div>'+
+                '</div>'
+            );
+        }
+        $("#newSide").append(
+            '<div class="newspagination">'+
+               '<ul class="pagination">'+
+                    '<li class="disabled"><a href="#">&laquo;</a></li>'+
+                    '<li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>'+
+                    '<li><a href="#">2</a></li>'+
+                    '<li><a href="#">3</a></li>'+
+                    '<li><a href="#">&raquo;</a></li>'+
+                '</ul>'+
+             '</div>'
+        );
     }
 }
 
