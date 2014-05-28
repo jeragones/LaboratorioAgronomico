@@ -16,11 +16,11 @@ $( document ).ready(function() {
         e.preventDefault();
         if(USUARIO.split(",")[1] === "1"){
             $("#containerBody").load("news.html");
-            loadnews();
+            addToSideNews(0);
         }
         else{
             $("#containerBody").load("news.html");
-            loadnews()
+            addToSideNews(0);
         }
     });
 

@@ -124,6 +124,16 @@ footer {
 
 }
 
+.newsItemSelected{
+    width:100%;
+    text-decoration:none;
+}
+
+.newsItemReview:hover{
+    width:100%;
+    text-decoration:underline;    
+}
+
 .NewsitemTitle h5 {
     font-weight:bold;
 }
