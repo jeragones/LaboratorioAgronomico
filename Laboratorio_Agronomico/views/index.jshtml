@@ -37,10 +37,10 @@
   			<div id="contenedor">
 				<img id="logo" src="../images/LOGO.png">
 				<div id="logo"></div>
-				<div id="circular"></div>
-				<div id="circular1"></div>
-				<div id="circular2"></div>
-				<div id="circular3"></div>
+				<div id="circular" class="img-circle"></div>
+				<div id="circular1" class="img-circle"></div>
+				<div id="circular2" class="img-circle"></div>
+				<div id="circular3" class="img-circle"></div>
 			</div>
 	  		<nav id="navNavigate" class="navbar navbar-default" role="navigation">
 	  			<div class="container-fluid">
