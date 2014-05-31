@@ -57,7 +57,7 @@
 			</nav>
 			<section id="containerBody"></section>
   		</div>
-	  	<footer id="containerFooter" class=""navbar navbar-inverse navbar-fixed-bottom>
+	  	<div id="foo" class="navbar navbar-inverse navbar-fixed-bottom">
 	  		<table>
 	  			<tr>
 	  				<td><label class="lblContactInfo">Dirección:</label></td>
@@ -68,6 +68,6 @@
 	  				<td><a class="contactEmail" href="mailto:'+email+'">@write(email)</a></td>
 	  			</tr>	
 	  		</table>
-  		</footer>
+  		</div>
   	</body>
 </html>

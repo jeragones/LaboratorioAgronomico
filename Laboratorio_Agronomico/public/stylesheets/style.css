@@ -1,14 +1,12 @@
     /*background: url("../images/net.png") top left repeat;*/
 
 body {
-    height: 100vh;
     background: url(/images/green_cup.png) top left repeat;
 }
 
 .body {
     position: relative;
     width: 80%;
-    height: 100vh;
     left: 10%;
     background: url(/images/body.png) top left repeat;
 }
@@ -93,7 +91,7 @@ nav #opLogin a:hover {
     padding: 20px;
 }
 
-footer {
+#foo {
     background: url(/images/footer.png) top left repeat;
     box-shadow: 0px 0px 0px #000, 0px 0px 10px #000;
 }
