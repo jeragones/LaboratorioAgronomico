@@ -56,6 +56,17 @@
 			</nav>
 			<section id="containerBody"></section>
   		</div>
-	  	<footer id="containerFooter"></footer>
+	  	<footer id="containerFooter">
+	  		<table>
+	  			<tr>
+	  				<td><label class="lblContactInfo">Dirección:</label></td>
+	  				<td><label>Alajuela, San Carlos, Santa Clara</label></td>
+	  				<td><label class="lblContactInfo">Teléfono:</label></td>
+	  				<td><label>@write(number)</label></td>
+	  				<td><label class="lblContactInfo">Correo:</label></td>
+	  				<td><a class="contactEmail" href="mailto:'+email+'">@write(email)</a></td>
+	  			</tr>	
+	  		</table>
+  		</footer>
   	</body>
 </html>
