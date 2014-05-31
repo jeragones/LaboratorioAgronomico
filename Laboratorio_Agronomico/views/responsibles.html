@@ -1,0 +1,38 @@
+<html>
+	<table id="tableResponsible">
+		<tr>
+			<td rowspan="4"><img src="@write(number)" alt=""></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+		</tr>
+	</table>
+</html>
+
+
+
+$("#containerBody").append(
+						'<table id="tableResponsible">' +
+							'<tr>' +
+								'<td rowspan="4"><img src="'+imagen+'" class="imgResponsible"></td>' +
+								'<td class="nameResponsible"><h2>'+nombre+' '+apellido1+' '+apellido2+'</h2></td>' +
+							'</tr>' +
+							'<tr>' +
+								'<td class="jobResponsible"><h4>'+puesto+'</h4></td>' +
+							'</tr>' +
+							'<tr>' +
+								'<td class="emailResponsible"><a href="mailto:'+correo+'">'+correo+'</a></td>' +
+							'</tr>' +
+							'<tr>' +
+								'<td>'+descripcion+'</p></td>' +
+							'</tr>' +
+							'<tr><td colspan="2"><td></tr>' +
+						'</table>'
+					);

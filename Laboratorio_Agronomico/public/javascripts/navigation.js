@@ -46,9 +46,4 @@ $( document ).ready(function() {
         e.preventDefault();
         responsibles();
     });
-
-    $("#opPrueba").unbind("click").click(function(e) {
-        e.preventDefault();
-        $.ajax({url:'/prueba/', type:'POST'});
-    });
 });

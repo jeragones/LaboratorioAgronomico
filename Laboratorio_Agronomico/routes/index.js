@@ -12,15 +12,13 @@ exports.index = function(req, res){
 			console.log("ERROR: CONSULTA A LA BASE DE DATOS");
 		else {
 			if(resp.length > 0) {
-				if(resp !== "") {
-					var email = "";
-					if(resp[0].correo != null)
-						email = (resp[0].correo).toString();
-					res.locals({ title: 'Laboratorio Agronomico', number: (resp[0].numero).toString(), email: email });
-					res.render('index');
-					console.log("consulta exitosa");
-				}
+				var email = "";
+				if(resp[0].correo != null)
+					email = (resp[0].correo).toString();
+				res.locals({ title: 'Laboratorio Agronomico', number: (resp[0].numero).toString(), email: email });
+				res.render('index');
+				console.log("consulta exitosa");
 			}
-		}
+		} 
 	});
 };
