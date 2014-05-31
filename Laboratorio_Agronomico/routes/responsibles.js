@@ -1,7 +1,7 @@
 
 var app = require('../app');
 
-exports.index = function(req, res){
+exports.responsible = function(req, res){
 	var query = "SELECT nombre, apellido1, apellido2, correo, puesto, imagen, descripcion FROM persona INNER JOIN usuario ON persona.id_persona = usuario.id_persona";
 	app.connection.query(query, function (err, resp) {
 		if(err)
@@ -25,31 +25,11 @@ exports.index = function(req, res){
 					if(resp[i].descripcion != null) {
 						description = (resp[i].descripcion).toString();
 					}
-					res.locals({ name: name, apell1: apell1, apell2: apell2, email: email, job: job, image: image, description: description });
-					
-					
+					res.locals({ name: name+" "+apell1+" "+apell2, email: email, job: job, image: image, description: description });
+					res.render('responsibles');
+					console.log("consulta exitosa");
 				}
-
-				res.render('index');
-				console.log("consulta exitosa");
 			}
 		}
 	});
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        	
-				
-			}

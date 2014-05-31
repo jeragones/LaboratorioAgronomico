@@ -44,6 +44,8 @@ $( document ).ready(function() {
 
     $("#opResponsible").unbind("click").click(function(e) {
         e.preventDefault();
-        responsibles();
+        
+        $("#containerBody").load("responsibles.html");
+        //responsibles();
     });
 });
