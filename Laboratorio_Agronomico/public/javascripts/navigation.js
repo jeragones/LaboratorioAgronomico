@@ -10,15 +10,18 @@ $( document ).ready(function() {
             $("#containerBody").load("news.html"); 
     }); 
     
+
     $("#opnews").click(function(e) {
         e.preventDefault();
         if(USUARIO.split(",")[1] === "1"){
             $("#containerBody").load("news.html");
-            loadnews()}
+            addToSideNews(0);
+        }
         else{
-            $("#containerBody").load("news.html"); 
-            loadnews()}
-    }); 
+            $("#containerBody").load("news.html");
+            addToSideNews(0);
+        }
+    });
 
     $("#opAnalysis").unbind("click").click(function(e) {
         e.preventDefault();

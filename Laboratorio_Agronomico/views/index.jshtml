@@ -20,14 +20,14 @@
 		<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
 		<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
 
-		<script src="/javascripts/dataController.js"></script>
-		<script src="/javascripts/navigation.js"></script>
+		<script src="/javascripts/dataController.js"></script>		
 		<script src="/javascripts/profile.js"></script>
 		<script src="/javascripts/login.js"></script>
 		<script src="/javascripts/news.js"></script>
 		<script src="/javascripts/publicAnalysis.js"></script>
 		<script src="/javascripts/responsibles.js"></script>
 		<script src="/javascripts/contact.js"></script>
+		<script src="/javascripts/navigation.js"></script>
 
     	<title> @write(title) </title>
 
@@ -47,6 +47,7 @@
 	  				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 						<ul class="nav nav-pills nav-justified">
 							<li><a id="opHome" class="navMenu">Inicio</a></li>
+							<li><a id="opnews" class="navMenu">news</a></li>
 							<li><a id="opAnalysis" class="navMenu" value="1">Análisis</a></li>
 							<li><a id="opResponsible" class="navMenu">Responsables</a></li>
 							<li id="opLogin" class="dropdown"></li>
@@ -56,7 +57,7 @@
 			</nav>
 			<section id="containerBody"></section>
   		</div>
-	  	<footer id="containerFooter">
+	  	<footer id="containerFooter" class=""navbar navbar-inverse navbar-fixed-bottom>
 	  		<table>
 	  			<tr>
 	  				<td><label class="lblContactInfo">Dirección:</label></td>
