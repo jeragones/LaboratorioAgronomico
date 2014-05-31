@@ -32,8 +32,7 @@
 	background-repeat:no-repeat;
     height:85px;
     width:85px;
-    -moz-border-radius:85px;
-    -webkit-border-radius:85px;
+    
     padding:30px;
     position: absolute;
 	animation: animaImgCirc 10.2s infinite;
@@ -102,8 +101,7 @@
 	background-repeat:no-repeat;
     height:100px;
     width:100px;
-    -moz-border-radius:100px;
-    -webkit-border-radius:100px;
+    
     padding:30px;
     position: absolute;
 	animation: animaImgCirc1 10.2s infinite;
@@ -174,8 +172,7 @@
 	background-repeat:no-repeat;
     height:65px;
     width:65px;
-    -moz-border-radius:65px;
-    -webkit-border-radius:65px;
+    
     padding:30px;
     position: absolute;
     top: 15px;
@@ -247,8 +244,7 @@
 	background-repeat:no-repeat;
     height:70px;
     width:70px;
-    -moz-border-radius:70px;
-    -webkit-border-radius:70px;
+    
     padding:30px;
     position: absolute;
 	animation: animaImgCirc3 10.4s infinite;

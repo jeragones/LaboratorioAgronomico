@@ -27,6 +27,7 @@ nav {
     position: relative;
     float: left;
     top: -15px;
+    position: fixed;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
