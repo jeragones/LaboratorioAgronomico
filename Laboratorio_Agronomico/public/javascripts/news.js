@@ -103,3 +103,32 @@ function addnewsTobody(newsID) {
             alert("ERROR")
         });
 }
+
+function loadXMLDoc(filename){
+    if (window.XMLHttpRequest){
+        xhttp=new XMLHttpRequest();
+    }
+    else{
+         xhttp=new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xhttp.open("GET",filename,false);
+    xhttp.send();
+    return xhttp.responseXML;
+}
+
+function load_xmlfile(){
+    xmlDoc=loadXMLDoc("../upload/Azufre.xml");
+    data=xmlDoc.getElementsByTagName("Row");
+    for (i=0;i<data.length;i++){
+        if(data[i].nodeType==1){
+            rowdata=data[i].getElementsByTagName("Data");
+            for(j=0;j<rowdata.length;j++){
+                document.write(rowdata[j].childNodes[0].nodeValue);
+                document.write("&nbsp;&nbsp;&nbsp;&nbsp;");
+            }
+        }
+        document.write("<br>");
+    }
+}
+
+
