@@ -1,14 +1,37 @@
 function loadNotice(value) {
     $.ajax({ 
-        url: 'http://localhost:3000/news/notice',
+        url: 'http://localhost:3000/notice',
         type: 'POST',
         contentType: 'application/json',
-        data: JSON.stringify({ value : value+1 })
+        data: JSON.stringify({ value : value })
     }).success(function(data) {
-        //window.location='/notice';
+        alert("esta funcionando");
+        //$("html").html(data);
     });
 }
 
+function radioAnalysis(category) {
+    var query = 'SELECT nombre FROM analisis WHERE categoria="'+category+'"';
+    alert(query);
+    /*$.ajax({
+        type: 'POST',
+        data: JSON.stringify({query : query}),
+        contentType: 'application/json',
+        url: url
+    }).success(function(data) {
+        alert(JSON.stringify(data));
+        if(data !== "") {
+            var options = "";
+            for( var i=0; i < data.length; i++) { 
+                 options += '<option>'+(data[i].nombre).toString()+'</option>';
+            }
+            alert(options);
+            //$("#slpAnalysis").prop('disabled', true);
+            $("#slpAnalysis").append(options);
+        }
+        //$("html").html(data);
+    });*/
+}
 
 
 
@@ -115,4 +138,36 @@ function addnewsTobody(newsID) {
             }).error(function() {
             alert("ERROR")
         });
+<<<<<<< HEAD
+}
+
 }*/
+
+function loadXMLDoc(filename){
+    if (window.XMLHttpRequest){
+        xhttp=new XMLHttpRequest();
+    }
+    else{
+         xhttp=new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xhttp.open("GET",filename,false);
+    xhttp.send();
+    return xhttp.responseXML;
+}
+
+function load_xmlfile(){
+    xmlDoc=loadXMLDoc("../upload/Azufre.xml");
+    data=xmlDoc.getElementsByTagName("Row");
+    for (i=0;i<data.length;i++){
+        if(data[i].nodeType==1){
+            rowdata=data[i].getElementsByTagName("Data");
+            for(j=0;j<rowdata.length;j++){
+                document.write(rowdata[j].childNodes[0].nodeValue);
+                document.write("&nbsp;&nbsp;&nbsp;&nbsp;");
+            }
+        }
+        document.write("<br>");
+    }
+}
+
+

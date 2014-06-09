@@ -27,11 +27,13 @@ $(document).ready(function() {
             r.onload = (function(f) {
                 return function(e) {
                     var contents = e.target.result;
-                    alert( "Got the file.n" 
+                    //var rows = contends.split(" ");
+                    alert("mierda" 
+                          /*"Got the file.n" 
                           +"name: " + f.name + "n"
                           +"type: " + f.type + "n"
                           +"size: " + f.size + " bytesn"
-                          + "starts with: " + contents
+                          + "starts with: " +*/ contents
                     ); 
                 };
             })(f);

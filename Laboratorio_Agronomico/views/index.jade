@@ -25,8 +25,8 @@ html
 		script(src="/javascripts/news.js")
 		script(src="/javascripts/publicAnalysis.js")
 		script(src="/javascripts/responsibles.js")
-		script(src="/javascripts/contact.js")
 		script(src="/javascripts/navigation.js")
+		script(src="/javascripts/file.js")
 
 		title #{title}
 	body
@@ -43,18 +43,16 @@ html
 					div(class="collapse navbar-collapse" id="bs-example-navbar-collapse-1")
 						ul(class="nav nav-pills nav-justified")
 							li
-								a(id="opHome" class="navMenu") Inicio
-							li
 								a(href="/news" class="navMenu") Noticias
 							li
-								a(id="opAnalysis" class="navMenu" value="1") Análisis
+								a(href="/analysis" class="navMenu" value="1") Análisis
 							li
 								a(href="/responsibles" class="navMenu") Responsables
 							li(id="opLogin" class="dropdown")
 			
 			block containerBody
 
-		div(id="foo" class="navbar navbar-inverse navbar-fixed-bottom")
+		div(id="foo" class="navbar-fixed-bottom")
 			table
 				tr
 					td

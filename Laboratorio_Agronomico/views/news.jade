@@ -3,35 +3,36 @@ block containerBody
 
 	div(class="continer")
 		div(class="row breadcrumb")
-		div(class="col-xs-6 col-md-4 breadcrumb")
-			div(id="newSide" class="container-fluid")
-				each resp, i in data
-					div(class="row panel panel-default breadcrumb newsItemReview" value="#{data[i][3].id}" onclick="loadNotice(#{data[i][3].id})")
-						div(class="row")
-							form(class="form-inline" role="form")
-								div(class="form-group NewsitemTitle")
-									h5 #{data[i][0].head}
-								div(class="form-group pull-right NewsitemDate")
-									h5 #{data[i][1].date}
-						div(class="row Newsitemdecrip")
-							h5 #{data[i][2].description}
-				div(class="newspagination")
-					ul(class="pagination")
-						li(class="disabled")
-							a(href="#") &laquo;
-						li(class="active")
-							a(href="/") 1
-								span(class="sr-only")
-						li
-							a(href="#") 2
-						li
-							a(href="#") 3
-						li
-							a(href="#") &raquo;
-		div(class="col-xs-12 col-sm-6 col-md-8")
-			div(class="panel panel-default")
-				div(id="newSideBody" class="panel-body")
-					block containerNotice
+			div(class="col-xs-6 col-md-4 breadcrumb")
+				div(id="newSide" class="container-fluid")
+					each resp, i in data
+						div(class="row panel panel-default breadcrumb newsItemReview" value="#{resp.id_noticia}" onclick="loadNotice(#{resp.id_noticia})")
+							div(class="row")
+								form(class="form-inline" role="form")
+									div(class="form-group NewsitemTitle")
+										h5 #{resp.encabezado}
+									div(class="form-group pull-right NewsitemDate")
+										h5 #{resp.fecha_creacion.toLocaleDateString("en-US")}
+							div(class="row Newsitemdecrip")
+								h5 #{resp.descripcion}
+					div(class="newspagination")
+						ul(class="pagination")
+							li(class="disabled")
+								a(href="#") &laquo;
+							li(class="active")
+								a(href="#") 1
+									span(class="sr-only")
+							li
+								a(href="#") 2
+							li
+								a(href="#") 3
+							li
+								a(href="#") &raquo;
+			div(class="col-xs-12 col-sm-6 col-md-8")
+				div(class="panel panel-default")
+					div(id="newSideBody" class="panel-body")
+						block containerNotice
 
 
 //div(id="notice #{data[i][3].id}" class="row panel panel-default breadcrumb newsItemReview" value="#{data[i][3].id}" onclick="window.location='/notice'")
+//#{data[i][3].id}

@@ -1,5 +1,6 @@
 
 var app = require('../app');
+//var contact = require('index');
 
 exports.responsibles = function(req, res){
 	var query = "SELECT nombre, apellido1, apellido2, correo, puesto, imagen, descripcion FROM persona INNER JOIN usuario ON persona.id_persona = usuario.id_persona";
@@ -29,7 +30,7 @@ exports.responsibles = function(req, res){
 					var information = [{image: image}, {name: name+" "+apell1+" "+apell2}, {job: job}, {email: email}, {description: description}];
 					data.push(information);
 				}
-				res.render('responsibles', { data: data });
+				res.render('responsibles', { data: data, title: "Laboratorio Agronomico Responsables", number: "24606262", email: "labagronomico@itcr.ac.cr" });
 			}
 		} 
 	});

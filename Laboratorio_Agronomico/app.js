@@ -4,10 +4,10 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 var express = require('express');
-var jshtml = require('jshtml-express');
 var routes = require('./routes');
 var responsibles = require('./routes/responsibles');
 var news = require('./routes/news');
+var analysis = require('./routes/analysis');
 var http = require('http');
 var path = require('path');
 var mysql = require('mysql');
@@ -62,7 +62,8 @@ if ('development' == app.get('env')) {
 app.get('/', routes.index);
 app.get('/responsibles', responsibles.responsibles);
 app.get('/news', news.news);
-app.post('/news/notice', news.notice);
+app.get('/analysis', analysis.analysis);
+app.post('/notice', news.notice);
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////// EJECUCION DEL SERVIDOR ////////////////////////////////////////////////////////////////
