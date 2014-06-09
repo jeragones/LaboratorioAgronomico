@@ -1,3 +1,4 @@
+/*
 function loadNotice(value) {
     $.ajax({ 
         url: 'http://localhost:3000/notice',
@@ -5,33 +6,10 @@ function loadNotice(value) {
         contentType: 'application/json',
         data: JSON.stringify({ value : value })
     }).success(function(data) {
-        alert("esta funcionando");
-        //$("html").html(data);
+        //alert("esta funcionando");
+        $("html").html(data);
     });
-}
-
-function radioAnalysis(category) {
-    var query = 'SELECT nombre FROM analisis WHERE categoria="'+category+'"';
-    alert(query);
-    /*$.ajax({
-        type: 'POST',
-        data: JSON.stringify({query : query}),
-        contentType: 'application/json',
-        url: url
-    }).success(function(data) {
-        alert(JSON.stringify(data));
-        if(data !== "") {
-            var options = "";
-            for( var i=0; i < data.length; i++) { 
-                 options += '<option>'+(data[i].nombre).toString()+'</option>';
-            }
-            alert(options);
-            //$("#slpAnalysis").prop('disabled', true);
-            $("#slpAnalysis").append(options);
-        }
-        //$("html").html(data);
-    });*/
-}
+}*/
 
 
 
@@ -83,7 +61,7 @@ function addToSideNews(NewsID) {
                                                     '</form>'+
                                             '</div>'+
                                             '<div class="row Newsitemdecrip">'+
-                                                '<h5>'+row.Description+'</h5>'+
+                                                '<h5>'+row.descripcion+'</h5>'+
                                             '</div>'+
                                     '</div>'
                                 );
@@ -102,7 +80,7 @@ function addToSideNews(NewsID) {
         }).error(function() {
             alert("ERROR")
         });
-}
+}*/
 
 
 
@@ -123,11 +101,11 @@ function addnewsTobody(newsID) {
                             var rowdate = new Date(data[i].fecha_creacion);
                             $("#newSideBody").append(            
                                 '<form class="form-inline" role="form">'+
-                                     '<div class="form-group"><h4>'+row.Title+'</h4></div>'+
+                                     '<div class="form-group"><h4>'+row.encabezado+'</h4></div>'+
                                      '<div class="form-group pull-right"><h5>'+rowdate.toLocaleDateString("en-US")+'</h5></div>'+
                                 '</form>'+
                                 '<div class="panel-footer">'+
-                                    '<p>'+row.Body+'</p>'+
+                                    '<p>'+row.descripcion+'</p>'+
                                 '</div>'
                                 ); addToSideNews(data[i].id_noticia);
                         }
@@ -136,10 +114,9 @@ function addnewsTobody(newsID) {
             }).error(function() {
             alert("ERROR")
         });
-<<<<<<< HEAD
+
 }
 
-}*/
 
 function loadXMLDoc(filename){
     if (window.XMLHttpRequest){
