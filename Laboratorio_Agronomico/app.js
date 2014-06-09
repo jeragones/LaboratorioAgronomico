@@ -61,10 +61,24 @@ if ('development' == app.get('env')) {
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 app.get('/', routes.index);
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+//app.get('/responsibles', routes.responsibles);
+=======
+<<<<<<< HEAD
+>>>>>>> 2023f8fe683d9fe3862b640001c9485ee4370bbf
 app.get('/responsibles', responsibles.responsibles);
 app.get('/news', news.news);
 app.get('/analysis', analysis.analysis);
 app.post('/notice', news.notice);
+<<<<<<< HEAD
+=======
+=======
+//app.get('/responsibles', routes.responsibles);
+>>>>>>> 2c00d59511cd07fbda197cbf1c58ac9fb68ddb92
+>>>>>>> cefbd3764f310ab52c3a0a35771674e71bee2b60
+>>>>>>> 2023f8fe683d9fe3862b640001c9485ee4370bbf
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////// EJECUCION DEL SERVIDOR ////////////////////////////////////////////////////////////////
