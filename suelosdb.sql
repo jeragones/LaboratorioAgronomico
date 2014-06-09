@@ -88,23 +88,6 @@ CREATE TABLE IF NOT EXISTS `factura` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `muestra`
---
-
-CREATE TABLE IF NOT EXISTS `muestra` (
-  `codigo` varchar(11) NOT NULL,
-  `campo` varchar(100) NOT NULL,
-  `id_cliente` int(11) NOT NULL,
-  `fecha_creacion` date NOT NULL,
-  `usuario_creacion` varchar(30) NOT NULL,
-  `fecha_actualizacion` date NOT NULL,
-  `usuario_actualizacion` varchar(30) NOT NULL,
-  PRIMARY KEY (`codigo`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `muestra_analisis`
 --
 
@@ -283,6 +266,37 @@ CREATE TABLE IF NOT EXISTS `usuario` (
 INSERT INTO `usuario` (`id_usuario`, `puesto`, `imagen`, `Descripcion`, `id_persona`, `fecha_creacion`, `usuario_creacion`, `fecha_actualizacion`, `usuario_actualizacion`) VALUES
 (1, 'Asistente', NULL, NULL, 6, '2014-04-14', 'admin', '2014-04-14', 'admin'),
 (2, 'Encargada de Laboratorio', NULL, 'Administrativa', 8, '2014-05-18', 'admin', '2014-05-18', 'admin');
+
+
+
+-- ////////////////////////////////////////// Muestras \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-- 
+CREATE TABLE IF NOT EXISTS `muestra` (
+  `codigo` varchar(11) NOT NULL,
+  `campo` varchar(100) NOT NULL,
+  `id_cliente` int(11) NOT NULL,
+  `fecha_creacion` date NOT NULL,
+  `usuario_creacion` varchar(30) NOT NULL,
+  `fecha_actualizacion` date NOT NULL,
+  `usuario_actualizacion` varchar(30) NOT NULL,
+  PRIMARY KEY (`codigo`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- ////////////////////////////////////////// Azufre \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-- se ingresa datos del xml referentes a muchas muestras donde cada muestra refiere informacionn de la misma
+
+Create table IF Not exists `Azufre`(
+	`ID` int(11) primary key NOT NULL AUTO_INCREMENT,
+	`No_Muestra` varchar(11) NOT NULL, -- 
+	`ID_Muestra` varchar(128) DEFAULT 'Unknown',
+	`Type_Muestra` varchar(128) DEFAULT 'Unknown',
+	`Fosforo` varchar(128) DEFAULT 'N.D',
+	`Abs` varchar(128) NOT NULL,
+	`Wavelengtn` varchar(128) NOT NULL
+);
+
+
+select * from Azufre
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
