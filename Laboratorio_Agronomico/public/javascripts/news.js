@@ -93,8 +93,6 @@ function addToSideNews(NewsID) {
                                '<ul class="pagination">'+
                                     '<li class="disabled"><a href="#">&laquo;</a></li>'+
                                     '<li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>'+
-                                    '<li><a href="#">2</a></li>'+
-                                    '<li><a href="#">3</a></li>'+
                                     '<li><a href="#">&raquo;</a></li>'+
                                 '</ul>'+
                              '</div>'
@@ -158,15 +156,15 @@ function loadXMLDoc(filename){
 function load_xmlfile(){
     xmlDoc=loadXMLDoc("../upload/Azufre.xml");
     data=xmlDoc.getElementsByTagName("Row");
-    for (i=0;i<data.length;i++){
-        if(data[i].nodeType==1){
+    for (i=0;i<data.length;i++){       
+        if((data[i].nodeType==1)&&(i>0)){
             rowdata=data[i].getElementsByTagName("Data");
+            var insertdata=new Array(rowdata.length);
             for(j=0;j<rowdata.length;j++){
-                document.write(rowdata[j].childNodes[0].nodeValue);
-                document.write("&nbsp;&nbsp;&nbsp;&nbsp;");
+                insertdata[j]=rowdata[j].childNodes[0].nodeValue;
             }
-        }
-        document.write("<br>");
+         insertxmldata_azufre(insertdata);
+        }       
     }
 }
 

@@ -22,7 +22,8 @@
 
 		<script src="/javascripts/dataController.js"></script>		
 		<script src="/javascripts/profile.js"></script>
-		<script src="/javascripts/login.js"></script>
+		<script src="/javascripts/login.js"></script>		
+		<script src="/javascripts/userAnalysis.js"></script>
 		<script src="/javascripts/news.js"></script>
 		<script src="/javascripts/publicAnalysis.js"></script>
 		<script src="/javascripts/responsibles.js"></script>
@@ -47,7 +48,7 @@
 	  				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 						<ul class="nav nav-pills nav-justified">
 							<li><a id="opHome" class="navMenu">Inicio</a></li>
-							<li><a id="opnews" class="navMenu">news</a></li>
+							<li><a id="opnews" class="navMenu">Noticias</a></li>
 							<li><a id="opAnalysis" class="navMenu" value="1">Análisis</a></li>
 							<li><a id="opResponsible" href="/responsibles" class="navMenu">Responsables</a></li>
 							<li id="opLogin" class="dropdown"></li>
