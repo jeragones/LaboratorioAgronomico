@@ -5,6 +5,8 @@
 
 var app = require('../app');
 
+var contact = [];
+
 exports.index = function(req, res){
 	var query = "SELECT correo, numero FROM persona INNER JOIN telefono ON persona.id_persona=telefono.id_persona AND tipo=1";
 	app.connection.query(query, function (err, resp) {
@@ -15,10 +17,11 @@ exports.index = function(req, res){
 				var email = "";
 				if(resp[0].correo != null)
 					email = (resp[0].correo).toString();
-				res.locals({ title: 'Laboratorio Agronomico', number: (resp[0].numero).toString(), email: email });
-				res.render('index');
-				console.log("consulta exitosa");
+				contact = ['Laboratorio Agronomico', (resp[0].numero).toString(), email];
+				res.render('index', { title: contact[0], number: contact[1], email: contact[2] });
 			}
 		} 
 	});
 };
+
+//module.exports.contact = contact;

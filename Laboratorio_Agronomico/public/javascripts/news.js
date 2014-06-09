@@ -1,5 +1,41 @@
+function loadNotice(value) {
+    $.ajax({ 
+        url: 'http://localhost:3000/notice',
+        type: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify({ value : value })
+    }).success(function(data) {
+        alert("esta funcionando");
+        //$("html").html(data);
+    });
+}
+
+function radioAnalysis(category) {
+    var query = 'SELECT nombre FROM analisis WHERE categoria="'+category+'"';
+    alert(query);
+    /*$.ajax({
+        type: 'POST',
+        data: JSON.stringify({query : query}),
+        contentType: 'application/json',
+        url: url
+    }).success(function(data) {
+        alert(JSON.stringify(data));
+        if(data !== "") {
+            var options = "";
+            for( var i=0; i < data.length; i++) { 
+                 options += '<option>'+(data[i].nombre).toString()+'</option>';
+            }
+            alert(options);
+            //$("#slpAnalysis").prop('disabled', true);
+            $("#slpAnalysis").append(options);
+        }
+        //$("html").html(data);
+    });*/
+}
 
 
+
+/*
 function addToSideNews(NewsID) {
     var query = 'select * from noticia order by fecha_creacion desc';
     $.ajax({
@@ -57,8 +93,6 @@ function addToSideNews(NewsID) {
                                '<ul class="pagination">'+
                                     '<li class="disabled"><a href="#">&laquo;</a></li>'+
                                     '<li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>'+
-                                    '<li><a href="#">2</a></li>'+
-                                    '<li><a href="#">3</a></li>'+
                                     '<li><a href="#">&raquo;</a></li>'+
                                 '</ul>'+
                              '</div>'
@@ -102,4 +136,36 @@ function addnewsTobody(newsID) {
             }).error(function() {
             alert("ERROR")
         });
+<<<<<<< HEAD
 }
+
+}*/
+
+function loadXMLDoc(filename){
+    if (window.XMLHttpRequest){
+        xhttp=new XMLHttpRequest();
+    }
+    else{
+         xhttp=new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xhttp.open("GET",filename,false);
+    xhttp.send();
+    return xhttp.responseXML;
+}
+
+function load_xmlfile(){
+    xmlDoc=loadXMLDoc("../upload/Azufre.xml");
+    data=xmlDoc.getElementsByTagName("Row");
+    for (i=0;i<data.length;i++){       
+        if((data[i].nodeType==1)&&(i>0)){
+            rowdata=data[i].getElementsByTagName("Data");
+            var insertdata=new Array(rowdata.length);
+            for(j=0;j<rowdata.length;j++){
+                insertdata[j]=rowdata[j].childNodes[0].nodeValue;
+            }
+         insertxmldata_azufre(insertdata);
+        }       
+    }
+}
+
+

@@ -4,8 +4,10 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 var express = require('express');
-var jshtml = require('jshtml-express');
 var routes = require('./routes');
+var responsibles = require('./routes/responsibles');
+var news = require('./routes/news');
+var analysis = require('./routes/analysis');
 var http = require('http');
 var path = require('path');
 var mysql = require('mysql');
@@ -16,8 +18,8 @@ var app = express();
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 var connection = mysql.createConnection({
-	user: /*'root',*/ 'Admin',
-	password: /*'1234',*/ 'hufVQcVJypRHpKhb',
+	user: 'root', /* 'Admin',*/
+	password: '1234', /*'hufVQcVJypRHpKhb', */
 	host: 'localhost',
 	port: 3306, 
 	database: 'suelosdb'
@@ -34,9 +36,9 @@ connection.connect(function(err) {
 
 app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname, 'views'));
-app.set('connection', connection);
-app.engine('jshtml', jshtml);
-app.set('view engine', 'jshtml');
+app.set('view engine', 'jade');
+//app.engine('jshtml', jshtml);
+//app.set('view engine', 'jshtml');
 app.use(express.favicon());
 app.use(express.logger('dev'));
 app.use(express.json());
@@ -58,7 +60,18 @@ if ('development' == app.get('env')) {
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 app.get('/', routes.index);
+<<<<<<< HEAD
 //app.get('/responsibles', routes.responsibles);
+=======
+<<<<<<< HEAD
+app.get('/responsibles', responsibles.responsibles);
+app.get('/news', news.news);
+app.get('/analysis', analysis.analysis);
+app.post('/notice', news.notice);
+=======
+//app.get('/responsibles', routes.responsibles);
+>>>>>>> 2c00d59511cd07fbda197cbf1c58ac9fb68ddb92
+>>>>>>> cefbd3764f310ab52c3a0a35771674e71bee2b60
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////// EJECUCION DEL SERVIDOR ////////////////////////////////////////////////////////////////
@@ -94,7 +107,7 @@ app.post('/login', function(req, res) {
 	});
 });
 
-app.post('/database', function(req, res) {
+app.post('/database', function(req, res) { 
 	connection.query(req.body.query, function (err, resp) {
 		if(err)
 			console.log("ERROR: CONSULTA A LA BASE DE DATOS");

@@ -1,0 +1,69 @@
+html
+	head
+		meta(http-equiv="Content-Type" content="text/html; charset=utf-8")
+		meta(http-equiv="X-UA-Compatible" content="IE=edge,chrome=1")
+
+		link(rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css")
+		link(rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css")
+
+		link(rel="stylesheet" href="/stylesheets/headImage.css")
+		link(rel="stylesheet" href="/stylesheets/style.css")
+		link(rel="stylesheet" href="/stylesheets/login.css")
+		link(rel="stylesheet" href="/stylesheets/publicAnalysis.css")
+		link(rel="stylesheet" href="/stylesheets/userAnalysis.css")
+		link(rel="stylesheet" href="/stylesheets/responsibles.css")
+		link(rel="stylesheet" href="/stylesheets/profile.css")
+				
+		script(src="http://code.jquery.com/jquery.min.js")
+		script(src="//code.jquery.com/jquery-1.10.2.js")
+		script(src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js")
+		script(src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js')
+
+		script(src="/javascripts/dataController.js")
+		script(src="/javascripts/profile.js")
+		script(src="/javascripts/login.js")
+		script(src="/javascripts/news.js")
+		script(src="/javascripts/publicAnalysis.js")
+		script(src="/javascripts/responsibles.js")
+		script(src="/javascripts/navigation.js")
+		script(src="/javascripts/file.js")
+
+		title #{title}
+	body
+		div(class="body")
+			div(id="contenedor")
+				img(id="logo" src="../images/LOGO.png")
+				div(id="logo")
+				div(id="circular" class="img-circle")
+				div(id="circular1" class="img-circle")
+				div(id="circular2" class="img-circle")
+				div(id="circular3" class="img-circle")
+			nav(id="navNavigate" class="navbar navbar-default" role="navigation")
+				div(class="container-fluid")
+					div(class="collapse navbar-collapse" id="bs-example-navbar-collapse-1")
+						ul(class="nav nav-pills nav-justified")
+							li
+								a(href="/news" class="navMenu") Noticias
+							li
+								a(href="/analysis" class="navMenu" value="1") Análisis
+							li
+								a(href="/responsibles" class="navMenu") Responsables
+							li(id="opLogin" class="dropdown")
+			
+			block containerBody
+
+		div(id="foo" class="navbar-fixed-bottom")
+			table
+				tr
+					td
+						label(class="lblContactInfo") Dirección:
+					td
+						label Alajuela, San Carlos, Santa Clara
+					td
+						label(class="lblContactInfo") Teléfono:
+					td
+						label #{number}
+					td
+						label(class="lblContactInfo") Correo:
+					td 
+						a(class="contactEmail") #{email}

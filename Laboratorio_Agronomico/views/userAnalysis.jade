@@ -1,0 +1,17 @@
+extends index
+block containerBody
+
+	div(id="navAnalysis" class="navbar navbar-default" role="navigation")
+		div(class="container-fluid")
+			div(class="collapse navbar-collapse" id="bs-example-navbar-collapse-1")
+				form(class="form-inline" role="form" action="")
+					div(class="form-group")
+						each resp in data
+							input(type="radio" name="radio" value="0" style="margin-left: 50px;" onclick="radioAnalysis(#{resp.categoria})")
+							| #{resp.categoria}
+						label(for="slpAnalysis") Análisis:
+						select(id="slpAnalysis" class="selectpicker" name="slpAnalysis" disabled="false")
+							
+	div(id="dropzone") Soltar archivos aquí
+	div
+		ul(id="filelist")
