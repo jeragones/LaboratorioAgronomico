@@ -1,0 +1,9 @@
+extends news
+block containerNotice
+	form(class="form-inline" role="form")
+		div(class="form-group")
+			h4 #{data[0][0].head}
+		div(class="form-group pull-right")
+			h5 #{data[0][1].date}
+	div(class="panel-footer")
+		p #{data[0][2].description}

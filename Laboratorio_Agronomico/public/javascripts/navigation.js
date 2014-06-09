@@ -44,8 +44,21 @@ $( document ).ready(function() {
 
     $("#opResponsible").unbind("click").click(function(e) {
         e.preventDefault();
+        //mm();
         
-        $("#containerBody").load("responsibles.html");
+        $.ajax({url:'http://localhost:3000/responsibles/', type:'POST'});
+        
+        
+        
+
+        /*$.ajax({url:'/responsibles/' + userId,type:'DELETE'}).done(function() {
+            window.location.href = "/";
+        });*/
+        
         //responsibles();
     });
 });
+
+function mm() {
+    return $.ajax({url:'http://localhost:3000/responsibles/', type:'POST'});
+}

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-05-2014 a las 23:45:24
+-- Tiempo de generación: 08-06-2014 a las 20:45:30
 -- Versión del servidor: 5.6.16
 -- Versión de PHP: 5.5.11
 
@@ -42,14 +42,48 @@ CREATE TABLE IF NOT EXISTS `analisis` (
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `canton`
+--
+
+CREATE TABLE IF NOT EXISTS `canton` (
+  `id_canton` int(2) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(20) NOT NULL,
+  `id_provincia` int(1) NOT NULL,
+  PRIMARY KEY (`id_canton`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=16 ;
+
+--
+-- Volcado de datos para la tabla `canton`
+--
+
+INSERT INTO `canton` (`id_canton`, `nombre`, `id_provincia`) VALUES
+(1, 'Alajuela', 2),
+(2, 'San Ramón', 2),
+(3, 'Grecia', 2),
+(4, 'San Mateo', 2),
+(5, 'Atenas', 2),
+(6, 'Naranjo', 2),
+(7, 'Palmares', 2),
+(8, 'Poás', 2),
+(9, 'Orotina', 2),
+(10, 'San Carlos', 2),
+(11, 'Alfaro Ruiz', 2),
+(12, 'Valverde Vega', 2),
+(13, 'Upala', 2),
+(14, 'Los Chiles', 2),
+(15, 'Guatuso', 2);
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `cliente`
 --
 
 CREATE TABLE IF NOT EXISTS `cliente` (
   `id_cliente` int(11) NOT NULL AUTO_INCREMENT,
-  `provincia` varchar(10) NOT NULL,
-  `canton` varchar(20) NOT NULL,
-  `distrito` varchar(30) NOT NULL,
+  `id_provincia` int(1) NOT NULL,
+  `id_canton` int(2) NOT NULL,
+  `id_distrito` int(3) NOT NULL,
   `direccion` varchar(100) NOT NULL,
   `id_persona` int(11) NOT NULL,
   `fecha_creacion` date NOT NULL,
@@ -63,9 +97,41 @@ CREATE TABLE IF NOT EXISTS `cliente` (
 -- Volcado de datos para la tabla `cliente`
 --
 
-INSERT INTO `cliente` (`id_cliente`, `provincia`, `canton`, `distrito`, `direccion`, `id_persona`, `fecha_creacion`, `usuario_creacion`, `fecha_actualizacion`, `usuario_actualizacion`) VALUES
-(1, 'Alajuela', 'San Carlos', 'Quesada', 'Sucre, 200mts Sureste y 50mts Noroeste del salon comunal', 2, '2014-04-14', 'admin', '2014-04-14', 'admin'),
-(2, 'Alajuela', 'San Calos', 'Florencia', 'Muelle, 20mts Norte del Cen-cinai, frente a empacadora grupo coral', 4, '2014-04-14', 'admin', '2014-04-14', 'admin');
+INSERT INTO `cliente` (`id_cliente`, `id_provincia`, `id_canton`, `id_distrito`, `direccion`, `id_persona`, `fecha_creacion`, `usuario_creacion`, `fecha_actualizacion`, `usuario_actualizacion`) VALUES
+(1, 0, 0, 0, 'Sucre, 200mts Sureste y 50mts Noroeste del salon comunal', 2, '2014-04-14', 'admin', '2014-04-14', 'admin'),
+(2, 0, 0, 0, 'Muelle, 20mts Norte del Cen-cinai, frente a empacadora grupo coral', 4, '2014-04-14', 'admin', '2014-04-14', 'admin');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `distrito`
+--
+
+CREATE TABLE IF NOT EXISTS `distrito` (
+  `id_distrito` int(3) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(30) NOT NULL,
+  `id_canton` int(2) NOT NULL,
+  PRIMARY KEY (`id_distrito`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
+
+--
+-- Volcado de datos para la tabla `distrito`
+--
+
+INSERT INTO `distrito` (`id_distrito`, `nombre`, `id_canton`) VALUES
+(1, 'Quesada', 10),
+(2, 'Florencia', 10),
+(3, 'Buenavista', 10),
+(4, 'Aguas Zarcas', 10),
+(5, 'Venecia', 10),
+(6, 'Pital', 10),
+(7, 'La Fortuna', 10),
+(8, 'La Tigra', 10),
+(9, 'Palmera', 10),
+(10, 'Venado', 10),
+(11, 'Cutris', 10),
+(12, 'Monterrey', 10),
+(13, 'Pocosol', 10);
 
 -- --------------------------------------------------------
 
@@ -123,6 +189,24 @@ CREATE TABLE IF NOT EXISTS `muestra_analisis` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `noticia`
+--
+
+CREATE TABLE IF NOT EXISTS `noticia` (
+  `id_noticia` int(11) NOT NULL AUTO_INCREMENT,
+  `encabezado` varchar(30) NOT NULL,
+  `descripcion` varchar(500) NOT NULL,
+  `fecha_creacion` date NOT NULL,
+  `usuario_creacion` varchar(30) NOT NULL,
+  `fecha_actualizacion` date NOT NULL,
+  `usuario_actualizacion` varchar(30) NOT NULL,
+  PRIMARY KEY (`id_noticia`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
 --
 -- Estructura de tabla para la tabla `persona`
 --
@@ -148,7 +232,7 @@ CREATE TABLE IF NOT EXISTS `persona` (
 --
 
 INSERT INTO `persona` (`id_persona`, `nombre`, `apellido1`, `apellido2`, `correo`, `usuario`, `clave`, `tipo`, `fecha_creacion`, `usuario_creacion`, `fecha_actualizacion`, `usuario_actualizacion`) VALUES
-(2, 'Jorge', 'Rojas', 'Aragones', 'jeragones@gmail.com', 'jeragones', '12345', 3, '2014-04-14', 'fabiva', '2014-04-14', 'fabiva'),
+(2, 'Jorge', 'Rojas', 'Aragonés', 'jeragones@gmail.com', 'jeragones', '1234', 3, '2014-04-14', 'fabiva', '2014-04-14', 'jeragones'),
 (4, 'Daniel', 'Berrocal', 'Ramirez', NULL, 'jdbr123', '12345', 3, '2014-04-14', 'fabiva', '2014-04-14', 'fabiva'),
 (6, 'Fabian ', 'Vargas', 'Hernández', 'fabian@itcr.ac.cr', 'fabiva', '12345', 2, '2014-04-14', 'Admin', '2014-04-14', 'Admin'),
 (7, 'Admin', 'Admin', 'Admin', 'labagronomico@itcr.ac.cr', 'Admin', 'admin123', 1, '2014-04-21', 'Admin', '2014-04-21', 'Admin'),
@@ -157,27 +241,27 @@ INSERT INTO `persona` (`id_persona`, `nombre`, `apellido1`, `apellido2`, `correo
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `noticia`
+-- Estructura de tabla para la tabla `provincia`
 --
 
-CREATE TABLE IF NOT EXISTS `noticia` (
-  `id_noticia` int(11) NOT NULL AUTO_INCREMENT,
-  `Title` varchar(128) NOT NULL,
-  `fecha_creacion` datetime NOT NULL,
-  `Description` varchar(500) NOT NULL,
-  `Body` varchar(5000) NOT NULL,
-  `persona` int(11) NOT NULL,
-  PRIMARY KEY (`id_noticia`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+CREATE TABLE IF NOT EXISTS `provincia` (
+  `id_provincia` int(1) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(15) NOT NULL,
+  PRIMARY KEY (`id_provincia`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
-insert into noticia(Title,fecha_creacion,Description,Body,persona)values(
-	'Adelita San Vicente, la mujer que enfrentó a Monsanto',
-	 (SELECT LOCALTIMESTAMP()),
-	'Todo el mundo conoce las gafas de Google. Pero tras toda nueva tecnología nos topamos rápidamente con pros y contras. En este caso la creciente necesidad de desarrollo de aplicaciones para Google Glass.',
-	'Todo el mundo conoe las gafas de Google. Pero tras toda nueva tecnología nos topamos rápidamente con pros y contras. En este caso la creciente necesidad de desarrollo de aplicaciones para Google Glass. Con estas nuevas gafas de alta tecnología, Google nos muestra que podemos hacer lo mismo que nuestro móvil inteligente o smartphone pero sin utilizar nuestras manos, únicamente con nuestra voz. En un principio nos topamos con que tiene algunas similitudes con el Siri de Apple, funcionalidad del iPhone que permite formular preguntas al teléfono y que éste las responda sin tener que teclear en la pantalla. Ventajas y pros de las Google Glass Como principal ventaja de las gafas de Google es, evidentemente, que no tienes que hacer nada, simplemente hablar. Son las gafas las que lo hacen todo por ti. Con simplemente ordenar las órdenes en voz alta o tan fácilmente como indicar las palabras ‘OK Glass‘ para iniciar el menú puedes hacer fotos o videos. Imágenes de muy buena calidad, de 5 megapíxeles y vídeos de alta resolución de 720 p. Algunos inconvenientes de las Google Glass Uno de los puntos de más controversia y de lo que más se han quejado aquellos que han probado las Google Glass es lo poco que dura la batería. Ésta dura apenas 5 horas, se carga por usb por la entrada alojada detrás de la oreja junto a la CPU. En condiciones de mucha luz, la pantalla pierde mucho visibilidad haciendo mucho más complicado ver lo que se muestra en ella. La imposibilidad de regular el brillo, o configurar cualquier otro aspecto de las Google Glass (como desactivar el Bluetooth por ejemplo) es otro de los inconvenientes del dispositivo a pesar de estar diseñado como el Android para móvil.',
-	7
-);
+--
+-- Volcado de datos para la tabla `provincia`
+--
 
+INSERT INTO `provincia` (`id_provincia`, `nombre`) VALUES
+(1, 'San José'),
+(2, 'Alajuela'),
+(3, 'Cartago'),
+(4, 'Puntarenas'),
+(5, 'Heredia'),
+(6, 'Limón'),
+(7, 'Guanacaste');
 
 -- --------------------------------------------------------
 

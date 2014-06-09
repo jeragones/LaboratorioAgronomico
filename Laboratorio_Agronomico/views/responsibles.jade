@@ -1,0 +1,16 @@
+extends index
+block containerBody
+
+	table(id="tableResponsible")
+		each resp, i in data
+			tr
+				td(rowspan="4")
+					img(src="#{data[i][0].image}" class="imgResponsible")
+				td(class="nameResponsible") #{data[i][1].name}	
+			tr
+				td(class="jobResponsible") #{data[i][2].job}
+			tr
+				td(class="emailResponsible")
+					a(href="") #{data[i][3].email}
+			tr
+				td #{data[i][4].description}

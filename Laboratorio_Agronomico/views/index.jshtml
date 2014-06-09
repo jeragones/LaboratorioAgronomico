@@ -49,13 +49,15 @@
 							<li><a id="opHome" class="navMenu">Inicio</a></li>
 							<li><a id="opnews" class="navMenu">news</a></li>
 							<li><a id="opAnalysis" class="navMenu" value="1">Análisis</a></li>
-							<li><a id="opResponsible" class="navMenu">Responsables</a></li>
+							<li><a id="opResponsible" href="/responsibles" class="navMenu">Responsables</a></li>
 							<li id="opLogin" class="dropdown"></li>
 						</ul>
 					</div>
 				</div>
 			</nav>
-			<section id="containerBody"></section>
+			<section id="containerBody">
+				@write(body)
+			</section>
   		</div>
 	  	<div id="foo" class="navbar navbar-inverse navbar-fixed-bottom">
 	  		<table>

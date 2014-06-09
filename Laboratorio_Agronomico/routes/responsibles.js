@@ -1,7 +1,7 @@
 
 var app = require('../app');
 
-exports.responsible = function(req, res){
+exports.responsibles = function(req, res){
 	var query = "SELECT nombre, apellido1, apellido2, correo, puesto, imagen, descripcion FROM persona INNER JOIN usuario ON persona.id_persona = usuario.id_persona";
 	app.connection.query(query, function (err, resp) {
 		if(err)
@@ -9,6 +9,7 @@ exports.responsible = function(req, res){
 		else {
 			if(resp.length > 0) {
 				var name, apell1, apell2, email="", job, image="", description="";
+				var data = [];
 				for (var i in resp) {
 					name = (resp[i].nombre).toString();
 					apell1 = (resp[i].apellido1).toString();
@@ -25,11 +26,11 @@ exports.responsible = function(req, res){
 					if(resp[i].descripcion != null) {
 						description = (resp[i].descripcion).toString();
 					}
-					res.locals({ name: name+" "+apell1+" "+apell2, email: email, job: job, image: image, description: description });
-					res.render('responsibles');
-					console.log("consulta exitosa");
+					var information = [{image: image}, {name: name+" "+apell1+" "+apell2}, {job: job}, {email: email}, {description: description}];
+					data.push(information);
 				}
+				res.render('responsibles', { data: data });
 			}
-		}
+		} 
 	});
 };

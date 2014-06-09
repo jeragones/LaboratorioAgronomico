@@ -6,6 +6,8 @@
 var express = require('express');
 var jshtml = require('jshtml-express');
 var routes = require('./routes');
+var responsibles = require('./routes/responsibles');
+var news = require('./routes/news');
 var http = require('http');
 var path = require('path');
 var mysql = require('mysql');
@@ -34,9 +36,9 @@ connection.connect(function(err) {
 
 app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname, 'views'));
-app.set('connection', connection);
-app.engine('jshtml', jshtml);
-app.set('view engine', 'jshtml');
+app.set('view engine', 'jade');
+//app.engine('jshtml', jshtml);
+//app.set('view engine', 'jshtml');
 app.use(express.favicon());
 app.use(express.logger('dev'));
 app.use(express.json());
@@ -58,7 +60,9 @@ if ('development' == app.get('env')) {
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 app.get('/', routes.index);
-app.get('/responsibles', routes.responsibles);
+app.get('/responsibles', responsibles.responsibles);
+app.get('/news', news.news);
+app.post('/news/notice', news.notice);
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////// EJECUCION DEL SERVIDOR ////////////////////////////////////////////////////////////////
@@ -94,7 +98,7 @@ app.post('/login', function(req, res) {
 	});
 });
 
-app.post('/database', function(req, res) {
+app.post('/database', function(req, res) { 
 	connection.query(req.body.query, function (err, resp) {
 		if(err)
 			console.log("ERROR: CONSULTA A LA BASE DE DATOS");

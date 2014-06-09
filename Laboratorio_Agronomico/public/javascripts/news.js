@@ -1,5 +1,18 @@
+function loadNotice(value) {
+    $.ajax({ 
+        url: 'http://localhost:3000/news/notice',
+        type: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify({ value : value+1 })
+    }).success(function(data) {
+        //window.location='/notice';
+    });
+}
 
 
+
+
+/*
 function addToSideNews(NewsID) {
     var query = 'select * from noticia order by fecha_creacion desc';
     $.ajax({
@@ -102,4 +115,4 @@ function addnewsTobody(newsID) {
             }).error(function() {
             alert("ERROR")
         });
-}
+}*/
