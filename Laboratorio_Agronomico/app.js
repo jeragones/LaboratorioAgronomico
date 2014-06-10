@@ -19,13 +19,10 @@ var app = express();
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 var connection = mysql.createConnection({
-<<<<<<< HEAD
+
 	user:  'Admin',
 	password: 'hufVQcVJypRHpKhb', 
-=======
-	user: /*'root',*/ 'Admin',
-	password: /*'1234',*/ 'hufVQcVJypRHpKhb', 
->>>>>>> 60e9b1c2b86fbc420b641ac3b0d4f5ffce36f189
+
 	host: 'localhost',
 	port: 3306, 
 	database: 'suelosdb'
@@ -66,32 +63,12 @@ if ('development' == app.get('env')) {
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 app.get('/', routes.index);
-<<<<<<< HEAD
 
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-//app.get('/responsibles', routes.responsibles);
-=======
-<<<<<<< HEAD
->>>>>>> 2023f8fe683d9fe3862b640001c9485ee4370bbf
->>>>>>> 60e9b1c2b86fbc420b641ac3b0d4f5ffce36f189
 app.get('/responsibles', responsibles.responsibles);
 app.get('/news', news.news);
 app.get('/analysis', analysis.analysis);
 app.post('/notice', news.notice);
-<<<<<<< HEAD
 
-=======
-<<<<<<< HEAD
-=======
-=======
-//app.get('/responsibles', routes.responsibles);
->>>>>>> 2c00d59511cd07fbda197cbf1c58ac9fb68ddb92
->>>>>>> cefbd3764f310ab52c3a0a35771674e71bee2b60
->>>>>>> 2023f8fe683d9fe3862b640001c9485ee4370bbf
->>>>>>> 60e9b1c2b86fbc420b641ac3b0d4f5ffce36f189
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////// EJECUCION DEL SERVIDOR ////////////////////////////////////////////////////////////////

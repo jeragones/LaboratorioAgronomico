@@ -12,7 +12,8 @@ block containerBody
 						label(for="slpAnalysis") Análisis:
 						select(id="slpAnalysis" class="selectpicker" name="slpAnalysis" disabled="false")
 							
-	div(id="dropzone") 
+	div(id="dropzone" onclick="cargarnormal()") 
 		h3 Soltar archivos aquí
+		input(type="file" id="fileinput" multiple="" name="filedata") 
 	div
 		ul(id="filelist")

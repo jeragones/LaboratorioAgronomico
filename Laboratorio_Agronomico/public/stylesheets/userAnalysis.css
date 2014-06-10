@@ -34,7 +34,10 @@
 	height: 200px;
 	transition: 1s ;
 	border-radius: 30px;
+	cursor: pointer;
 }
+
+
 
 #dropzone:hover {
 	width: 42%;
@@ -52,6 +55,12 @@
 
 #dropzone h3 {
 	padding-top: 85px;
+}
+#dropzone input{
+	padding-left: 20px;
+	padding-top: 40px;
+	
+}
 }
 
 #filelist li {

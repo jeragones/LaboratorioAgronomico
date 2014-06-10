@@ -28,7 +28,7 @@ $(document).ready(function() {
                 return function(e) {
                     var contents = e.target.result;
                     //var rows = contends.split(" ");
-                    alert("mierda" 
+                    alert("mierda" +
                           "Got the file.n" 
                           +"name: " + f.name + "n"
                           +"type: " + f.type + "n"
@@ -43,8 +43,6 @@ $(document).ready(function() {
     } else {
           alert("Failed to load files"); 
     }
-
-
 
 
 
@@ -143,4 +141,8 @@ function loadFile(reader, f) {
     };*/
     reader.readAsText(f);
     return '<li>'+reader.result+'</li>';
+}
+
+function cargarnormal(){
+  return false;
 }
