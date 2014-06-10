@@ -1,12 +1,33 @@
 /*
 $('#dropFile').click(function(e) {
     alert("abrir archivo");
-<<<<<<< HEAD
+
 });*/
 
+function radioAnalysis(category) {
+    
+    /*var query = 'SELECT nombre FROM analisis WHERE categoria="'+category+'"';
+    alert(query);
+    $.ajax({
+        type: 'POST', 
+        data: JSON.stringify({query : query}),
+        contentType: 'application/json',
+        url: url
+    }).success(function(data) {
+        alert(JSON.stringify(data));
+        if(data !== "") {
+            var options = "";
+            for( var i=0; i < data.length; i++) { 
+                 options += '<option>'+(data[i].nombre).toString()+'</option>';
+            }
+            alert(options);
+            //$("#slpAnalysis").prop('disabled', true);
+            $("#slpAnalysis").append(options);
+        }
+        //$("html").html(data);
+    });*/
+}
 
-=======
-});
 
 
 function insertxmldata_azufre(row){
@@ -24,4 +45,3 @@ function insertxmldata_azufre(row){
         });
 	}
 }
->>>>>>> 2c00d59511cd07fbda197cbf1c58ac9fb68ddb92

@@ -1,12 +1,12 @@
 extends index
 block containerBody
 
-	div(class="continer")
-		div(class="row breadcrumb")
-			div(class="col-xs-6 col-md-4 breadcrumb")
+	div(class="container-fluid")
+		div(class="row")
+			div(class="col-xs-6 col-md-4")
 				div(id="newSide" class="container-fluid")
 					each resp, i in data
-						div(class="row panel panel-default breadcrumb newsItemReview" value="#{resp.id_noticia}" onclick="loadNotice(#{resp.id_noticia})")
+						div(class="row panel panel-default breadcrumb newsItemReview" value="#{resp.id_noticia}" onclick="addnewsTobody(#{resp.id_noticia})")
 							div(class="row")
 								form(class="form-inline" role="form")
 									div(class="form-group NewsitemTitle")
@@ -15,7 +15,7 @@ block containerBody
 										h5 #{resp.fecha_creacion.toLocaleDateString("en-US")}
 							div(class="row Newsitemdecrip")
 								h5 #{resp.descripcion}
-					div(class="newspagination")
+					div(class="newspagination") 
 						ul(class="pagination")
 							li(class="disabled")
 								a(href="#") &laquo;

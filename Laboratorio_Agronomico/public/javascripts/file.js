@@ -29,11 +29,11 @@ $(document).ready(function() {
                     var contents = e.target.result;
                     //var rows = contends.split(" ");
                     alert("mierda" 
-                          /*"Got the file.n" 
+                          "Got the file.n" 
                           +"name: " + f.name + "n"
                           +"type: " + f.type + "n"
                           +"size: " + f.size + " bytesn"
-                          + "starts with: " +*/ contents
+                          + "starts with: " /*+ contents*/
                     ); 
                 };
             })(f);

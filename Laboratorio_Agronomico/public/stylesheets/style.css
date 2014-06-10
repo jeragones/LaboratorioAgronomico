@@ -9,7 +9,7 @@ body {
     width: 80%;
     left: 10%;
     background: url(/images/body.png) top left repeat;
-
+    height: 800px;
 }
 
 #logo {
