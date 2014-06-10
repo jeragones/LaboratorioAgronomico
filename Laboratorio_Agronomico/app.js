@@ -69,6 +69,7 @@ app.get('/responsibles', responsibles.responsibles);
 app.get('/news', news.news);
 app.get('/analysis', analysis.analysis);
 app.post('/notice', news.notice);
+app.post('/loadCanton', client.canton);
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
