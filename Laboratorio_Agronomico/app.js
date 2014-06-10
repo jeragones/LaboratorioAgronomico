@@ -9,6 +9,7 @@ var routes = require('./routes');
 var responsibles = require('./routes/responsibles');
 var news = require('./routes/news');
 var analysis = require('./routes/analysis');
+var client = require('./routes/client');
 var http = require('http');
 var path = require('path');
 var mysql = require('mysql');
@@ -63,7 +64,7 @@ if ('development' == app.get('env')) {
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 app.get('/', routes.index);
-
+app.get('/addclient', client.addclient);
 app.get('/responsibles', responsibles.responsibles);
 app.get('/news', news.news);
 app.get('/analysis', analysis.analysis);
@@ -121,6 +122,7 @@ app.post('/database', function(req, res) {
 });
 
 module.exports.connection = connection;
+
 
 /*
 io.on('connection', function(socket, req) {
