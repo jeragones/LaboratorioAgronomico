@@ -20,7 +20,7 @@ exports.index = function(req, res){
 				contact = ['Laboratorio Agronomico', (resp[0].numero).toString(), email];
 				res.render('index', { title: contact[0], number: contact[1], email: contact[2] });
 			}
-		} 
+		}
 	});
 };
 

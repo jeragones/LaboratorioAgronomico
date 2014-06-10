@@ -1,12 +1,11 @@
 extends index
 block containerBody
-	
 	each resp, i in data
 		table(class="tableResponsible")
 			tr
 				td(rowspan="4")
 					img(src="#{data[i][0].image}" class="imgResponsible")
-				td(class="nameResponsible") #{data[i][1].name}	
+				td(class="nameResponsible") #{data[i][1].name}
 			tr
 				td(class="jobResponsible") #{data[i][2].job}
 			tr

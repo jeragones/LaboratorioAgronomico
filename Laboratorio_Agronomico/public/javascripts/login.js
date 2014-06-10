@@ -1,4 +1,38 @@
 $(document).ready(function() {
+	/*$.ajax({ 
+        url: 'http://localhost:3000/session',
+        type: 'GET',
+        contentType: 'application/json',
+        data: JSON.stringify({ value : value })
+    }).success(function(data) {
+        $("#opLogin").append(data);
+    });*/
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
+
+
+/*
 	//localStorage["sessionLAG"] = undefined;
 	if(USUARIO === undefined || USUARIO === "undefined" || USUARIO == null)
 		logout();
@@ -143,4 +177,4 @@ function loginClose() {
 function loginPerfil() {
 	$("#logMenu").slideUp("1500");
 	profileView();
-}
+}*/
