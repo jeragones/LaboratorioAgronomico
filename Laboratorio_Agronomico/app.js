@@ -9,6 +9,8 @@ var routes = require('./routes');
 var responsibles = require('./routes/responsibles');
 var news = require('./routes/news');
 var analysis = require('./routes/analysis');
+var profile = require('./routes/profile');
+var session = require('./routes/session');
 var client = require('./routes/client');
 var http = require('http');
 var path = require('path');
@@ -68,9 +70,16 @@ app.get('/addclient', client.addclient);
 app.get('/responsibles', responsibles.responsibles);
 app.get('/news', news.news);
 app.get('/analysis', analysis.analysis);
+//app.get('/profPrint', profile.print);
+app.get('/session', session.session);
 app.post('/notice', news.notice);
+<<<<<<< HEAD
 app.post('/loadCanton', client.canton);
 
+=======
+//app.post('/login', session.login);
+//app.post('/logout', session.logout);
+>>>>>>> 31fd5b1c50e0aa6f6d94ed3e2feff55bea14d93f
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////// EJECUCION DEL SERVIDOR ////////////////////////////////////////////////////////////////

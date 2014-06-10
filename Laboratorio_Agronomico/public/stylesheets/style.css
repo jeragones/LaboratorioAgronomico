@@ -1,5 +1,6 @@
     /*background: url("../images/net.png") top left repeat;*/
 
+
 body {
     background: url(/images/green_cup.png) top left repeat;
 }
@@ -9,7 +10,7 @@ body {
     width: 80%;
     left: 10%;
     background: url(/images/body.png) top left repeat;
-    height: 800px;
+    height: 120vh;
 }
 
 #logo {
@@ -124,13 +125,6 @@ nav #opLogin a:hover {
 
 /*------------------------------------------  NOTICIAS----------------------*/
 
-.container {
-
-}
-
-.row {
-    margin-top: 40px;
-}
 
 .newsItemSelected{
     width:100%;
