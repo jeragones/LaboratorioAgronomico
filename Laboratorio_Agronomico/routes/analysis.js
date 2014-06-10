@@ -8,7 +8,7 @@ exports.analysis = function(req, res) {
 			console.log("ERROR: CONSULTA A LA BASE DE DATOS");
 		else {
 			if(resp.length > 0) {
-				user = JSON.stringify(resp[0].tipo)
+				user = JSON.stringify(resp[0].tipo) 
 				//console.log(JSON.stringify(resp[0].tipo));
 				switch(user) {
 				case "1":
@@ -21,7 +21,6 @@ exports.analysis = function(req, res) {
 						if(err)
 							console.log("ERROR: CONSULTA A LA BASE DE DATOS");
 						else {
-							console.log("usuario:" +resp[0].categoria);
 				            res.render('userAnalysis', { data: resp, title: "Laboratorio Agronomico Responsables", number: "24606262", email: "labagronomico@itcr.ac.cr" }); 
 						} 
 					});
