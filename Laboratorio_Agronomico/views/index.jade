@@ -49,23 +49,37 @@ html
 							li
 								a(href="/responsibles" class="navMenu") Responsables
 							li(id="opLogin" class="dropdown")
-			
+								if (session)
+									a(onclick="loginMenu()" href="#" class="dropdown-toggle" data-toggle="dropdown") #{name}
+										strong(class="caret")
+									div(id="logMenu" class="dropdown-menu")
+										ul
+											li
+												a(onclick="loginPerfil()") Abrir perfil
+											li
+												a(onclick="loginClose()") Cerrar Sesión
+								else 
+									a(onclick="loginMenu()" href="#" class="dropdown-toggle" data-toggle="dropdown") Iniciar Sesión
+										strong(class="caret")
+									div(id="logMenu" class="dropdown-menu")
+										div(id="frmLogin" class="form-inline" role="form")
+											input(id="txtUser" class="form-control" placeholder="Usuario: / Correo:")
+											input(id="txtPassword" class="form-control" type="password" placeholder="Clave:")
+											button(id="btnLogin" class="btn btn-primary" onclick="validateLogin()" role="button") iniciar
 			block containerBody
 
-		div(id="foo" class="navbar-fixed-bottom")
-			table
+		div(id="foo"  class="navbar-fixed-bottom")
+			table(align= "center")
 				tr
 					td
 						label(class="lblContactInfo") Dirección:
 					td
-						label Alajuela, San Carlos, Santa Clara
+						label(class="info") Alajuela, San Carlos, Santa Clara
 					td
 						label(class="lblContactInfo") Teléfono:
 					td
-						label #{number}
+						label(class="info") #{number}
 					td
 						label(class="lblContactInfo") Correo:
 					td 
 						a(class="contactEmail") #{email}
-					td
-						a #{html}

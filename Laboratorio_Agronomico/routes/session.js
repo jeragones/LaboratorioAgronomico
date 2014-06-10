@@ -41,7 +41,7 @@ function sessionOff() {
 }
 
 exports.login = function(req, res){
-	var user = req.body.txtUser;
+	/*var user = req.body.txtUser;
 	var password = req.body.txtPassword;
 	var query = 'SELECT id_persona, tipo, nombre, apellido1 FROM persona WHERE (usuario LIKE "'+user+'" OR correo LIKE "'+user+'") AND clave LIKE "'+password+'"';
 	app.connection.query(query, function (err, resp) {
@@ -61,11 +61,11 @@ exports.login = function(req, res){
 	            res.send({ html: html });
 	        }
 		}
-	});
+	});*/
 };
 // *********************************************************************************************************************************************************
-exports.logout = function(req, res){
-	var user = req.body.txtUser;
+exports.logout = function(req, res) {
+	/*var user = req.body.txtUser;
 	var password = req.body.txtPassword;
 	var query = 'SELECT id_persona, tipo, nombre, apellido1 FROM persona WHERE (usuario LIKE "'+user+'" OR correo LIKE "'+user+'") AND clave LIKE "'+password+'"';
 	app.connection.query(query, function (err, resp) {
@@ -85,5 +85,5 @@ exports.logout = function(req, res){
 	            res.send({ html: html });
 	        }
 		}
-	});
+	});*/
 };

@@ -11,6 +11,7 @@ var news = require('./routes/news');
 var analysis = require('./routes/analysis');
 var profile = require('./routes/profile');
 var session = require('./routes/session');
+var client = require('./routes/client');
 var http = require('http');
 var path = require('path');
 var mysql = require('mysql');
@@ -21,8 +22,10 @@ var app = express();
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 var connection = mysql.createConnection({
-	user: /*'root',*/ 'Admin',
-	password: /*'1234',*/ 'hufVQcVJypRHpKhb', 
+
+	user:  'Admin',
+	password: 'hufVQcVJypRHpKhb', 
+
 	host: 'localhost',
 	port: 3306, 
 	database: 'suelosdb'
@@ -63,11 +66,12 @@ if ('development' == app.get('env')) {
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 app.get('/', routes.index);
+app.get('/addclient', client.addclient);
 app.get('/responsibles', responsibles.responsibles);
 app.get('/news', news.news);
 app.get('/analysis', analysis.analysis);
-app.get('/profPrint', profile.print);
-//app.get('/session', session.session);
+//app.get('/profPrint', profile.print);
+app.get('/session', session.session);
 app.post('/notice', news.notice);
 //app.post('/login', session.login);
 //app.post('/logout', session.logout);
@@ -123,6 +127,7 @@ app.post('/database', function(req, res) {
 });
 
 module.exports.connection = connection;
+
 
 /*
 io.on('connection', function(socket, req) {

@@ -97,6 +97,9 @@ nav #opLogin a:hover {
     background: url(/images/footer.png) top left repeat;
     box-shadow: 0px 0px 0px #000, 0px 0px 10px #000;
 }
+.info{
+    color: #82A8A6;
+}
 
 .lblContact {
     font-family: 'Ubuntu', sans-serif;
@@ -118,6 +121,7 @@ nav #opLogin a:hover {
     color: #B0C8C7;
     text-decoration: none;
 }
+
 
 /*------------------------------------------  NOTICIAS----------------------*/
 

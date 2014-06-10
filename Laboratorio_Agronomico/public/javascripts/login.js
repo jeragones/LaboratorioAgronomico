@@ -1,38 +1,17 @@
-$(document).ready(function() {
-	/*$.ajax({ 
+$(document).load(function() {
+	
+	$.ajax({ 
         url: 'http://localhost:3000/session',
         type: 'GET',
-        contentType: 'application/json',
-        data: JSON.stringify({ value : value })
+        contentType: 'application/json'
     }).success(function(data) {
         $("#opLogin").append(data);
-    });*/
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    });
 }
 
 
 
-/*
+
 	//localStorage["sessionLAG"] = undefined;
 	if(USUARIO === undefined || USUARIO === "undefined" || USUARIO == null)
 		logout();
