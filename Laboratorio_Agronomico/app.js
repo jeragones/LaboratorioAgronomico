@@ -6,6 +6,7 @@
 var express = require('express');
 //var jshtml = require('jshtml-express');
 var routes = require('./routes');
+var user = require('./routes/user');
 var responsibles = require('./routes/responsibles');
 var news = require('./routes/news');
 var analysis = require('./routes/analysis');
@@ -64,15 +65,24 @@ if ('development' == app.get('env')) {
 ////////////////////////////////////////////// RUTAS DE ARCHIVOS POR EL LADO DEL CLIENTE /////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+function login(req, res, next) {
+	if(req.session.user != null){
+		next();
+	} else {
+		res.redirect('/news');
+	}
+}
+
 app.get('/', routes.index);
 app.get('/addclient', client.addclient);
 app.get('/responsibles', responsibles.responsibles);
 app.get('/news', news.news);
-app.get('/analysis', analysis.analysis);
-app.get('/adminanalysis', analysis.adminanalysis);
-app.get('/clientanalysis', analysis.clientanalysis);
-app.get('/printProfile', profile.printProfile);
+app.get('/analysis', login, analysis.analysis);
+//app.get('/adminanalysis', analysis.analysis);
+//app.get('/clientanalysis', analysis.analysis);
+app.get('/printProfile', login, profile.printProfile);
 app.get('/session', session.session);
+app.post('/logout', session.logout);
 app.post('/notice', news.notice);
 app.post('/login', session.login);
 app.post('/loadCanton', client.canton);

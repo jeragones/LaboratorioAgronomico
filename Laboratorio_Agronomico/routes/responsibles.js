@@ -3,6 +3,19 @@ var app = require('../app');
 //var contact = require('index');
 
 exports.responsibles = function(req, res){
+	//****************************************************************************************************************************
+	var nombre;
+	var session;
+	if(req.session.user) {
+		session=true;
+		if(req.session.user == 2)
+			nombre="Jorge Rojas";
+		else
+			nombre="Fabian Vargas";
+	} else {
+		session = false;
+	}
+	//****************************************************************************************************************************
 	var query = "SELECT nombre, apellido1, apellido2, correo, puesto, imagen, descripcion FROM persona INNER JOIN usuario ON persona.id_persona = usuario.id_persona";
 	app.connection.query(query, function (err, resp) {
 		if(err)
@@ -30,7 +43,7 @@ exports.responsibles = function(req, res){
 					var information = [{image: image}, {name: name+" "+apell1+" "+apell2}, {job: job}, {email: email}, {description: description}];
 					data.push(information);
 				}
-				res.render('responsibles', { data: data, title: "Laboratorio Agronomico Responsables", number: "24606262", email: "labagronomico@itcr.ac.cr" });
+				res.render('responsibles', { data: data, title: "Laboratorio Agronomico Responsables", number: "24606262", email: "labagronomico@itcr.ac.cr", session: session, name: nombre });
 			}
 		} 
 	});

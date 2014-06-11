@@ -2,12 +2,26 @@
 var app = require('../app');
 
 exports.news = function(req, res){
-	var query = "SELECT id_noticia, encabezado, fecha_creacion, descripcion FROM noticia ORDER BY fecha_creacion DESC";
+	//****************************************************************************************************************************
+    var nombre;
+    var session;
+    if(req.session.user) {
+        session=true;
+        if(req.session.user == 2)
+            nombre="Jorge Rojas";
+        else
+            nombre="Fabian Vargas";
+    } else {
+        session = false;
+    }
+    // , session: session, name: nombre
+    //****************************************************************************************************************************
+    var query = "SELECT id_noticia, encabezado, cuerpo, fecha_creacion, descripcion FROM noticia ORDER BY fecha_creacion DESC";
 	app.connection.query(query, function (err, resp) {
 		if(err)
 			console.log("ERROR: CONSULTA A LA BASE DE DATOS");
 		else {
-            res.render('news', { data: resp, title: "Laboratorio Agronomico Responsables", number: "24606262", email: "labagronomico@itcr.ac.cr" }); 
+            res.render('news', { data: resp, title: "Laboratorio Agronomico Responsables", number: "24606262", email: "labagronomico@itcr.ac.cr", session: session, name: nombre }); 
 		} 
 	});
 };

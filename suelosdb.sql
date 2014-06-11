@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-06-2014 a las 20:45:30
+-- Tiempo de generación: 11-06-2014 a las 12:05:56
 -- Versión del servidor: 5.6.16
 -- Versión de PHP: 5.5.11
 
@@ -37,6 +37,23 @@ CREATE TABLE IF NOT EXISTS `analisis` (
   `fecha_actualizacion` date NOT NULL,
   `usuario_actualizacion` varchar(30) NOT NULL,
   PRIMARY KEY (`id_analisis`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `azufre`
+--
+
+CREATE TABLE IF NOT EXISTS `azufre` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `No_Muestra` varchar(11) NOT NULL,
+  `ID_Muestra` varchar(128) DEFAULT 'Unknown',
+  `Type_Muestra` varchar(128) DEFAULT 'Unknown',
+  `Fosforo` varchar(128) DEFAULT 'N.D',
+  `Abs` varchar(128) NOT NULL,
+  `Wavelengtn` varchar(128) NOT NULL,
+  PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -81,9 +98,9 @@ INSERT INTO `canton` (`id_canton`, `nombre`, `id_provincia`) VALUES
 
 CREATE TABLE IF NOT EXISTS `cliente` (
   `id_cliente` int(11) NOT NULL AUTO_INCREMENT,
-  `id_provincia` int(1) NOT NULL,
-  `id_canton` int(2) NOT NULL,
-  `id_distrito` int(3) NOT NULL,
+  `provincia` varchar(50) NOT NULL,
+  `canton` varchar(50) NOT NULL,
+  `distrito` varchar(50) NOT NULL,
   `direccion` varchar(100) NOT NULL,
   `id_persona` int(11) NOT NULL,
   `fecha_creacion` date NOT NULL,
@@ -97,9 +114,9 @@ CREATE TABLE IF NOT EXISTS `cliente` (
 -- Volcado de datos para la tabla `cliente`
 --
 
-INSERT INTO `cliente` (`id_cliente`, `id_provincia`, `id_canton`, `id_distrito`, `direccion`, `id_persona`, `fecha_creacion`, `usuario_creacion`, `fecha_actualizacion`, `usuario_actualizacion`) VALUES
-(1, 0, 0, 0, 'Sucre, 200mts Sureste y 50mts Noroeste del salon comunal', 2, '2014-04-14', 'admin', '2014-04-14', 'admin'),
-(2, 0, 0, 0, 'Muelle, 20mts Norte del Cen-cinai, frente a empacadora grupo coral', 4, '2014-04-14', 'admin', '2014-04-14', 'admin');
+INSERT INTO `cliente` (`id_cliente`, `provincia`, `canton`, `distrito`, `direccion`, `id_persona`, `fecha_creacion`, `usuario_creacion`, `fecha_actualizacion`, `usuario_actualizacion`) VALUES
+(1, 'Alajuela', 'San Carlos', 'Quesada', 'Sucre, 200mts Sureste y 50mts Noroeste del salon comunal', 2, '2014-04-14', 'admin', '2014-04-14', 'admin'),
+(2, '0', '0', '0', 'Muelle, 20mts Norte del Cen-cinai, frente a empacadora grupo coral', 4, '2014-04-14', 'admin', '2014-04-14', 'admin');
 
 -- --------------------------------------------------------
 
@@ -154,6 +171,23 @@ CREATE TABLE IF NOT EXISTS `factura` (
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `muestra`
+--
+
+CREATE TABLE IF NOT EXISTS `muestra` (
+  `codigo` varchar(11) NOT NULL,
+  `campo` varchar(100) NOT NULL,
+  `id_cliente` int(11) NOT NULL,
+  `fecha_creacion` date NOT NULL,
+  `usuario_creacion` varchar(30) NOT NULL,
+  `fecha_actualizacion` date NOT NULL,
+  `usuario_actualizacion` varchar(30) NOT NULL,
+  PRIMARY KEY (`codigo`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `muestra_analisis`
 --
 
@@ -181,12 +215,21 @@ CREATE TABLE IF NOT EXISTS `noticia` (
   `id_noticia` int(11) NOT NULL AUTO_INCREMENT,
   `encabezado` varchar(30) NOT NULL,
   `descripcion` varchar(500) NOT NULL,
+  `cuerpo` text NOT NULL,
   `fecha_creacion` date NOT NULL,
   `usuario_creacion` varchar(30) NOT NULL,
   `fecha_actualizacion` date NOT NULL,
   `usuario_actualizacion` varchar(30) NOT NULL,
   PRIMARY KEY (`id_noticia`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Volcado de datos para la tabla `noticia`
+--
+
+INSERT INTO `noticia` (`id_noticia`, `encabezado`, `descripcion`, `cuerpo`, `fecha_creacion`, `usuario_creacion`, `fecha_actualizacion`, `usuario_actualizacion`) VALUES
+(1, 'Importación de café a Costa Ri', 'Un polémico proyecto de eliminación de basura en San Ramón, Alajuela, que se discutía desde hacía cuatro años, fue sepultado ayer por el Concejo Municipal.', 'Un polémico proyecto de eliminación de basura en San Ramón, Alajuela, que se discutía desde hacía cuatro años, fue sepultado ayer por el Concejo Municipal.', '2014-06-09', 'Admin', '2014-06-09', 'Admin'),
+(2, 'San Ramón sepulta polémico pla', 'Un polémico proyecto de eliminación de basura en San Ramón, Alajuela, que se discutía desde hacía cuatro años, fue sepultado ayer por el Concejo Municipal.', 'Un polémico proyecto de eliminación de basura en San Ramón, Alajuela, que se discutía desde hacía cuatro años, fue sepultado ayer por el Concejo Municipal.', '2014-06-10', 'Admin', '2014-06-10', 'Admin');
 
 -- --------------------------------------------------------
 
@@ -200,6 +243,7 @@ CREATE TABLE IF NOT EXISTS `persona` (
   `apellido1` varchar(30) NOT NULL,
   `apellido2` varchar(30) NOT NULL,
   `correo` varchar(30) DEFAULT NULL,
+  `telefono` int(8) NOT NULL,
   `usuario` varchar(15) NOT NULL,
   `clave` varchar(15) NOT NULL,
   `tipo` int(1) NOT NULL,
@@ -214,12 +258,12 @@ CREATE TABLE IF NOT EXISTS `persona` (
 -- Volcado de datos para la tabla `persona`
 --
 
-INSERT INTO `persona` (`id_persona`, `nombre`, `apellido1`, `apellido2`, `correo`, `usuario`, `clave`, `tipo`, `fecha_creacion`, `usuario_creacion`, `fecha_actualizacion`, `usuario_actualizacion`) VALUES
-(2, 'Jorge', 'Rojas', 'Aragonés', 'jeragones@gmail.com', 'jeragones', '1234', 3, '2014-04-14', 'fabiva', '2014-04-14', 'jeragones'),
-(4, 'Daniel', 'Berrocal', 'Ramirez', NULL, 'jdbr123', '12345', 3, '2014-04-14', 'fabiva', '2014-04-14', 'fabiva'),
-(6, 'Fabian ', 'Vargas', 'Hernández', 'fabian@itcr.ac.cr', 'fabiva', '12345', 2, '2014-04-14', 'Admin', '2014-04-14', 'Admin'),
-(7, 'Admin', 'Admin', 'Admin', 'labagronomico@itcr.ac.cr', 'Admin', 'admin123', 1, '2014-04-21', 'Admin', '2014-04-21', 'Admin'),
-(8, 'Sailim', 'Rojas', 'Valerio', 'sailim@itcr.ac.cr', 'sailim', '12345', 2, '2014-05-18', 'Admin', '2014-05-18', 'Admin');
+INSERT INTO `persona` (`id_persona`, `nombre`, `apellido1`, `apellido2`, `correo`, `telefono`, `usuario`, `clave`, `tipo`, `fecha_creacion`, `usuario_creacion`, `fecha_actualizacion`, `usuario_actualizacion`) VALUES
+(2, 'Jorge', 'Rojas', 'Aragonés', 'jeragones@gmail.com', 86758925, 'jeragones', '1234', 3, '2014-04-14', 'fabiva', '2014-04-14', 'jeragones'),
+(4, 'Daniel', 'Berrocal', 'Ramirez', NULL, 81952655, 'jdbr123', '12345', 3, '2014-04-14', 'fabiva', '2014-04-14', 'fabiva'),
+(6, 'Fabian ', 'Vargas', 'Hernández', 'fabian@itcr.ac.cr', 24601832, 'fabiva', '12345', 2, '2014-04-14', 'Admin', '2014-04-14', 'Admin'),
+(7, 'Admin', 'Admin', 'Admin', 'labagronomico@itcr.ac.cr', 89658474, 'Admin', 'admin123', 1, '2014-04-21', 'Admin', '2014-04-21', 'Admin'),
+(8, 'Sailim', 'Rojas', 'Valerio', 'sailim@itcr.ac.cr', 87325821, 'sailim', '12345', 2, '2014-05-18', 'Admin', '2014-05-18', 'Admin');
 
 -- --------------------------------------------------------
 
@@ -348,39 +392,8 @@ CREATE TABLE IF NOT EXISTS `usuario` (
 --
 
 INSERT INTO `usuario` (`id_usuario`, `puesto`, `imagen`, `Descripcion`, `id_persona`, `fecha_creacion`, `usuario_creacion`, `fecha_actualizacion`, `usuario_actualizacion`) VALUES
-(1, 'Asistente', NULL, NULL, 6, '2014-04-14', 'admin', '2014-04-14', 'admin'),
-(2, 'Encargada de Laboratorio', NULL, 'Administrativa', 8, '2014-05-18', 'admin', '2014-05-18', 'admin');
-
-
-
--- ////////////////////////////////////////// Muestras \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
--- 
-CREATE TABLE IF NOT EXISTS `muestra` (
-  `codigo` varchar(11) NOT NULL,
-  `campo` varchar(100) NOT NULL,
-  `id_cliente` int(11) NOT NULL,
-  `fecha_creacion` date NOT NULL,
-  `usuario_creacion` varchar(30) NOT NULL,
-  `fecha_actualizacion` date NOT NULL,
-  `usuario_actualizacion` varchar(30) NOT NULL,
-  PRIMARY KEY (`codigo`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- ////////////////////////////////////////// Azufre \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
--- se ingresa datos del xml referentes a muchas muestras donde cada muestra refiere informacionn de la misma
-
-Create table IF Not exists `Azufre`(
-	`ID` int(11) primary key NOT NULL AUTO_INCREMENT,
-	`No_Muestra` varchar(11) NOT NULL, -- 
-	`ID_Muestra` varchar(128) DEFAULT 'Unknown',
-	`Type_Muestra` varchar(128) DEFAULT 'Unknown',
-	`Fosforo` varchar(128) DEFAULT 'N.D',
-	`Abs` varchar(128) NOT NULL,
-	`Wavelengtn` varchar(128) NOT NULL
-);
-
-
-select * from Azufre
+(1, 'Asistente', '/images/Administrator.png', NULL, 6, '2014-04-14', 'Admin', '2014-06-11', 'Admin'),
+(2, 'Asistente de Laboratorio', '/images/Administrator.png', 'Administrativa', 8, '2014-05-18', 'Admin', '2014-06-11', 'Admin');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

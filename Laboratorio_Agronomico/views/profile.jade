@@ -3,268 +3,65 @@ block containerBody
 	section(id="profSection")
 		article(id="profInformation")
 			table(class="profTable")
-				if type == 1
+				if type == 2 
 					tr
 						td(class="profTd")
-							img(src="+image+" id="profImage" class="img-circle")
-						td(class="profTd")
-							h4 #{user}
-					tr
-						td(class="profTd")
-							h3 Nombre:
-						td(class="profTd")
-							h4 #{name+ +name1+ +name2}
-					tr
-						td(class="profTd")
-							h3 Correo:
-						td(class="profTd")
-							h4 #{email}
-					tr
-						td(class="profTd")
-							h3 Teléfono:
-						td(class="profTd")
-							h4 #{phone}
+							img(src="#{data2[0].imagen}" id="profImage" class="img-circle")
+				tr
+					td(class="profTd")
+						h3 Nombre:
+					td(class="profTd")
+						h4 #{data1[0].nombre} #{data1[0].apellido1} #{data1[0].apellido2}
+				tr
+					td(class="profTd")
+						h3 Correo:
+					td(class="profTd")
+						h4 #{data1[0].correo}
+				tr
+					td(class="profTd")
+						h3 Teléfono:
+					td(class="profTd")
+						h4 #{data1[0].telefono}
+				tr
+					td(class="profTd")
+						h3 Usuario:
+					td(class="profTd")
+						h4 #{data1[0].usuario}
 				if type == 2
 					tr
 						td(class="profTd")
 							h3 Puesto:
 						td(class="profTd")
-							h4 #{job}
-					if description != ""
-						tr
-							td(class="profTd")
-								h3 Descripción:
-							td(class="profTd")
-								h4 #{description}
-					if type == 3
-						tr
-							td(class="profTd")
-								h3 Provincia:
-							td(class="profTd")
-								h4 #{province}
-						tr
-							td(class="profTd")
-								h3 Cantón:
-							td(class="profTd")
-								h4 #{canton}
-						tr
-							td(class="profTd")
-								h3 Distrito:
-							td(class="profTd")
-								h4 #{district}
-						tr 
-							td(class="profTd")
-								h3 Dirección:
-							td(class="profTd")
-								h4 #{direction}
+							h4 #{data2[0].puesto}
+					//if data2[0].descripcion != ""
+					tr
+						td(class="profTd")
+							h3 Descripción:
+						td(class="profTd")
+							h4 #{data2[0].descripcion}
+				if type == 3
+					tr
+						td(class="profTd")
+							h3 Provincia:
+						td(class="profTd")
+							h4 #{data2[0].provincia}
+					tr
+						td(class="profTd")
+							h3 Cantón:
+						td(class="profTd")
+							h4 #{data2[0].canton}
+					tr
+						td(class="profTd")
+							h3 Distrito:
+						td(class="profTd")
+							h4 #{data2[0].distrito}
+					tr 
+						td(class="profTd")
+							h3 Dirección:
+						td(class="profTd")
+							h4 #{data2[0].direccion}
 				tr
 					td(colspan="2" class="profTd")
 						button(class="btn btn-primary" onclick="modProfile()" role="button")
 							span(class="glyphicon glyphicon-pencil")
 							| &nbsp;&nbsp;Editar
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//function modProfile() {
-	var result="";
-	result  +=  section id="profSection"  +
-					article id="profInformation"  +
-  						table class="profTable"  +
-  							tr  +
-  								td class="profTd"  +
-  									div class="form-group"  +
-    									label for="profTxtName" Nombre/label  +
-    									input type="text" class="form-control" id="profTxtName" value="+name+" placeholder="Nombre"  +
-  									/div  +
-								
-  							
-  							tr  +
-  								td class="profTd"  +
-  									div class="form-group"  +
-    									label for="profTxtApell1" Primer Apellido/label  +
-    									input type="text" class="form-control" id="profTxtApell1" value="+name1+" placeholder="Apellido"  +
-  									/div  +
-								
-  							
-  							tr  +
-  								td class="profTd"  +
-  									div class="form-group"  +
-    									label for="profTxtApell2" Segundo Apellido/label  +
-    									input type="text" class="form-control" id="profTxtApell2" value="+name2+" placeholder="Apellido"  +
-  									/div  +
-								
-  							
-  							tr  +
-  								td class="profTd"  +
-  									div class="form-group"  +
-    									label for="profTxtEmail" Correo Electrónico/label  +
-    									input type="email" class="form-control" id="profTxtEmail" value="+email+" placeholder="Correo"  +
-  									/div  +
-								
-  							
-  							tr  +
-  								td class="profTd"  +
-  									div class="form-group"  +
-    									label for="profTxtOldPass" Contraseña Actual/label  +
-    									input type="password" class="form-control" id="profTxtOldPass" placeholder="Contraseña Actual"  +
-  									/div  +
-								
-  							
-  							tr  +
-  								td class="profTd"  +
-  									div class="form-group"  +
-    									label for="profTxtNewPass" Nueva Contraseña/label  +
-    									input type="password" class="form-control" id="profTxtNewPass" placeholder="Nueva Contraseña"  +
-  									/div  +
-								
-  							
-  							tr  +
-  								td class="profTd"  +
-  									div class="form-group"  +
-    									label for="profTxtRepPass" Repetir Contraseña/label  +
-    									input type="password" class="form-control" id="profTxtRepPass" placeholder="Repetir Contraseña"  +
-  									/div  +
-								
-  							
-  							tr  +
-  								td class="profTd"  +
-  									div class="form-group"  +
-    									label for="profTxtPhone" Teléfono/label  +
-    									input type="text" class="form-control" id="profTxtPhone" value="+phone+" placeholder="Teléfono"  +
-  									/div  +
-								
-  							
-
-	if(id2 === "2") {
-		result  +=  tr  +
-						td class="profTd"  +
-							div class="form-group"  +
-								label for="profTxtJob" Puesto/label  +
-								input type="text" class="form-control" id="profTxtJob" value="+job+" disabled  +
-							/div  +
-						
-					
-					tr  +
-						td class="profTd"  +
-							div class="form-group"  +
-								label for="profFileImage" Imagen/label  +
-								input type="file" class="form-control" id="profFileImage" value="+image+"  +
-							/div  +
-						
-					
-					tr  +
-						td class="profTd"  +
-							div class="form-group"  +
-								label for="profTxtDescription" Dirección/label  +
-								textarea id="profTxtDescription" rows="4" cols="60" class="form-control" +description+/textarea  +
-							/div  +
-					
-				
-	} else if(id2 === "3") {
-		result  +=  tr  +
-						td class="profTd"  +
-							div class="form-group"  +
-								label for="profCmbProvince" Provincia/label  +
-								select id="profCmbProvince" onchange="selectProvince()" class="form-control selectpicker" data-container="body" data-live-search="true" /select  +
-							/div  +
-						
-					
-					tr  +
-						td class="profTd"  +
-							div class="form-group"  +
-								label for="profCmbCanton" Cantón/label  +
-								select id="profCmbCanton" onchange="selectCanton()" class="form-control selectpicker" data-container="body" data-live-search="true" /select  +
-							/div  +
-						
-					
-					tr  +
-						td class="profTd"  +
-							div class="form-group"  +
-								label for="profCmbDistrict" Distrito/label  +
-								select id="profCmbDistrict" class="form-control selectpicker" data-container="body" data-live-search="true" /select  +
-							/div  +
-						
-					
-					tr  +
-						td class="profTd"  +
-							div class="form-group"  +
-								label for="profTxtDirection" Dirección/label  +
-								textarea id="profTxtDirection" rows="4" cols="60" class="form-control" +direction+/textarea  +
-							/div  +
-						
-					
-		loadProvince("#profCmbProvince");
-		$(".body").css("height","160vh");
-	}
-
-	result  +=  tr  +
-					td class="profTd"  +
-						button type="button" class="btn btn-success" onclick="modifyProfile()"  +
-							span class="glyphicon glyphicon-floppy-disk" /span &nbsp;&nbsp;Guardar +
-						/button  +
-						button type="button" class="btn btn-danger" onclick="profileView()"  +
-							span class="glyphicon glyphicon-ban-circle" /span &nbsp;&nbsp;Cancelar +
-						/button  +
-					
-				 
-				/table  +
-				/article  +
-				/section ;

@@ -4,16 +4,12 @@
 
 #profSection {
     float:  left;
+    margin-left: 4%;
 }
 
 #profInformation {
     padding: 10px;
-    border-color: #34352D;
-    border-style: solid;
-    border-radius: 9px;
-}
-
-#profTable {
+    
 }
 
 .profTd {  

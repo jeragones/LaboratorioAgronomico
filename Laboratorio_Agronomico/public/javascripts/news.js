@@ -105,7 +105,7 @@ function addnewsTobody(newsID) {
                                      '<div class="form-group pull-right"><h5>'+rowdate.toLocaleDateString("en-US")+'</h5></div>'+
                                 '</form>'+
                                 '<div class="panel-footer">'+
-                                    '<p>'+row.descripcion+'</p>'+
+                                    '<p>'+row.cuerpo+'</p>'+
                                 '</div>'
                                 ); addToSideNews(data[i].id_noticia);
                         }

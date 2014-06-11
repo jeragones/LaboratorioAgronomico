@@ -12,13 +12,31 @@ function login() {
     	$("#opLogin").append('<a onclick="loginMenu()" href="#" class="dropdown-toggle" data-toggle="dropdown">'+data.name+'<strong class="caret"></strong></a>' +
 								'<div id="logMenu" class="dropdown-menu">' +
 									'<ul>' +
-										'<li><a onclick="">Abrir perfil</a></li>' +
-										'<li><a onclick="">Cerrar Sesión</a></li>' +
+										'<li><a href="/printProfile">Abrir perfil</a></li>' +
+										'<li><a onclick="logout()">Cerrar Sesión</a></li>' +
 									'</ul>' +
 								'</div>');
     });
 }
 
+function logout() {
+	$("#logMenu").slideUp("1500");
+	$.ajax({ 
+        url: 'http://localhost:3000/logout',
+        type: 'POST',
+        contentType: 'application/json'
+    }).success(function() {
+    	$("#opLogin").empty();
+    	$("#opLogin").append('<a onclick="loginMenu()" href="#" class="dropdown-toggle" data-toggle="dropdown">Iniciar Sesión<strong class="caret"></strong></a>' +
+								'<div id="logMenu" class="dropdown-menu">' +
+								    '<div id="frmLogin" class="form-inline" role="form">' +
+								        '<input id="txtUser" class="form-control" placeholder="Usuario: / Correo:">' +
+								        '<input id="txtPassword" class="form-control" type="password" placeholder="Clave:">' +
+								        '<button id="btnLogin" class="btn btn-primary" onclick="login()" role="button">iniciar</button>' +
+								    '</div>' +
+								'</div>');
+    });
+}
 
 /*
 

@@ -1,7 +1,6 @@
 var app = require('../app');
 
 exports.session = function(req, res) {
-	console.log(req.session.user);
 	if(req.session.user) {
 		var query = 'SELECT nombre, apellido1 FROM persona WHERE id_persona = '+req.session.user;
 		app.connection.query(query, function (err, resp) {
@@ -22,9 +21,7 @@ exports.session = function(req, res) {
 exports.login = function(req, res){
 	var user = req.body.user;
 	var password = req.body.pass;
-	console.log("usurio: "+user+" pass: "+password);
 	var query = 'SELECT id_persona, tipo, nombre, apellido1 FROM persona WHERE (usuario LIKE "'+user+'" OR correo LIKE "'+user+'") AND clave LIKE "'+password+'"';
-	console.log(query);
 	app.connection.query(query, function (err, resp) {
 		if(err)
 			console.log("ERROR: CONSULTA A LA BASE DE DATOS");
@@ -39,6 +36,9 @@ exports.login = function(req, res){
 };
 // *********************************************************************************************************************************************************
 exports.logout = function(req, res) {
+	delete req.session.user;
+	console.log("si se cerro sesion");
+	res.redirect("index", { title: "Laboratorio Agronomico Responsables", number: "24606262", email: "labagronomico@itcr.ac.cr" });
 	/*var user = req.body.txtUser;
 	var password = req.body.txtPassword;
 	var query = 'SELECT id_persona, tipo, nombre, apellido1 FROM persona WHERE (usuario LIKE "'+user+'" OR correo LIKE "'+user+'") AND clave LIKE "'+password+'"';
