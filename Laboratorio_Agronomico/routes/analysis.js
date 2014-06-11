@@ -1,21 +1,25 @@
 var app = require('../app');
 
 exports.analysis = function(req, res) {
-	var user = "fabiva";//req.session.user;
+	var user = req.session.user;
 	var query = "SELECT tipo FROM persona WHERE usuario='"+user+"'";
 	app.connection.query(query, function (err, resp) {
 		if(err)
 			console.log("ERROR: CONSULTA A LA BASE DE DATOS");
 		else {
 			if(resp.length > 0) {
-				user = JSON.stringify(resp[0].tipo) 
+				console.log(resp[0].tipo);
+				//user = JSON.stringify(resp[0].tipo) 
 				//console.log(JSON.stringify(resp[0].tipo));
 				switch(user) {
 				case "1":
-					admin(req, res);
+					console.log("administrador");
+					res.render('adminAnalysis', {});
 					break;
 				case "2":
-					console.log("si entro");
+					console.log("usuario");
+					res.render('adminAnalysis', {});
+					/*console.log("si entro");
 					query = "SELECT DISTINCT categoria FROM analisis ORDER BY categoria DESC";
 					app.connection.query(query, function (err, resp) {
 						if(err)
@@ -23,14 +27,18 @@ exports.analysis = function(req, res) {
 						else {
 				            res.render('userAnalysis', { data: resp, title: "Laboratorio Agronomico Responsables", number: "24606262", email: "labagronomico@itcr.ac.cr" }); 
 						} 
-					});
+					});*/
 					break;
 				case "3":
-					client(req, res);
+					console.log("cliente");
+					res.render('clientanalysis', {});
+					//client(req, res);
 					break;
 				default:
-					visit(req, res);
+					//visit(req, res);
 				}
+				//res.render('adminAnalysis', {});
+				//res.render('userAnalysis', { data: resp, title: "Laboratorio Agronomico Responsables", number: "24606262", email: "labagronomico@itcr.ac.cr" }); 
 				
 			}
 			//res.render('userAnalysis', { data: resp, title: "Laboratorio Agronomico Responsables", number: "24606262", email: "labagronomico@itcr.ac.cr" }); 
