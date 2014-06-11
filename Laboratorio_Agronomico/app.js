@@ -50,8 +50,8 @@ app.use(express.logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded());
 app.use(express.methodOverride());
-app.use(express.cookieParser()); 
-app.use(express.session({secret: 'session1234567890'}));
+app.use(express.cookieParser('session1234567890')); 
+app.use(express.session());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'views')));
@@ -73,7 +73,7 @@ app.get('/analysis', analysis.analysis);
 //app.get('/profPrint', profile.print);
 app.get('/session', session.session);
 app.post('/notice', news.notice);
-//app.post('/login', session.login);
+app.post('/login', session.login);
 //app.post('/logout', session.logout);
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

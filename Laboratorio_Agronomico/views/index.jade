@@ -55,17 +55,17 @@ html
 									div(id="logMenu" class="dropdown-menu")
 										ul
 											li
-												a(onclick="loginPerfil()") Abrir perfil
+												a(onclick="") Abrir perfil
 											li
 												a(onclick="loginClose()") Cerrar Sesión
 								else 
-									a(onclick="loginMenu()" href="#" class="dropdown-toggle" data-toggle="dropdown") Iniciar Sesión
-										strong(class="caret")
+									a(onclick="loginMenu()" class="dropdown-toggle" data-toggle="dropdown") Iniciar Sesión
+										strong(class="caret") 
 									div(id="logMenu" class="dropdown-menu")
 										div(id="frmLogin" class="form-inline" role="form")
 											input(id="txtUser" class="form-control" placeholder="Usuario: / Correo:")
 											input(id="txtPassword" class="form-control" type="password" placeholder="Clave:")
-											button(id="btnLogin" class="btn btn-primary" onclick="validateLogin()" role="button") iniciar
+											button(id="btnLogin" class="btn btn-primary" onclick="login()" role="button") iniciar
 			block containerBody
 
 		div(id="foo"  class="navbar-fixed-bottom")

@@ -7,9 +7,10 @@ var app = require('../app');
 
 exports.index = function(req, res){
 	var session, query;
-	if(req.session.user) {
+	var user = req.session.user
+	if(user) {
 		session = true;
-		query = 'SELECT nombre, apellido1 FROM persona WHERE usuario="'+req.session.user+'"';
+		query = 'SELECT nombre, apellido1 FROM persona WHERE usuario="'+user+'"';
 	} else {
 		session = false;
 	}
@@ -23,10 +24,22 @@ exports.index = function(req, res){
 				var email = "";
 				if(resp[0].correo != null)
 					email = (resp[0].correo).toString()
-				res.render('index', { title: 'Laboratorio Agronomico', number: (resp[0].numero).toString(), email: email, session:  });
+				if(session) {
+					query = 'SELECT nombre, apellido1 FROM persona WHERE usuario LIKE "'+user+'"';
+					app.connection.query(query, function (err, resp) {
+						if(err)
+							console.log("ERROR: CONSULTA A LA BASE DE DATOS");
+						else {
+							if(resp.length > 0) {
+								var name = resp[0].nombre +" "+ resp[0].apellido1;
+								res.render('index', { title: 'Laboratorio Agronomico', number: (resp[0].numero).toString(), email: email, session: session, name: name });
+							}
+						}
+					});
+				} else {
+					res.render('index', { title: 'Laboratorio Agronomico', number: (resp[0].numero).toString(), email: email, session: session });
+				}
 			}
 		}
 	});
 };
-
-//module.exports.contact = contact;

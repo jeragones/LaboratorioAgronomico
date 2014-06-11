@@ -1,14 +1,33 @@
-$(document).load(function() {
+function login() {
+	var user = $("#txtUser").val();
+	var pass = $("#txtPassword").val();
+	$.ajax({ 
+        url: 'http://localhost:3000/login',
+        type: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify({ user: user , pass: pass })
+    });
+}
+
+//$(document).load(function() {
+	/*$("#btnMnuLogin").click(function() {
+		$("#logMenu").slideDown("1500");
+		$(document).mouseup(function (e) {
+		    if (!$("#logMenu").is(e.target) && $("#logMenu").has(e.target).length === 0)
+		        $("#logMenu").slideUp("1500"); 
+		});
+	});*/
 	
+	/*
 	$.ajax({ 
         url: 'http://localhost:3000/session',
         type: 'GET',
         contentType: 'application/json'
     }).success(function(data) {
         $("#opLogin").append(data);
-    });
-}
-
+    });*/
+//}
+/*
 
 
 
@@ -138,15 +157,16 @@ function logout() {
 						'</div>'
 	);
 	$("#containerBody").load("news.html");
-}
+}*/
 
 function loginMenu() {
 	$("#logMenu").slideDown("1500");
 	$(document).mouseup(function (e) {
 	    if (!$("#logMenu").is(e.target) && $("#logMenu").has(e.target).length === 0)
-	        $("#logMenu").slideUp("1500");
+	        $("#logMenu").slideUp("1500"); 
 	});
 }
+
 
 function loginClose() {
 	$("#logMenu").slideUp("1500");
@@ -156,4 +176,4 @@ function loginClose() {
 function loginPerfil() {
 	$("#logMenu").slideUp("1500");
 	profileView();
-}*/
+}
