@@ -23,7 +23,7 @@ exports.index = function(req, res){
 				var email = "";
 				if(resp[0].correo != null)
 					email = (resp[0].correo).toString()
-				res.render('index', { title: 'Laboratorio Agronomico', number: (resp[0].numero).toString(), email: email, session:  });
+				res.render('index', { title: 'Laboratorio Agronomico', number: (resp[0].numero).toString(), email: email, session: true });
 			}
 		}
 	});
