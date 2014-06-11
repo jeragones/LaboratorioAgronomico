@@ -5,6 +5,20 @@ body {
     background: url(/images/green_cup.png) top left repeat;
 }
 
+/*------------------------------------------  GLOBAL----------------------*/
+
+.Title{
+    font-weight: bold;
+}
+
+.Left{
+    text-align: left;
+}
+
+.Center{
+    text-align: center;
+}
+
 .body {
     position: relative;
     width: 80%;

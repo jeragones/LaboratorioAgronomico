@@ -55,3 +55,11 @@ function visit(req, res) {
 };
 
 // delete req.session.user;
+
+exports.adminanalysis= function(req, res) {
+	res.render('adminAnalysis', {}); 
+	};
+
+exports.clientanalysis= function(req, res) {
+	res.render('clientanalysis', {}); 
+	};

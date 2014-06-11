@@ -3,7 +3,7 @@ var app = require('../app');
 exports.session = function(req, res) {
 	console.log(req.session.user);
 	if(req.session.user) {
-		var query = 'SELECT nombre, apellido1 FROM persona WHERE (usuario LIKE "'+req.session.user+'"';
+		var query = 'SELECT nombre, apellido1 FROM persona WHERE id_persona = '+req.session.user;
 		app.connection.query(query, function (err, resp) {
 			if(err)
 				console.log("ERROR: CONSULTA A LA BASE DE DATOS");
@@ -30,13 +30,9 @@ exports.login = function(req, res){
 			console.log("ERROR: CONSULTA A LA BASE DE DATOS");
 		else {
 			if(resp.length > 0) {
-				req.session.user = user;
+				req.session.user = resp[0].id_persona;
 				var name = resp[0].nombre +" "+ resp[0].apellido1;
-				console.log("si existe un usuario: "+req.session.user);
-				res.render('index', { title: 'Laboratorio Agronomico', number: "24606262", email: "labagronomico@itcr.ac.cr", session: true, name: name });
-			} else {
-				console.log("no existe un usuario");
-				res.render('index', { title: 'Laboratorio Agronomico', number: "24606262", email: "labagronomico@itcr.ac.cr", session: true, name: "jorge rojas" });
+				res.send({name: name});
 			}
 	    }
 	});

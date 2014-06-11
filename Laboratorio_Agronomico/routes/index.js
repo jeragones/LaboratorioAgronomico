@@ -7,7 +7,8 @@ var app = require('../app');
 
 exports.index = function(req, res){
 	var session, query;
-	var user = req.session.user
+	var user = req.session.user;
+	console.log(user);
 	if(user) {
 		session = true;
 		query = 'SELECT nombre, apellido1 FROM persona WHERE usuario="'+user+'"';
@@ -23,7 +24,8 @@ exports.index = function(req, res){
 			if(resp.length > 0) {
 				var email = "";
 				if(resp[0].correo != null)
-					email = (resp[0].correo).toString()
+					email = (resp[0].correo).toString();
+				var number = (resp[0].numero).toString();
 				if(session) {
 					query = 'SELECT nombre, apellido1 FROM persona WHERE usuario LIKE "'+user+'"';
 					app.connection.query(query, function (err, resp) {
@@ -32,12 +34,12 @@ exports.index = function(req, res){
 						else {
 							if(resp.length > 0) {
 								var name = resp[0].nombre +" "+ resp[0].apellido1;
-								res.render('index', { title: 'Laboratorio Agronomico', number: (resp[0].numero).toString(), email: email, session: session, name: name });
+								res.render('index', { title: 'Laboratorio Agronomico', number: number, email: email, session: session, name: name });
 							}
 						}
 					});
 				} else {
-					res.render('index', { title: 'Laboratorio Agronomico', number: (resp[0].numero).toString(), email: email, session: session });
+					res.render('index', { title: 'Laboratorio Agronomico', number: number, email: email, session: session });
 				}
 			}
 		}

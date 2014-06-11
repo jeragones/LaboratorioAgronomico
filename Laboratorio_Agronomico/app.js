@@ -23,9 +23,8 @@ var app = express();
 
 var connection = mysql.createConnection({
 
-	user:  'Admin',
-	password: 'hufVQcVJypRHpKhb', 
-
+	user: /*'root',*/ 'Admin',
+	password: /*'1234',*/ 'hufVQcVJypRHpKhb', 
 	host: 'localhost',
 	port: 3306, 
 	database: 'suelosdb'
@@ -70,10 +69,14 @@ app.get('/addclient', client.addclient);
 app.get('/responsibles', responsibles.responsibles);
 app.get('/news', news.news);
 app.get('/analysis', analysis.analysis);
-//app.get('/profPrint', profile.print);
+app.get('/adminanalysis', analysis.adminanalysis);
+app.get('/clientanalysis', analysis.clientanalysis);
+app.get('/printProfile', profile.printProfile);
 app.get('/session', session.session);
 app.post('/notice', news.notice);
 app.post('/login', session.login);
+app.post('/loadCanton', client.canton);
+
 //app.post('/logout', session.logout);
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
